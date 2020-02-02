@@ -1,4 +1,4 @@
-import Project from './Project';
-import './Project.less';
+import ProjectCard from './ProjectCard';
+import './ProjectCard.less';
 
-export default Project;
+export default ProjectCard;

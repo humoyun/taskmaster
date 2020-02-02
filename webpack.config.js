@@ -2,6 +2,14 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: './src/main.js',
+  output: {
+    path: __dirname + '/dist',
+    publicPath: '/',
+    filename: 'bundle.js'
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
   module: {
     rules: [
       {
@@ -10,8 +18,21 @@ module.exports = {
         use: ['babel-loader']
       },
       {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
+        use: [
+          'style-loader', 
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
       },
       {
         test: /\.less$/,
@@ -28,21 +49,18 @@ module.exports = {
             // }
           },
           {
-            loader: "less-loader"
+            loader: "less-loader",
+            options: { javascriptEnabled: true }
           }
         ]
+      },
+      {
+        test: /\.(png|png)$/,
+        use: {
+          loader: "url-loader"
+        }
       }
     ]
-  },
-
-  resolve: {
-    extensions: ['*', '.js', '.jsx']
-  },
-
-  output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
   },
 
   plugins: [

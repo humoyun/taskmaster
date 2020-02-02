@@ -1,0 +1,30 @@
+// @import "~antd/dist/antd.less";
+@import "~antd/lib/style/themes/default.less";
+@import "../node_modules/antd/dist/antd.less";
+
+html, body {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+
+  .ant-layout {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+
+    .ant-layout-sider {
+      background-color: rgb(245, 245, 245);
+    }
+
+    .ant-layout-header {
+      padding: 0;
+      line-height: 50px;
+      height: 50px;
+      background-color: #fff;
+      border-bottom: 1px solid gainsboro;
+    }
+  }
+}
