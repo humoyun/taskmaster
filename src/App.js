@@ -1,23 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.less';
 import { Layout } from 'antd';
-import TmHeader from './views/header';
+import ContentHeader from './views/header';
+import MainSidebar from './views/sidebar/MainSidebar';
 
 const { Header, Sider, Content } = Layout;
-let siderWidth = "250"
+
 
 const App = ({ title }) => {
+  const [collapsed, setCollapsed] = useState(false);
+  const [somevar, setSomevar] = useState("somevar");
 
+  let siderWidth = "250";
   const handleCollapse = (collapsed, type) => {
     console.log('onCollapse: ', collapsed, type);
   }
 
   const handleBreakpoint = (broken) => {
     console.log('Breakpoint: ', broken);
-  }
-
-  const handleTrigger = (broken) => {
-    console.log('Breakpoint: ', broken);
+    setCollapsed(broken);
+    console.log('===> ', collapsed);
   }
 
 
@@ -25,7 +27,7 @@ const App = ({ title }) => {
     <div className="container">
       <Layout className="main-layout">
         <Sider 
-          collapsible={true} 
+          collapsible={true}
           theme="light" 
           width={siderWidth} 
           trigger={null}
@@ -33,12 +35,12 @@ const App = ({ title }) => {
           onCollapse={handleCollapse}
           onBreakpoint={handleBreakpoint}
           breakpoint="sm">
-          Sider
+          <MainSidebar somevar={somevar} collapsed={collapsed}></MainSidebar>
         </Sider>
 
         <Layout>
           <Header>
-            <TmHeader></TmHeader>
+            <ContentHeader></ContentHeader>
           </Header>
           <Content className="main-content">Content</Content>
         </Layout>

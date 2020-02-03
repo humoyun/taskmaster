@@ -3,19 +3,22 @@ const webpack = require("webpack");
 // style files regexes
 const cssRegex = /\.css$/i;
 const cssModuleRegex = /\.module\.css$/;
-const sassRegex = /\.(scss|sass)$/;
-const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
 
 module.exports = {
   entry: "./src/main.js",
+
   output: {
     path: __dirname + "/dist",
     publicPath: "/",
     filename: "bundle.js"
   },
+
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
+  
   module: {
     rules: [
       {

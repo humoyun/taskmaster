@@ -1,11 +1,12 @@
+
+import './style.less';
 import React, { Component } from 'react'
 import MyImage from '../../../public/assets/images/tasker.png';
 import { Button } from 'antd';
 import { Steps } from 'antd';
 
+
 const { Step } = Steps;
-
-
 
 export default class ProjectCard extends Component {
   constructor(props) {
@@ -44,3 +45,7 @@ export default class ProjectCard extends Component {
     )
   }
 }
+
+
+
+export default ProjectCard;
