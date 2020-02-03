@@ -1,14 +1,14 @@
-const webpack = require('webpack');
+const webpack = require("webpack");
 
 module.exports = {
-  entry: './src/main.js',
+  entry: "./src/main.js",
   output: {
-    path: __dirname + '/dist',
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: __dirname + "/dist",
+    publicPath: "/",
+    filename: "bundle.js"
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ["*", ".js", ".jsx"]
   },
   module: {
     rules: [
@@ -16,7 +16,7 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
             // cacheDirectory: true,
             // cacheCompression: false
@@ -26,20 +26,20 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: ['@svgr/webpack'],
+        use: ["@svgr/webpack"]
       },
       {
         test: /\.css$/i,
         exclude: /node_modules/,
         use: [
-          'style-loader', 
+          "style-loader",
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              modules: true,
-            },
-          },
-        ],
+              modules: true
+            }
+          }
+        ]
       },
       {
         test: /\.less$/,
@@ -48,7 +48,7 @@ module.exports = {
             loader: "style-loader"
           },
           {
-            loader: "css-loader",
+            loader: "css-loader"
             // options: {
             //   sourceMap: true,
             //   modules: true,
@@ -70,12 +70,12 @@ module.exports = {
     ]
   },
 
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 
   devServer: {
-    contentBase: './dist',
-    hot: true
+    contentBase: "./public",
+    watchContentBase: true,
+    hot: true,
+    port: 8118
   }
 };
