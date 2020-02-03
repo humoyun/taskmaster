@@ -1,5 +1,11 @@
 const webpack = require("webpack");
 
+// style files regexes
+const cssRegex = /\.css$/i;
+const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
+
 module.exports = {
   entry: "./src/main.js",
   output: {
@@ -29,7 +35,7 @@ module.exports = {
         use: ["@svgr/webpack"]
       },
       {
-        test: /\.css$/i,
+        test: cssRegex,
         exclude: /node_modules/,
         use: [
           "style-loader",
@@ -74,7 +80,11 @@ module.exports = {
 
   devServer: {
     contentBase: "./public",
+    // By default files from `contentBase` will not trigger a page reload.
     watchContentBase: true,
+    // Use 'ws' instead of 'sockjs-node' on server since we're using native
+    // websockets in `webpackHotDevClient`.
+    // transportMode: "ws",
     hot: true,
     port: 8118
   }
