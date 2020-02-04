@@ -4,7 +4,7 @@ import Notification from '../../icons/notification.svg';
 import Message from '../../icons/message.svg';
 const { Search } = Input;
 
-export default function TmHeader() {
+export default function Header() {
   return (
     <div className="tm-header">
       <div className="left-part">
