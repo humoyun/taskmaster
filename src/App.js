@@ -1,53 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import './App.less';
-import { Layout } from 'antd';
-import ContentHeader from './views/header';
-import MainSidebar from './views/sidebar/MainSidebar';
-
-const { Header, Sider, Content } = Layout;
-
+import React, { useState, useEffect } from "react";
+import "./App.less";
+import { Layout } from "antd";
+import ContentHeader from "./views/header";
+import MainSidebar from "./views/sidebar/MainSidebar";
+import Login from "./Login";
+import Home from "./views/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = ({ title }) => {
-  const [collapsed, setCollapsed] = useState(false);
-  const [somevar, setSomevar] = useState("somevar");
-
-  let siderWidth = "250";
-  const handleCollapse = (collapsed, type) => {
-    console.log('onCollapse: ', collapsed, type);
-  }
-
-  const handleBreakpoint = (broken) => {
-    console.log('Breakpoint: ', broken);
-    setCollapsed(broken);
-    console.log('===> ', collapsed);
-  }
-
-
   return (
-    <div className="container">
-      <Layout className="main-layout">
-        <Sider 
-          collapsible={true}
-          theme="light" 
-          width={siderWidth} 
-          trigger={null}
-          collapsedWidth="50"
-          onCollapse={handleCollapse}
-          onBreakpoint={handleBreakpoint}
-          breakpoint="sm">
-          <MainSidebar somevar={somevar} collapsed={collapsed}></MainSidebar>
-        </Sider>
+    <Router>
+      <Route path="/login" component={Login} exact />
 
-        <Layout>
-          <Header>
-            <ContentHeader></ContentHeader>
-          </Header>
-          <Content className="main-content">Content</Content>
-        </Layout>
+      <div className="App">
+        <Switch>
+          <Route path="/" component={Home} exact />
+        </Switch>
+      </div>
+    </Router>
+  );
+};
 
-      </Layout>
-    </div>
-  )
-}
-  
 export default App;
