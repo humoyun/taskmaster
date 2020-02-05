@@ -1,5 +1,7 @@
 const webpack = require("webpack");
-
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // style files regexes
 const cssRegex = /\.css$/i;
 const cssModuleRegex = /\.module\.css$/;
@@ -7,10 +9,11 @@ const lessRegex = /\.less$/;
 const lessModuleRegex = /\.module\.less$/;
 
 module.exports = {
+  mode: 'development',
   entry: "./src/main.js",
 
   output: {
-    path: __dirname + "/dist",
+    path: __dirname + "/public",
     publicPath: "/",
     filename: "bundle.js"
   },

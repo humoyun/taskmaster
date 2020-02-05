@@ -3,7 +3,7 @@
 import React from 'react'
 
 export default function Login(props) {
-  console.log('login-page-props', );
+  console.log('login-page-props', props);
 
   return (
     <div className="tm-login-page"> 

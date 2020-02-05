@@ -16,7 +16,7 @@ export const EMPTY_TODO = 'EMPTY_TODO';
  */
 export const ADD_PROJECT = "ADD_PROJECT";
 export const REMOVE_PROJECT = "REMOVE_PROJECT";
-export const REMOVE_PROJECT = "UPDATE_PROJECT";
+export const UPDATE_PROJECT = "UPDATE_PROJECT";
 
 /**
  * 
@@ -35,9 +35,9 @@ export const UPDATE_USER = "UPDATE_USER";
 /**
  * 
  */
-export const ADD_USER = "ADD_USER";
-export const REMOVE_USER = "REMOVE_USER";
-export const UPDATE_USER = "UPDATE_USER";
+export const ADD_SPRINT = "ADD_SPRINT";
+export const REMOVE_SPRINT = "REMOVE_SPRINT";
+export const UPDATE_SPRINT = "UPDATE_SPRINT";
 /**
  * 
  */
