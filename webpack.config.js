@@ -1,27 +1,37 @@
 const webpack = require("webpack");
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const fs = require("fs");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
 // style files regexes
 const cssRegex = /\.css$/i;
 const cssModuleRegex = /\.module\.css$/;
 const lessRegex = /\.less$/;
 const lessModuleRegex = /\.module\.less$/;
 
+// App directory
+const appDirectory = fs.realpathSync(process.cwd());
+
+// Gets absolute path of file within app directory
+const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
+
 module.exports = {
   mode: 'development',
   entry: "./src/main.js",
 
   output: {
-    path: __dirname + "/public",
-    publicPath: "/",
+    path: path.resolve(__dirname, "public"),
+    // publicPath: "./",
     filename: "bundle.js"
   },
 
   resolve: {
     extensions: ["*", ".js", ".jsx"]
   },
-  
+
+  devtool: "inline-source-map",
+
   module: {
     rules: [
       {
@@ -82,15 +92,29 @@ module.exports = {
     ]
   },
 
-  plugins: [new webpack.HotModuleReplacementPlugin()],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+    // new HtmlWebpackPlugin({
+    //   // inject: true,
+    //   // template: path.resolve(__dirname, "public/index.html"),
+    //   title: "Development"
+    // })
+  ],
 
   devServer: {
     contentBase: "./public",
+    // Public path is root of content base
+    publicPath: "/",
+    historyApiFallback: true,
     // By default files from `contentBase` will not trigger a page reload.
     watchContentBase: true,
-    // Use 'ws' instead of 'sockjs-node' on server since we're using native
-    // websockets in `webpackHotDevClient`.
+    /**
+     * Use 'ws' instead of 'sockjs-node' on server since we're
+     * using native websockets in `webpackHotDevClient`.
+     */
+
     // transportMode: "ws",
+
     hot: true,
     port: 8118
   }
