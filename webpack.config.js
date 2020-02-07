@@ -1,5 +1,5 @@
 const webpack = require("webpack");
-const path = require('path');
+const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -17,7 +17,7 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = {
-  mode: 'development',
+  mode: "development",
   entry: "./src/main.js",
 
   output: {
@@ -95,8 +95,9 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
     // new HtmlWebpackPlugin({
-    //   // inject: true,
-    //   // template: path.resolve(__dirname, "public/index.html"),
+    //   inject: true,
+    //   template: path.resolve(__dirname, "public/index.html"),
+    //   filename: "./index.html",
     //   title: "Development"
     // })
   ],

@@ -8,7 +8,6 @@ const { Header, Sider, Content } = Layout;
 
 const Home = ({ title }) => {
   const [collapsed, setCollapsed] = useState(false);
-  const [somevar, setSomevar] = useState("somevar");
 
   let siderWidth = "250";
   const handleCollapse = (collapsed, type) => {
@@ -34,7 +33,7 @@ const Home = ({ title }) => {
           onBreakpoint={handleBreakpoint}
           breakpoint="sm"
         >
-          <MainSidebar somevar={somevar} collapsed={collapsed}></MainSidebar>
+          <MainSidebar collapsed={collapsed}></MainSidebar>
         </Sider>
 
         <Layout>

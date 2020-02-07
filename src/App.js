@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.less";
-import { Layout } from "antd";
-import ContentHeader from "./views/header";
-import MainSidebar from "./views/sidebar/MainSidebar";
-import Login from "./Login";
+import Login from "./views/auth/login";
 import Home from "./views/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
