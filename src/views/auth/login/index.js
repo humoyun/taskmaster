@@ -14,8 +14,9 @@ const LoginPage = styled.div`
   justify-content: center;
   flex-direction: column;
   background-image: url("/assets/bg-pattern.png");
-  background-color: #6658dd;
+  background-color: #369aff;
   color: #929ba3;
+  text-align: center;
 
   .login-text {
     color: #929ba3;
@@ -37,28 +38,38 @@ const LoginWrapper = styled.div`
 const FormHeader = styled.div`
   width: 100%;
   height: 100px;
-  text-align: center;
 `;
 
 const FormFooter = styled.div`
   width: 100%;
-  height: 100px;
+  height: 75px;
   color: #929ba3;
-  text-align: center;
 `;
 
 const LoginFooter = styled.div`
   width: 400px;
   height: 50px;
-  text-align: center;
+  color: #d4d7d9;
 `;
 
 const SocialIcons = styled.div`
+  margin: 0 auto;
   width: 200px;
   display: flex;
+  justify-content: space-evenly;
+`;
 
-  .social-icon {
-    width: ;
+const SocialIcon = styled.div`
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+  border: 2px solid ${props => (props.color ? props.color : "#ccc")};
+  border-radius: 50%;
+  color: ${props => (props.color ? props.color : "#ccc")};
+  cursor: pointer;
+
+  &:hover {
+    background: #f5f5f1;
   }
 `;
 
@@ -106,7 +117,8 @@ class LoginForm extends React.Component {
       // backgroundColor: "#f5f6f8"
     };
     const formItemStyle = {
-      marginBottom: "12px"
+      marginBottom: "12px",
+      textAlign: "start"
     };
     const textColor = "#929ba3";
 
@@ -116,8 +128,7 @@ class LoginForm extends React.Component {
           <FormHeader>
             <h2>TASK MASTER</h2>
             <p className="login-text">
-              Don't have an account? Create your account, it takes less than a
-              minute
+              Enter your email address and password to access your workspace.
             </p>
           </FormHeader>
 
@@ -164,12 +175,18 @@ class LoginForm extends React.Component {
               )}
             </Form.Item>
 
-            <Form.Item>
+            <Form.Item style={formItemStyle}>
               {getFieldDecorator("remember", {
                 valuePropName: "checked",
                 initialValue: false
               })(
-                <Checkbox style={{ width: "100%", margin: "10px 0" }}>
+                <Checkbox
+                  style={{
+                    width: "40%",
+                    margin: "10px 0",
+                    textAlign: "start"
+                  }}
+                >
                   Remember me
                 </Checkbox>
               )}
@@ -189,22 +206,22 @@ class LoginForm extends React.Component {
             <p>Sign in with</p>
 
             <SocialIcons className="social-icons-box">
-              <div className="social-icon">G</div>
-              <div className="social-icon">F</div>
-              <div className="social-icon">T</div>
+              <SocialIcon color="red">G</SocialIcon>
+              <SocialIcon color="blue">f</SocialIcon>
+              <SocialIcon color="#4fc6e1">t</SocialIcon>
             </SocialIcons>
           </FormFooter>
         </Card>
 
         <LoginFooter className="login-footer">
           <div className="">
-            <Button type="link" href="#">
+            <Button type="link" href="#" style={{ color: "#fff" }}>
               Forgot your password?
             </Button>
           </div>
           <div className="">
             Don't have an account?
-            <Button type="link" href="#">
+            <Button type="link" href="#" style={{ color: "#fff" }}>
               Sign Up
             </Button>
           </div>
