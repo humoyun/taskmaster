@@ -4,6 +4,7 @@ import React from "react";
 import { Card } from "antd";
 import styled from "styled-components";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
+import Twitter from "../../../icons/twitter_mini.svg";
 // import "./style.less";
 
 const LoginPage = styled.div`
@@ -151,6 +152,7 @@ class LoginForm extends React.Component {
                   prefix={
                     <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                   }
+                  allowClear
                   placeholder="Email..."
                 />
               )}
@@ -207,8 +209,10 @@ class LoginForm extends React.Component {
 
             <SocialIcons className="social-icons-box">
               <SocialIcon color="red">G</SocialIcon>
-              <SocialIcon color="blue">f</SocialIcon>
-              <SocialIcon color="#4fc6e1">t</SocialIcon>
+              <SocialIcon color="#3b5998">f</SocialIcon>
+              <SocialIcon color="#1da1f2">
+                <Twitter width="12" height="12"></Twitter>
+              </SocialIcon>
             </SocialIcons>
           </FormFooter>
         </Card>
