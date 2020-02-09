@@ -39,6 +39,7 @@
     "dayjs": "^1.8.19",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.15",
+    "polished": "^3.4.4",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

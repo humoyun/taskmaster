@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.less";
 import Login from "./views/auth/login";
+import Register from "./views/auth/register";
 import Home from "./views/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -8,6 +9,7 @@ const App = ({ title }) => {
   return (
     <Router>
       <Route path="/login" component={Login} exact />
+      <Route path="/register" component={Register} exact />
 
       <div className="App">
         <Switch>

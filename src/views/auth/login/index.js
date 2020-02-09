@@ -5,25 +5,8 @@ import { Card } from "antd";
 import styled from "styled-components";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
 import Twitter from "../../../icons/twitter_mini.svg";
-// import "./style.less";
-
-const LoginPage = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  background-image: url("/assets/bg-pattern.png");
-  background-color: #369aff;
-  color: #929ba3;
-  text-align: center;
-
-  .login-text {
-    color: #929ba3;
-    font-size: 0.9rem;
-  }
-`;
+import { SocialIcons, SocialIcon } from "../common/style";
+import { AuthPage } from "../../../theme/global";
 
 const LoginWrapper = styled.div`
   display: flex;
@@ -51,27 +34,6 @@ const LoginFooter = styled.div`
   width: 400px;
   height: 50px;
   color: #d4d7d9;
-`;
-
-const SocialIcons = styled.div`
-  margin: 0 auto;
-  width: 200px;
-  display: flex;
-  justify-content: space-evenly;
-`;
-
-const SocialIcon = styled.div`
-  width: 30px;
-  height: 30px;
-  font-size: 1.2em;
-  border: 2px solid ${props => (props.color ? props.color : "#ccc")};
-  border-radius: 50%;
-  color: ${props => (props.color ? props.color : "#ccc")};
-  cursor: pointer;
-
-  &:hover {
-    background: #f5f5f1;
-  }
 `;
 
 // LoginWrapper.attrs({
@@ -124,11 +86,11 @@ class LoginForm extends React.Component {
     const textColor = "#929ba3";
 
     return (
-      <LoginPage className="tm-login-page">
+      <AuthPage className="tm-login-page">
         <Card style={cardStyle}>
           <FormHeader>
-            <h2>TASK MASTER</h2>
-            <p className="login-text">
+            <h1>Task Master</h1>
+            <p className="form-header-text">
               Enter your email address and password to access your workspace.
             </p>
           </FormHeader>
@@ -230,7 +192,7 @@ class LoginForm extends React.Component {
             </Button>
           </div>
         </LoginFooter>
-      </LoginPage>
+      </AuthPage>
     );
   }
 }

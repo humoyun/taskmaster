@@ -1,12 +1,13 @@
-import { darken } from "polished";
+import styled from "styled-components";
+import { darken, lighten } from "polished";
 
 // Set main theme variables
 export const themeMain = {
-  white: "#FFFFFF",
-  black: "#333333",
-  grey: "#eeeeee",
+  white: "#fff",
+  black: "#333",
+  grey: "#eee",
   darkGrey: "#bbb",
-  blue: "#488ED8",
+  blue: "#488ed8",
   yellow: "yellow",
   green: "#52C989",
   red: "red"
@@ -24,7 +25,11 @@ const AuthPage = styled.div`
   color: #929ba3;
   text-align: center;
 
-  .auth-text {
+  h1 {
+    color: #046fdb;
+  }
+
+  .form-header-text {
     color: #929ba3;
     font-size: 0.9rem;
   }
