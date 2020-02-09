@@ -1,6 +1,7 @@
 // https://www.youtube.com/watch?v=o-nCM1857AQ&t=333s
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card } from "antd";
 import styled from "styled-components";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
@@ -33,6 +34,7 @@ const FormFooter = styled.div`
 const LoginFooter = styled.div`
   width: 400px;
   height: 50px;
+  margin-top: 10px;
   color: #d4d7d9;
 `;
 
@@ -181,15 +183,15 @@ class LoginForm extends React.Component {
 
         <LoginFooter className="login-footer">
           <div className="">
-            <Button type="link" href="#" style={{ color: "#fff" }}>
+            <Link to="/forget-password" style={{ color: "#fff" }}>
               Forgot your password?
-            </Button>
+            </Link>
           </div>
           <div className="">
             Don't have an account?
-            <Button type="link" href="#" style={{ color: "#fff" }}>
+            <Link to="/register" style={{ color: "#fff", marginLeft: "10px" }}>
               Sign Up
-            </Button>
+            </Link>
           </div>
         </LoginFooter>
       </AuthPage>

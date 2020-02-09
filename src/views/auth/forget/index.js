@@ -1,6 +1,7 @@
 // https://www.youtube.com/watch?v=o-nCM1857AQ&t=333s
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card } from "antd";
 import styled from "styled-components";
 import { Form, Icon, Input, Button } from "antd";
@@ -25,6 +26,7 @@ const FormHeader = styled.div`
 const ResetFooter = styled.div`
   width: 400px;
   height: 50px;
+  margin-top: 10px;
   color: #d4d7d9;
 `;
 
@@ -119,9 +121,9 @@ class ResetForm extends React.Component {
         <ResetFooter className="reset-footer">
           <div className="">
             Back to Login
-            <Button type="link" href="#" style={{ color: "#fff" }}>
+            <Link to="/login" style={{ color: "#fff", marginLeft: "10px" }}>
               Login
-            </Button>
+            </Link>
           </div>
         </ResetFooter>
       </AuthPage>

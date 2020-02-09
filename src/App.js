@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 const App = ({ title }) => {
   return (
     <Router>
+      {/* Authentication routes */}
       <Route path="/login" component={Login} exact />
       <Route path="/register" component={Register} exact />
       <Route path="/forget-password" component={ForgetPassword} exact />

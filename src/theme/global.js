@@ -6,12 +6,16 @@ export const themeMain = {
   white: "#fff",
   black: "#333",
   grey: "#eee",
+  lightGrey: "#929ba3;",
   darkGrey: "#bbb",
   blue: "#488ed8",
   yellow: "yellow",
   green: "#52C989",
-  red: "red"
+  red: "red",
+  mainColor: "#369aff"
 };
+
+const authPageBgPatternURL = "/assets/bg-pattern.png";
 
 const AuthPage = styled.div`
   width: 100%;
@@ -20,9 +24,9 @@ const AuthPage = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url("/assets/bg-pattern.png");
-  background-color: #369aff;
-  color: #929ba3;
+  background-image: url(${authPageBgPatternURL});
+  background-color: ${themeMain.mainColor};
+  color: ${themeMain.lightGrey};
   text-align: center;
 
   h1 {

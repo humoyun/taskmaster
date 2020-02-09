@@ -1,6 +1,7 @@
 // https://www.youtube.com/watch?v=o-nCM1857AQ&t=333s
 
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card } from "antd";
 import styled from "styled-components";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
@@ -33,6 +34,7 @@ const FormFooter = styled.div`
 const RegisterFooter = styled.div`
   width: 400px;
   height: 50px;
+  margin-top: 10px;
   color: #d4d7d9;
 `;
 
@@ -44,7 +46,6 @@ class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: false,
       loading: false
     };
 
@@ -63,7 +64,7 @@ class RegisterForm extends React.Component {
           username: "",
           email: "",
           password: "",
-          remember: false
+          accept: false
         });
 
         setTimeout(() => {
@@ -160,7 +161,7 @@ class RegisterForm extends React.Component {
             </Form.Item>
 
             <Form.Item style={formItemStyle}>
-              {getFieldDecorator("remember", {
+              {getFieldDecorator("accept", {
                 valuePropName: "checked",
                 initialValue: false
               })(
@@ -178,6 +179,7 @@ class RegisterForm extends React.Component {
                 Terms and Conditions
               </Button>
               <Button
+                disabled={!this.props.form.getFieldValue("accept")}
                 className="register-form-button"
                 htmlType="submit"
                 type="primary"
@@ -204,15 +206,12 @@ class RegisterForm extends React.Component {
 
         <RegisterFooter className="register-footer">
           <div className="">
-            <Button type="link" href="#" style={{ color: "#fff" }}>
-              Forgot your password?
-            </Button>
-          </div>
-          <div className="">
-            Don't have an account?
-            <Button type="link" href="#" style={{ color: "#fff" }}>
-              Sign Up
-            </Button>
+            Already have an account?
+            {/* <Button type="link" href="#" style={{ color: "#fff" }}> */}
+            <Link to="/login" style={{ color: "#fff", marginLeft: "10px" }}>
+              Login
+            </Link>
+            {/* </Button> */}
           </div>
         </RegisterFooter>
       </AuthPage>
