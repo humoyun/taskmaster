@@ -1,11 +1,18 @@
 import React from "react";
 import "./App.less";
 import Login from "./views/auth/login";
-
 import Register from "./views/auth/register";
 import ForgetPassword from "./views/auth/forget";
 import Home from "./views/Home";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+  // Redirect,
+  // useHistory,
+  // useLocation
+} from "react-router-dom";
 
 const App = ({ title }) => {
   return (
@@ -17,7 +24,8 @@ const App = ({ title }) => {
 
       <div className="App">
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/" component={Home} />
+          {/* <Route path="/projects/:id" component={Home} exact /> */}
         </Switch>
       </div>
     </Router>

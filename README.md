@@ -1,6 +1,6 @@
 # Yet Another Project Management System
 
-[Agile Project Management System](./public/project-management.jpg)
+![Agile Project Management System](./public/project-management.jpg)
 
 ## Purpose:
 

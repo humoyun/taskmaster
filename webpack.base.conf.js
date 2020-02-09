@@ -17,26 +17,36 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = {
-  mode: "production",
-  entry: "./src/main.js",
+  entry: {
+    app: "./src/main.js"
+  },
 
   output: {
-    path: path.resolve(__dirname, "dist"),
-    // publicPath: "./",
+    path: path.resolve(__dirname, "public"),
+    publicPath: "./public",
     filename: "bundle.js"
+    // publicPath:
+    //   process.env.NODE_ENV === "production"
+    //     ? config.build.assetsPublicPath
+    //     : config.dev.assetsPublicPath
   },
 
   resolve: {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ["*", ".js", ".jsx", "json"],
+    alias: {
+      "@": resolveAppPath("src")
+    }
   },
-
-  devtool: "inline-source-map",
 
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, "src"),
+          path.resolve(__dirname, "tests")
+        ],
         use: {
           loader: "babel-loader",
           options: {
@@ -91,4 +101,6 @@ module.exports = {
       }
     ]
   }
+
+  // plugins: [new CleanWebpackPlugin()]
 };
