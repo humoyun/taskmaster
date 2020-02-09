@@ -40,6 +40,7 @@ and many more ...
 - Ant Design (UI component framework)
 - Styled-Components
 - Less
+- Flaticon Icons
 - Axios
   And more...
 
