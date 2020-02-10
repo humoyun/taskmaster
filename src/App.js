@@ -4,6 +4,7 @@ import Login from "./views/auth/login";
 import Register from "./views/auth/register";
 import ForgetPassword from "./views/auth/forget";
 import Home from "./views/Home";
+import NotFound from "./views/NotFound";
 
 import {
   BrowserRouter as Router,
@@ -13,6 +14,8 @@ import {
   // useHistory,
   // useLocation
 } from "react-router-dom";
+
+// https://www.wrike.com/
 
 const App = ({ title }) => {
   return (
@@ -28,6 +31,10 @@ const App = ({ title }) => {
           {/* <Route path="/projects/:id" component={Home} exact /> */}
         </Switch>
       </div>
+
+      <Route path="*">
+        <NotFound />
+      </Route>
     </Router>
   );
 };

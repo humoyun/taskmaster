@@ -23,7 +23,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, "public"),
-    publicPath: "./public",
+    publicPath: "./",
     filename: "bundle.js"
     // publicPath:
     //   process.env.NODE_ENV === "production"

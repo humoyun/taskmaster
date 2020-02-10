@@ -1,7 +1,6 @@
 import axios from "common/api";
 import setAuthorizationHeader from "common/setAuthorizationHeader";
 import jwtDecode from "jwt-decode";
-import { toast } from "react-toastify";
 
 import store from "store"; // only use for axios interceptors
 import { notesLogout } from "store/actions/notesActions"; // only use for axios interceptors logout

@@ -57,6 +57,15 @@ const Home = ({ match, title }) => {
             <Route path="/teams" component={Teams} exact />
             <Route path="/teams/:teamId" component={Team} />
             <Route path="/activities" component={Activities} exact />
+
+            {/* https://www.youtube.com/watch?v=xn68rjtsBSk */}
+            {/* https://codedaily.io/tutorials/48/Use-matchPath-to-Match-Nested-Route-Paths-in-Parent-Routes-with-React-Router */}
+            {/* <Route
+              path="/profile/:profileId"
+              render={props => {
+                return <Profile {...props} loading={this.state.loading} />;
+              }}
+            /> */}
           </Content>
         </Layout>
       </Layout>

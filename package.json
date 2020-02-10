@@ -39,6 +39,7 @@
     "axios": "^0.19.2",
     "dayjs": "^1.8.19",
     "js-cookie": "^2.2.1",
+    "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15",
     "polished": "^3.4.4",
     "prop-types": "^15.7.2",
