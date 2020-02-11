@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const LoginWrapper = styled.div`
   display: flex;
-
   background-image: url("/assets/bg-pattern.png");
   background-color: #6658dd;
 
