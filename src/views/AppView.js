@@ -45,6 +45,7 @@ const Home = props => {
 
           <Content className="main-content-wrapper">
             {props.children}
+
             {/* <Container /> */}
             {/* https://www.youtube.com/watch?v=xn68rjtsBSk */}
             {/* https://codedaily.io/tutorials/48/Use-matchPath-to-Match-Nested-Route-Paths-in-Parent-Routes-with-React-Router */}
