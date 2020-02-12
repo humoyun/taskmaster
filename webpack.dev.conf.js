@@ -13,8 +13,9 @@ const devConf = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
     // new HtmlWebpackPlugin({
-    //   // inject: true,
-    //   // template: path.resolve(__dirname, "public/index.html"),
+    //   inject: true,
+    //   template: path.resolve(__dirname, "public/index.html"),
+    //   filename: "./index.html",
     //   title: "Development"
     // })
   ],

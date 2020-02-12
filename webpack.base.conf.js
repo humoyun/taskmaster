@@ -21,14 +21,32 @@ module.exports = {
     app: "./src/main.js"
   },
 
+  // output: {
+  //   // `filename` provides a template for naming your bundles (remember to use `[name]`)
+  //   filename: "[name].bundle.js",
+  //   // `chunkFilename` provides a template for naming code-split bundles (optional)
+  //   chunkFilename: "[name].bundle.js",
+  //   // `path` is the folder where Webpack will place your bundles
+  //   path: "./dist",
+  //   // `publicPath` is where Webpack will load your bundles from (optional)
+  //   publicPath: "dist/"
+  // },
+
   output: {
     path: path.resolve(__dirname, "public"),
-    publicPath: "./",
-    filename: "bundle.js"
+    publicPath: "./", // diffeerent for prod
+    filename: "[name].bundle.js",
+    chunkFilename: "[name].bundle.js"
     // publicPath:
     //   process.env.NODE_ENV === "production"
     //     ? config.build.assetsPublicPath
     //     : config.dev.assetsPublicPath
+  },
+
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
   },
 
   resolve: {
@@ -37,6 +55,14 @@ module.exports = {
       "@": resolveAppPath("src")
     }
   },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: path.resolve(__dirname, "public/index.html"),
+      title: "Development"
+    })
+  ],
 
   module: {
     rules: [

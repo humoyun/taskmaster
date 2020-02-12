@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./App.less";
 import Login from "./views/auth/login";
 import Register from "./views/auth/register";
@@ -13,6 +13,8 @@ import Teams from "./views/teams";
 import Team from "./views/teams/Team";
 import Activities from "./views/activity";
 import AppView from "./views/AppView";
+
+const ProjectView = React.lazy(() => import("./views/ProjectView"));
 
 import RouteWithLayout from "./views/RouteWithLayout";
 
@@ -34,6 +36,8 @@ const App = ({ title }) => {
       <Route path="/login" component={Login} exact />
       <Route path="/register" component={Register} exact />
       <Route path="/forget-password" component={ForgetPassword} exact />
+      {/* <Route path="/reset" component={Reset} exact /> */}
+      {/* <Route path="/verify" component={Verify} exact /> */}
 
       <div className="App">
         <Switch>
@@ -71,6 +75,11 @@ const App = ({ title }) => {
             component={Activities}
             exact
           />
+
+          {/* Project Views */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProjectView></ProjectView>
+          </Suspense>
 
           <Route path="*">
             <NotFound />
