@@ -121,7 +121,10 @@ class ResetForm extends React.Component {
         <ResetFooter className="reset-footer">
           <div className="">
             Back to Login
-            <Link to="/login" style={{ color: "#fff", marginLeft: "10px" }}>
+            <Link
+              to="/auth/login"
+              style={{ color: "#fff", marginLeft: "10px" }}
+            >
               Login
             </Link>
           </div>

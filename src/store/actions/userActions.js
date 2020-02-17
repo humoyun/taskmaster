@@ -11,17 +11,3 @@ export const SET_USER_AND_TOKENS = "user:setUserAndTokens";
 export const SET_USER = "user:setUser";
 export const SET_ACCESS_TOKEN = "user:setAccessToken";
 export const SET_REFRESH_TOKEN = "user:setRefreshToken";
-
-export const setAccessToken = accessToken => {
-  return {
-    type: SET_ACCESS_TOKEN,
-    payload: { accessToken: accessToken }
-  };
-};
-
-export const setRefreshToken = refreshToken => {
-  return {
-    type: SET_REFRESH_TOKEN,
-    payload: { refreshToken: refreshToken }
-  };
-};

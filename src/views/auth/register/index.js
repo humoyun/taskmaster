@@ -208,7 +208,10 @@ class RegisterForm extends React.Component {
           <div className="">
             Already have an account?
             {/* <Button type="link" href="#" style={{ color: "#fff" }}> */}
-            <Link to="/login" style={{ color: "#fff", marginLeft: "10px" }}>
+            <Link
+              to="/auth/login"
+              style={{ color: "#fff", marginLeft: "10px" }}
+            >
               Login
             </Link>
             {/* </Button> */}

@@ -5,13 +5,12 @@ import {
   SET_REFRESH_TOKEN
 } from "../types";
 
-const initialState = [
-  {
-    user: null,
-    accessToken: null,
-    refreshToken: null
-  }
-];
+const initialState = {
+  user: null,
+  accessToken: null,
+  refreshToken: null,
+  loading: false
+};
 
 function authReducer(state = initialState, action) {
   switch (action.type) {
@@ -20,6 +19,7 @@ function authReducer(state = initialState, action) {
         ...state,
         ...action.payload
       };
+
     case SET_USER:
       return {
         ...state,

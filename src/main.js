@@ -1,13 +1,93 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './App.less';
+import React, { Suspense } from "react";
+import Login from "./views/auth/login";
+import Register from "./views/auth/register";
+import ForgetPassword from "./views/auth/forget";
+// import Home from "./views/Home";
+import NotFound from "./views/NotFound";
 
-const title = 'React with Webpack and Babel 2';
+import MainContent from "./views/content";
+import Projects from "./views/dash/projects";
+import Project from "./views/dash/projects/Project";
+import Teams from "./views/dash/teams";
+import Team from "./views/dash/teams/Team";
+import Activities from "./views/dash/activity";
+import AppView from "./views/AppView";
 
-ReactDOM.render(
-  <App title={title} />,
-  document.getElementById('root')
-);
+const ProjectView = React.lazy(() => import("./views/ProjectView"));
 
-module.hot.accept();
+import RouteWithLayout from "./views/RouteWithLayout";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+  // Redirect,
+  // useHistory,
+  // useLocation
+} from "react-router-dom";
+
+// https://www.wrike.com/
+
+const Main = ({ title }) => {
+  return (
+    <Router>
+      {/* Authentication routes */}
+      <Route path="/login" component={Login} exact />
+      <Route path="/register" component={Register} exact />
+      <Route path="/forget-password" component={ForgetPassword} exact />
+      {/* <Route path="/reset" component={Reset} exact /> */}
+      {/* <Route path="/verify" component={Verify} exact /> */}
+
+      <div className="Main">
+        <Switch>
+          <RouteWithLayout
+            path="/"
+            layout={AppView}
+            component={MainContent}
+            exact
+          />
+          <RouteWithLayout
+            path="/projects"
+            layout={AppView}
+            component={Projects}
+            exact
+          />
+          <RouteWithLayout
+            path="/projects/:projectId"
+            layout={AppView}
+            component={Project}
+          />
+          <RouteWithLayout
+            path="/teams"
+            layout={AppView}
+            component={Teams}
+            exact
+          />
+
+          <RouteWithLayout
+            path="/teams/:teamId"
+            layout={AppView}
+            component={Team}
+          />
+          <RouteWithLayout
+            path="/activities"
+            layout={AppView}
+            component={Activities}
+            exact
+          />
+
+          {/* Project Views */}
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProjectView></ProjectView>
+          </Suspense>
+
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+};
+
+export default Main;

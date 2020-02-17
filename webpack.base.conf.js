@@ -18,7 +18,7 @@ const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
 
 module.exports = {
   entry: {
-    app: "./src/main.js"
+    app: "./src/index.js"
   },
 
   // output: {
