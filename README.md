@@ -20,7 +20,7 @@
 - Full support for media uploading various types of file types
 - Supports multiple teams
 - Supports creating unlimited number of projects
-- Supoorts creating Sprints within a project life cycle
+- Supports creating Sprints within a project life cycle
 - Supports creating Events within a project
 - Backlog within a project
 - Analytics
@@ -61,3 +61,4 @@ and many more ...
 - [React transition group](https://reactcommunity.org/react-transition-group)
 - [Code splitting with Babel plugin import](https://reacttraining.com/react-router/web/guides/code-splitting)
 - [Ant-Design Examples](https://github.com/ant-design/ant-design/blob/master/components/layout/demo/responsive.md)
+- [Using Web Sockets in React](https://dev.to/finallynero/using-websockets-in-react-4fkp)
