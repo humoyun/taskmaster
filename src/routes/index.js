@@ -103,6 +103,13 @@ const Routes = () => {
 
   // console.log("appRoutesProvider: ", appRoutesProvider);
 
+  /**
+   * Better comments
+   * * Important message
+   * ! deprecated method, do not use
+   * ? should this feature be supported
+   * TODO: todo something
+   */
   return (
     <LayoutProvider layout={layout}>
       <Suspense fallback={<div>Auth Loading...</div>}>
