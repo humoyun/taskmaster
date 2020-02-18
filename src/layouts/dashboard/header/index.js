@@ -1,9 +1,9 @@
-import React from 'react'
-import { Input } from 'antd';
-import Notification from '../../icons/notification.svg';
-import Message from '../../icons/message.svg';
+import React from "react";
+import { Input } from "antd";
+import Notification from "@/icons/notification.svg";
+import Message from "@/icons/message.svg";
 
-import './_style.less';
+import "./style.less";
 
 const { Search } = Input;
 
@@ -23,10 +23,8 @@ export default function Header() {
           <Notification width="20px" height="20px"></Notification>
           <Message width="20px" height="20px"></Message>
         </div>
-        <div className="user-profile">
-          
-        </div>
+        <div className="user-profile"></div>
       </div>
     </div>
-  )
+  );
 }

@@ -42,6 +42,8 @@ and many more ...
 - Less
 - Flaticon Icons
 - Axios
+- Nivo (vizualization & chart)
+- React transitions
   And more...
 
 ### General Information
@@ -56,5 +58,6 @@ and many more ...
 - [React svg icon components](https://www.robinwieruch.de/react-svg-icon-components)
 - [Webpack & React tutorial (part 1)](https://www.toptal.com/react/webpack-react-tutorial-pt-1)
 - [Babel plugin import](https://github.com/ant-design/babel-plugin-import)
+- [React transition group](https://reactcommunity.org/react-transition-group)
 - [Code splitting with Babel plugin import](https://reacttraining.com/react-router/web/guides/code-splitting)
 - [Ant-Design Examples](https://github.com/ant-design/ant-design/blob/master/components/layout/demo/responsive.md)

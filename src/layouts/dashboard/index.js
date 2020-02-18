@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Layout } from "antd";
-import ContentHeader from "../layouts/dashboard/header";
-import MainSidebar from "../layouts/dashboard/sidebar/MainSidebar";
+import ContentHeader from "./header";
+import MainSidebar from "./sidebar/MainSidebar";
 
-import { Route } from "react-router-dom";
-import PropTypes from "prop-types";
+import "./style.less";
 
-import "./AppView.less";
 const { Header, Sider, Content } = Layout;
 
 const Home = props => {
@@ -23,7 +21,7 @@ const Home = props => {
   };
 
   return (
-    <div className="home-page">
+    <div className="dashboard-page">
       <Layout className="main-layout">
         <Sider
           collapsible={true}
@@ -43,23 +41,14 @@ const Home = props => {
             <ContentHeader></ContentHeader>
           </Header>
 
-          <Content className="main-content-wrapper">
-            {props.children}
-
-            {/* <Container /> */}
-            {/* https://www.youtube.com/watch?v=xn68rjtsBSk */}
-            {/* https://codedaily.io/tutorials/48/Use-matchPath-to-Match-Nested-Route-Paths-in-Parent-Routes-with-React-Router */}
-            {/* <Route
-              path="/profile/:profileId"
-              render={props => {
-                return <Profile {...props} loading={this.state.loading} />;
-              }}
-            /> */}
-          </Content>
+          <Content className="main-content-wrapper">{props.children}</Content>
         </Layout>
       </Layout>
     </div>
   );
 };
+
+/* https://www.youtube.com/watch?v=xn68rjtsBSk */
+/* https://codedaily.io/tutorials/48/Use-matchPath-to-Match-Nested-Route-Paths-in-Parent-Routes-with-React-Router */
 
 export default Home;

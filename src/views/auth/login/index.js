@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
 import Twitter from "../../../icons/twitter_mini.svg";
 import { SocialIcons, SocialIcon } from "../common/style";
-import { AuthPage } from "../../../theme/global";
+import myCookie from "@/common/myCookie";
 
 const LoginWrapper = styled.div`
   display: flex;
@@ -49,6 +49,7 @@ class LoginForm extends React.Component {
       checked: false,
       loading: false
     };
+    console.log("login priops: ", props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -69,7 +70,9 @@ class LoginForm extends React.Component {
 
         setTimeout(() => {
           this.setState({ loading: false });
-        }, 1500);
+          myCookie.setToken("temporary-dev-token");
+          this.props.history.push("/");
+        }, 500);
       }
     });
   }
@@ -88,7 +91,7 @@ class LoginForm extends React.Component {
     const textColor = "#929ba3";
 
     return (
-      <AuthPage className="tm-login-page">
+      <React.Fragment>
         <Card style={cardStyle}>
           <FormHeader>
             <h1>Task Master</h1>
@@ -183,18 +186,21 @@ class LoginForm extends React.Component {
 
         <LoginFooter className="login-footer">
           <div className="">
-            <Link to="/forget-password" style={{ color: "#fff" }}>
+            <Link to="/auth/forget-password" style={{ color: "#fff" }}>
               Forgot your password?
             </Link>
           </div>
           <div className="">
             Don't have an account?
-            <Link to="/register" style={{ color: "#fff", marginLeft: "10px" }}>
+            <Link
+              to="/auth/register"
+              style={{ color: "#fff", marginLeft: "10px" }}
+            >
               Sign Up
             </Link>
           </div>
         </LoginFooter>
-      </AuthPage>
+      </React.Fragment>
     );
   }
 }
