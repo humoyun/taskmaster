@@ -12,16 +12,16 @@ export function getProjects(id) {
   return fetch(`https://jsonplaceholder.typicode.com/posts/${id}`).
   then(resp => resp.json()).
   then(json => {
-    return { type: DATA_LOADED, payload: json }
+    return { type: PROJECT_LOADED, payload: json }
   })
 }
 
 export function removeTodo(payload) {
-  return { type: REMOVE_TODO, payload };
+  return { type: REMOVE_PROJECT, payload };
 }
 
 export function addTodo(payload) {
-  return { type: ADD_TODO, payload };
+  return { type: ADD_PROJECT, payload };
 }
 
 export function done(payload) {
@@ -29,5 +29,5 @@ export function done(payload) {
 }
 
 export function editTodo(payload) {
-  return { type: EDIT_TODO, payload }
+  return { type: EDIT_PROJECT, payload }
 }

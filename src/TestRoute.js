@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import NotFound from "./views/NotFound";
 import RouteWithLayout from "./views/RouteWithLayout";
 import { Provider } from "react-redux";
 

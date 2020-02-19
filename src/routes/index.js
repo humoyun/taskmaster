@@ -67,7 +67,7 @@ const Routes = () => {
       }
       console.log("++++ initial casee >> routeObjLayout: ", routeObjLayout);
       console.log("++++ routeObj >> ", routeObj);
-    } else if (get(location, "state.layout")) {
+    } else if (Utils._get(location, "state.layout")) {
       console.log("++++ second case: state.layout >> ");
       setLayout(location.state.layout); // USE CUSTOM LAYOUT IN APP LAYOUT WHEN LOCATION.STATE.LAYOUT IS SET
     } else if (auth.isLogged) {
