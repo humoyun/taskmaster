@@ -21,6 +21,7 @@ import DashProvider from "./dashboard/provider";
 import NotFound from "@/views/NotFound";
 
 import myCookie from "@/common/myCookie";
+import Utils from '@/utils/Utils'
 
 const getRouteObject = wanted => {
   const allRoutes = [...appRoutes, ...authRoutes, ...dashRoutes];
@@ -34,18 +35,7 @@ const getRouteObject = wanted => {
   return routeObj;
 };
 
-const get = (obj, path, defaultValue) => {
-  const travel = regexp =>
-    String.prototype.split
-      .call(path, regexp)
-      .filter(Boolean)
-      .reduce(
-        (res, key) => (res !== null && res !== undefined ? res[key] : res),
-        obj
-      );
-  const result = travel(/[,[\]]+?/) || travel(/[,[\].]+?/);
-  return result === undefined || result === obj ? defaultValue : result;
-};
+
 
 const isUndefinedNull = arg => arg === undefined || arg === null;
 
@@ -67,7 +57,7 @@ const Routes = () => {
      */
     if (history.action === "POP" && isUndefinedNull(location.key)) {
       const routeObj = getRouteObject(location.pathname);
-      const routeObjLayout = get(routeObj, "location.state.layout");
+      const routeObjLayout = Utils._get(routeObj, "location.state.layout");
       if (routeObjLayout) {
         console.log("++++ routeObjLayout is empty");
         setLayout(routeObjLayout);
@@ -77,7 +67,7 @@ const Routes = () => {
       }
       console.log("++++ initial casee >> routeObjLayout: ", routeObjLayout);
       console.log("++++ routeObj >> ", routeObj);
-    } else if (get(location, "state.layout")) {
+    } else if (Utils._get(location, "state.layout")) {
       console.log("++++ second case: state.layout >> ");
       setLayout(location.state.layout); // USE CUSTOM LAYOUT IN APP LAYOUT WHEN LOCATION.STATE.LAYOUT IS SET
     } else if (auth.isLogged) {

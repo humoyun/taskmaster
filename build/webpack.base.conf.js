@@ -30,7 +30,7 @@ const getAddons = addonsArgs => {
 
 module.exports = {
   entry: {
-    app: "./src/index.js"
+    app: "./src/main.js"
   },
 
   // output: {

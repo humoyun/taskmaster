@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { Card } from "antd";
 import styled from "styled-components";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
-import Twitter from "../../../icons/twitter_mini.svg";
+import Twitter from "@/icons/twitter_mini.svg";
 import { SocialIcons, SocialIcon } from "../common/style";
-import { AuthPage } from "../../../theme/global";
+import { AuthPage } from "@/theme/global";
 
 const RegisterWrapper = styled.div`
   display: flex;
