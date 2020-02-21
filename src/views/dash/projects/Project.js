@@ -15,6 +15,7 @@ import Layers from "@/icons/layers.svg";
 import Group from "@/icons/group.svg";
 import Attachment from "@/icons/attachment.svg";
 import More from "@/icons/more.svg";
+import {useHistory, useLocation} from 'react-router-dom'
 
 const { Meta } = Card;
 
@@ -28,13 +29,21 @@ const coolColors = {
 };
 
 export default function Project(props) {
+
+  const history = useHistory();
+
+  const goToProject = (id) => {
+    console.log('fewfwe--------fewfewfew: ', id)
+    history.push(`app/${id}`);
+  }
+
   return (
     <Card style={{ width: 360, borderRadius: 5 }} hoverable>
       <Row>
         <Col span={24} style={{ height: "40px" }}>
           <Row type="flex" justify="space-between">
             <Col span={6}>
-              <Button size="small"> Go to Project</Button>
+              <Button onClick={() => goToProject(props.item.id)} size="small"> Go to Project</Button>
             </Col>
             <Col span={4}>
               <Tag color={props.item.color}>{props.item.state}</Tag>
