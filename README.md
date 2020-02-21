@@ -62,3 +62,4 @@ and many more ...
 - [Code splitting with Babel plugin import](https://reacttraining.com/react-router/web/guides/code-splitting)
 - [Ant-Design Examples](https://github.com/ant-design/ant-design/blob/master/components/layout/demo/responsive.md)
 - [Using Web Sockets in React](https://dev.to/finallynero/using-websockets-in-react-4fkp)
+- [Passing callbacks down with React hooks](https://medium.com/trabe/passing-callbacks-down-with-react-hooks-4723c4652aff)

@@ -18,6 +18,15 @@ import More from "@/icons/more.svg";
 
 const { Meta } = Card;
 
+const coolColors = {
+  dark: "#081426",
+  siyohrang: "#5050ff",
+  qiziql: "#ff5050",
+  grey: "#f5f6fa",
+  blue: "#1c74f5",
+  textColor: "#6b7d99"
+};
+
 export default function Project(props) {
   return (
     <Card style={{ width: 360, borderRadius: 5 }} hoverable>
