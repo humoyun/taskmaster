@@ -67,7 +67,7 @@ const Routes = () => {
         console.log("nnot found layout");
         setLayout(Layouts.NOT_FOUND);
       }
-      console.log("++++ initial casee >> routeObjLayout: ", routeObjLayout);
+      console.log("++++ initial case >> routeObjLayout: ", routeObjLayout);
       console.log("++++ routeObj >> ", routeObj);
     } else if (Utils._get(location, "state.layout")) {
       console.log("++++ second case: state.layout >> ");

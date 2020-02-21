@@ -6,11 +6,11 @@ import ForgetPassword from "./views/auth/forget";
 import NotFound from "./views/NotFound";
 
 import MainContent from "./views/content";
-import Projects from "./views/dash/projects";
-import Project from "./views/dash/projects/Project";
-import Teams from "./views/dash/teams";
-import Team from "./views/dash/teams/Team";
-import Activities from "./views/dash/activity";
+import Projects from "./views/dashboard/projects";
+import Project from "./views/dashboard/projects/Project";
+import Teams from "./views/dashboard/teams";
+import Team from "./views/dashboard/teams/Team";
+import Activities from "./views/dashboard/activity";
 import AppView from "./views/AppView";
 
 const ProjectView = React.lazy(() => import("./views/ProjectView"));

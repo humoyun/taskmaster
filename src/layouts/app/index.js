@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { darken, lighten } from "polished";
 import { Menu, Icon } from 'antd';
+import { useHistory } from 'react-router-dom';
 
-import Home from '@/icons/home.svg'
+// import Home from '@/icons/home.svg'
 import User from '@/icons/user.svg'
 import AppIcon from '@/icons/app.svg'
 
@@ -18,6 +19,10 @@ const UpperWrapper = styled.div`
   width: 30px;
   height: 50px;
   margin: 10px auto;
+
+  h2:hover {
+    cursor: pointer;
+  }
 `;
 
 const UserProfile = styled.div`
@@ -29,15 +34,20 @@ const UserProfile = styled.div`
 `;
 
 const App = props => {
+  const history = useHistory()
   const handleMenuClick = (e) => {
 
   } 
+
+  const goHome = () => {
+    history.push('/');
+  }
 
   return (
     <div className="app-layout">
       <aside className="app-layout-sidebar">
         <UpperWrapper>
-          <h2>TM</h2>
+          <h2 onClick={goHome}>TM</h2>
         </UpperWrapper>
 
         <Menu 

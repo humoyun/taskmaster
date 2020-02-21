@@ -29,7 +29,7 @@ export default function Project(props) {
   }
 
   return (
-    <Card style={{ width: 360, borderRadius: 5 }} hoverable>
+    <Card style={{ width: '100%', borderRadius: 5 }} hoverable>
       <Row>
         <Col span={24} style={{ height: "40px" }}>
           <Row type="flex" justify="space-between">
@@ -50,7 +50,7 @@ export default function Project(props) {
 
         <Col span={24}>
           <h3>{props.item.title}</h3>
-          <p>{props.item.desc}</p>
+          <p>{`${props.item.desc.substr(0,70)}...`}</p>
         </Col>
 
         <Col span={24}>
