@@ -1,5 +1,4 @@
 import React from "react";
-// const ProjectView = React.lazy(() => import("./views/ProjectView"));
 import { Layouts } from "@/common/constants";
 import Projects from "@/views/dashboard/projects";
 import Teams from "@/views/dashboard/teams";
@@ -50,7 +49,7 @@ const dashRoutes = [
     key: "dash/marketplace",
     component: Marketplace,
     location
-  },  
+  },
   {
     exact: true,
     path: "/storage",

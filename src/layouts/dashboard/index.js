@@ -8,7 +8,7 @@ import "./style.less";
 const { Header, Sider, Content } = Layout;
 
 const Home = props => {
-  console.log('dashboard props: ', props)
+  console.log("dashboard props: ", props);
   const [collapsed, setCollapsed] = useState(false);
 
   let siderWidth = "250";

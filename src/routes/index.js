@@ -18,10 +18,9 @@ import authRoutes from "./auth";
 import AuthProvider from "./auth/provider";
 import dashRoutes from "./dashboard";
 import DashProvider from "./dashboard/provider";
-import NotFound from "@/views/NotFound";
 
 import myCookie from "@/common/myCookie";
-import Utils from '@/utils/Utils'
+import Utils from "@/utils/Utils";
 
 const getRouteObject = wanted => {
   const allRoutes = [...appRoutes, ...authRoutes, ...dashRoutes];
@@ -34,8 +33,6 @@ const getRouteObject = wanted => {
 
   return routeObj;
 };
-
-
 
 const isUndefinedNull = arg => arg === undefined || arg === null;
 
@@ -58,8 +55,6 @@ const Routes = () => {
     const routeObj = getRouteObject(location.pathname);
     const routeObjLayout = Utils._get(routeObj, "location.state.layout");
     if (history.action === "POP" && isUndefinedNull(location.key)) {
-      
-      
       if (routeObjLayout) {
         console.log("++++ routeObjLayout is empty");
         setLayout(routeObjLayout);
@@ -83,7 +78,6 @@ const Routes = () => {
         console.log("nnot found layout");
         setLayout(Layouts.NOT_FOUND);
       }
-
     } else {
       console.log("+++++ auth >> layout");
       setLayout(Layouts.AUTH); // USE PUBLIC LAYOUT WHEN USER IS NOT AUTHENTICATED
@@ -118,9 +112,6 @@ const Routes = () => {
           {authRoutesProvider}
           {appRoutesProvider}
           {dashRoutesProvider}
-          {/* <Route path="*">
-            <NotFound />
-          </Route> */}
         </Switch>
       </Suspense>
     </LayoutProvider>

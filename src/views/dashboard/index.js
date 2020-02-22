@@ -1,5 +1,5 @@
 import React from "react";
 
-export default function Dashboard(props) {
+export default function Home(props) {
   return <div>Main Dashboard Panel</div>;
 }

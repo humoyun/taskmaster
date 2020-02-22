@@ -1,4 +1,3 @@
-// const ProjectView = React.lazy(() => import("./views/ProjectView"));
 import React from "react";
 import { Layouts } from "@/common/constants";
 import Login from "@/views/auth/login";
