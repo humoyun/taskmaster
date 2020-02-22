@@ -1,9 +1,13 @@
 import React from "react";
 // const ProjectView = React.lazy(() => import("./views/ProjectView"));
 import { Layouts } from "@/common/constants";
-import Projects from "@/views/dash/projects";
-import Teams from "@/views/dash/teams";
-import Dash from "@/views/dash";
+import Projects from "@/views/dashboard/projects";
+import Teams from "@/views/dashboard/teams";
+import Activity from "@/views/dashboard/activity";
+import Marketplace from "@/views/dashboard/marketplace";
+import Storage from "@/views/dashboard/storage";
+import Profile from "@/views/dashboard/Profile";
+import Dash from "@/views/dashboard";
 
 const location = {
   state: {
@@ -32,14 +36,35 @@ const dashRoutes = [
     key: "dash/teams",
     component: Teams,
     location
+  },
+  {
+    exact: true,
+    path: "/activities",
+    key: "dash/activity",
+    component: Activity,
+    location
+  },
+  {
+    exact: true,
+    path: "/marketplace",
+    key: "dash/marketplace",
+    component: Marketplace,
+    location
+  },  
+  {
+    exact: true,
+    path: "/storage",
+    key: "dash/storage",
+    component: Storage,
+    location
+  },
+  {
+    exact: true,
+    path: "/profile",
+    key: "dash/profile",
+    component: Profile,
+    location
   }
-  // {
-  //   exact: true,
-  //   path: "/app/project/:projectId/...",
-  //   key: "",
-  //   component: ,
-  //   location
-  // },
 ];
 
 export default dashRoutes;

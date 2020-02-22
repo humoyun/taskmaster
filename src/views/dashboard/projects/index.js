@@ -1,13 +1,12 @@
 import React from "react";
 import styled from 'styled-components';
 import Project from './Project'
+import { Row, Col } from 'antd';
 
 const ProjectPageWrapper = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: row;
   padding: 20px;
-  background-color: rgb(254, 255, 255);
+  background: linear-gradient(rgba(224,239,226,.2), #fff);
 `
 
 export default function Projects() {
@@ -19,9 +18,17 @@ export default function Projects() {
 
   return (
     <ProjectPageWrapper className="tm-projects">
+
+    <Row gutter={[16, 16]} type="flex" justify="start" flexwrap="wrap">
       {list.map(item => (
-        <Project item={item} key={item.id}></Project>
+        <Col xs={24} sm={24} md={24} lg={12} xl={8} xxl={6} key={item.id}>
+          <Project item={item} key={item.id}></Project>
+        </Col>
       ))}
+    </Row>
+
+
+
       
     </ProjectPageWrapper>
   );
