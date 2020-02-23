@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const merge = require("webpack-merge");
 const baseWebpackConf = require("./webpack.base.conf");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 
 // style files regexes
 const cssRegex = /\.css$/i;
@@ -19,11 +19,24 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
 
 const prodConf = {
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "", // diffeerent for prod
+    filename: "[name].bundle.js",
+    chunkFilename: "[name].bundle.js"
+    // publicPath:
+    //   process.env.NODE_ENV === "production"
+    //     ? config.build.assetsPublicPath
+    //     : config.dev.assetsPublicPath
+  },
+
   mode: "production",
-  devtool: 'source-map',
+
+  devtool: "cheap-module-source-map",
+
   plugins: [
     new Dotenv({
-      path: './.env.production',
+      path: "./.env.production"
     })
   ]
 };

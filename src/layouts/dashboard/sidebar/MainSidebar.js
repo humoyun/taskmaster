@@ -63,10 +63,7 @@ export default function MainSidebar({ collapsed }) {
         <Row style={{ textAlign: "center" }}>
           <Col span={24}>
             <Wrapper>
-              <Avatar
-                size={62}
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
+              <Avatar size={62} src="https://i.pravatar.cc/100?img=59" />
             </Wrapper>
           </Col>
           <Col span={24}>

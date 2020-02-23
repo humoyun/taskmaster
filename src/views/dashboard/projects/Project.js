@@ -1,23 +1,13 @@
 import React from "react";
-import {
-  Skeleton,
-  Switch,
-  Button,
-  Card,
-  Icon,
-  Avatar,
-  Tag,
-  Progress
-} from "antd";
+import { Button, Card, Icon, Tag, Progress } from "antd";
 import { Row, Col } from "antd";
 import ChatNoDots from "@/icons/chat-no-dots.svg";
 import Layers from "@/icons/layers.svg";
 import Group from "@/icons/group.svg";
 import Attachment from "@/icons/attachment.svg";
 import More from "@/icons/more.svg";
-import {useHistory, useLocation} from 'react-router-dom'
-
-const { Meta } = Card;
+import { useHistory, useLocation } from "react-router-dom";
+import propTypes from "prop-types";
 
 const coolColors = {
   dark: "#081426",
@@ -28,25 +18,26 @@ const coolColors = {
   textColor: "#6b7d99"
 };
 
-export default function Project(props) {
-
+export default function Project({ project }) {
   const history = useHistory();
 
-  const goToProject = (id) => {
-    console.log('fewfwe--------fewfewfew: ', id)
-    history.push(`app/${id}`);
-  }
+  const goToProject = pid => {
+    history.push(`app/${pid}`);
+  };
 
   return (
-    <Card style={{ width: '100%', borderRadius: 5 }} hoverable>
+    <Card style={{ width: "100%", borderRadius: 5 }} hoverable>
       <Row>
         <Col span={24} style={{ height: "40px" }}>
           <Row type="flex" justify="space-between">
             <Col span={6}>
-              <Button onClick={() => goToProject(props.item.id)} size="small"> Go to Project</Button>
+              <Button onClick={() => goToProject(project.id)} size="small">
+                {" "}
+                Go to Project
+              </Button>
             </Col>
             <Col span={4}>
-              <Tag color={props.item.color}>{props.item.state}</Tag>
+              <Tag color={project.color}>{project.state}</Tag>
             </Col>
             <Col span={2}>
               <Icon
@@ -58,8 +49,8 @@ export default function Project(props) {
         </Col>
 
         <Col span={24}>
-          <h3>{props.item.title}</h3>
-          <p>{`${props.item.desc.substr(0,70)}...`}</p>
+          <h3>{project.title}</h3>
+          <p>{`${project.desc.substr(0, 70)}...`}</p>
         </Col>
 
         <Col span={24}>
