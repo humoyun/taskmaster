@@ -20,8 +20,8 @@ const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
 
 const prodConf = {
   output: {
-    path: path.resolve(__dirname, "dist"),
-    publicPath: "", // diffeerent for prod
+    path: path.resolve(__dirname, "build"),
+    publicPath: "/",
     filename: "[name].bundle.js",
     chunkFilename: "[name].bundle.js"
     // publicPath:
@@ -33,6 +33,10 @@ const prodConf = {
   mode: "production",
 
   devtool: "cheap-module-source-map",
+
+  devServer: {
+    contentBase: "./build"
+  },
 
   plugins: [
     new Dotenv({
