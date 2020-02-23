@@ -3,8 +3,9 @@ const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const Visualizer = require('webpack-visualizer-plugin');
+const WebpackBundleAnalyzer = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+const Visualizer = require("webpack-visualizer-plugin");
 
 // style files regexes
 const cssRegex = /\.css$/i;
@@ -19,14 +20,11 @@ const appDirectory = fs.realpathSync(process.cwd());
 const resolveAppPath = relativePath => path.resolve(appDirectory, relativePath);
 
 const getAddons = addonsArgs => {
-  const addons = Array.isArray(addonsArgs)
-    ? addonsArgs
-    : [addonsArgs];
+  const addons = Array.isArray(addonsArgs) ? addonsArgs : [addonsArgs];
   return addons
     .filter(Boolean)
     .map(name => require(`./addons/webpack.${name}.js`));
 };
-
 
 module.exports = {
   entry: {
@@ -77,8 +75,8 @@ module.exports = {
       title: "Task Master"
     }),
     new WebpackBundleAnalyzer({
-      analyzerMode: 'static',
-      reportFilename: './report.html',
+      analyzerMode: "static",
+      reportFilename: "./reports/report.html",
       openAnalyzer: false
     }),
     new Visualizer()
@@ -89,10 +87,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        include: [
-          path.resolve(__dirname, "src"),
-          path.resolve(__dirname, "tests")
-        ],
+        include: [path.resolve(__dirname, "src")],
         use: {
           loader: "babel-loader",
           options: {

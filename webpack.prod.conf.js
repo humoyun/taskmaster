@@ -36,13 +36,13 @@ const prodConf = {
 
   devServer: {
     contentBase: "./build"
-  },
+  }
 
-  plugins: [
-    new Dotenv({
-      path: "./.env.production"
-    })
-  ]
+  // plugins: [
+  //   new Dotenv({
+  //     path: "./.env.production"
+  //   })
+  // ]
 };
 
 module.exports = merge(baseWebpackConf, prodConf);
