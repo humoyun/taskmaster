@@ -4,7 +4,9 @@ import projectsReducer from "./reducers/projects";
 // import tasksReducer from "./reducers/tasks";
 import authReducer from "./reducers/auth";
 import { isEmpty } from "./middlewares";
+import thunk from "redux-thunk";
 
+const middlewares = [isEmpty, thunk];
 const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
   projects: projectsReducer,
@@ -13,7 +15,7 @@ const rootReducer = combineReducers({
 
 const store = createStore(
   rootReducer,
-  storeEnhancers(applyMiddleware(isEmpty))
+  storeEnhancers(applyMiddleware(...middlewares))
   // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
