@@ -105,6 +105,13 @@ const Routes = () => {
    * ? should this feature be supported
    * TODO: todo something
    */
+
+  const falbackLoaders = {
+    app: "",
+    dash: "",
+    auth: ""
+  };
+
   return (
     <LayoutProvider layout={layout}>
       <Suspense fallback={<div>Auth Loading...</div>}>

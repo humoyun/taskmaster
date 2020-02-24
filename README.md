@@ -59,6 +59,7 @@ and many more ...
 - [Webpack & React tutorial (part 1)](https://www.toptal.com/react/webpack-react-tutorial-pt-1)
 - [Babel plugin import](https://github.com/ant-design/babel-plugin-import)
 - [React transition group](https://reactcommunity.org/react-transition-group)
+- [Create content loader](http://danilowoz.com/create-content-loader/)
 - [Code splitting with Babel plugin import](https://reacttraining.com/react-router/web/guides/code-splitting)
 - [Ant-Design Examples](https://github.com/ant-design/ant-design/blob/master/components/layout/demo/responsive.md)
 - [Using Web Sockets in React](https://dev.to/finallynero/using-websockets-in-react-4fkp)
