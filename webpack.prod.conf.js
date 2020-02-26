@@ -99,8 +99,8 @@ const prodConf = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: "static/[name].[hash:8].css",
+      chunkFilename: "static/[id][hash:8].css"
     })
   ]
 
