@@ -5,7 +5,7 @@ import Teams from "@/views/dashboard/teams";
 import Activity from "@/views/dashboard/activity";
 import Marketplace from "@/views/dashboard/marketplace";
 import Storage from "@/views/dashboard/storage";
-import Profile from "@/views/dashboard/Profile";
+import Profile from "@/views/dashboard/profile";
 import Dash from "@/views/dashboard";
 
 const location = {

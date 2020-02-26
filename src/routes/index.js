@@ -13,11 +13,11 @@ import LayoutProvider from "@/layouts";
 import { Layouts } from "@/common/constants";
 
 import appRoutes from "./app";
-import AppProvider from "./app/provider";
+import AppProvider from "./app/Provider";
 import authRoutes from "./auth";
-import AuthProvider from "./auth/provider";
+import AuthProvider from "./auth/Provider";
 import dashRoutes from "./dashboard";
-import DashProvider from "./dashboard/provider";
+import DashProvider from "./dashboard/Provider";
 
 import myCookie from "@/common/myCookie";
 import Utils from "@/utils/Utils";
