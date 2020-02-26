@@ -53,6 +53,7 @@ and many more ...
 ### References and resources:
 
 - [Kao React template](https://github.com/adhityasan/kao-react-template)
+- [Complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect)
 - [Reusing layouts in React-Router-4](https://simonsmith.io/reusing-layouts-in-react-router-4)
 - [Webpack advanced setup tutorial](https://www.robinwieruch.de/webpack-advanced-setup-tutorial)
 - [React svg icon components](https://www.robinwieruch.de/react-svg-icon-components)
