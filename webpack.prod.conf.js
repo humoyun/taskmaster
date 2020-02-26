@@ -50,9 +50,9 @@ const prodConf = {
 
   devtool: "cheap-module-source-map",
 
-  devServer: {
-    contentBase: "./build"
-  },
+  // devServer: {
+  //   contentBase: "./build"
+  // },
 
   module: {
     rules: [
