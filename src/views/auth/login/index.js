@@ -8,17 +8,8 @@ import { Form, Icon, Input, Button, Checkbox } from "antd";
 import Twitter from "@/icons/twitter_mini.svg";
 import { SocialIcons, SocialIcon } from "../common/style";
 import myCookie from "@/common/myCookie";
-
-const LoginWrapper = styled.div`
-  display: flex;
-
-  background-image: url("/assets/bg-pattern.png");
-  background-color: #6658dd;
-
-  .login-text {
-    font-size: 0.9rem;
-  }
-`;
+import { connect } from "react-redux";
+import { login } from "@/store/actions/auth";
 
 const FormHeader = styled.div`
   width: 100%;
@@ -38,10 +29,6 @@ const LoginFooter = styled.div`
   color: #d4d7d9;
 `;
 
-// LoginWrapper.attrs({
-//   className: "tm-login-page"
-// });
-
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -49,31 +36,39 @@ class LoginForm extends React.Component {
       checked: false,
       loading: false
     };
-    console.log("login priops: ", props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
+  async handleSubmit(e) {
     e.preventDefault();
-
-    // console.log(this.props.form.getFieldsValue(["password"]));
     this.props.form.validateFields((err, values) => {
-      if (!err) {
-        this.setState({ loading: true });
-        console.log("Received values of form: ", values);
-        this.props.form.setFieldsValue({
-          email: "",
-          password: "",
-          remember: false
-        });
-
-        setTimeout(() => {
-          this.setState({ loading: false });
-          myCookie.setToken("temporary-dev-token");
-          this.props.history.push("/");
-        }, 500);
+      if (err) {
+        console.log("validateFields: error", values);
+        return;
       }
+    });
+
+    const { email } = this.props.form.getFieldsValue(["email"]);
+    const { password } = this.props.form.getFieldsValue(["password"]);
+    const payload = {
+      username: email,
+      password
+    };
+    // console.log(this.props);
+
+    this.setState({ loading: true });
+    const result = await this.props.loginUser(payload);
+    if (result) {
+      myCookie.setToken("temporary-dev-token");
+      this.props.history.push("/");
+    }
+
+    this.setState({ loading: false });
+    this.props.form.setFieldsValue({
+      email: "",
+      password: "",
+      remember: false
     });
   }
 
@@ -88,7 +83,7 @@ class LoginForm extends React.Component {
       marginBottom: "12px",
       textAlign: "start"
     };
-    const textColor = "#929ba3";
+    // const textColor = "#929ba3";
 
     return (
       <React.Fragment>
@@ -207,4 +202,11 @@ class LoginForm extends React.Component {
 
 const Login = Form.create({ name: "login_form" })(LoginForm);
 
-export default Login;
+// redux staff
+const mapDispatchToProps = dispatch => {
+  return {
+    loginUser: data => dispatch(login(data))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Login);

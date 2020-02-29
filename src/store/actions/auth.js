@@ -5,6 +5,7 @@
 // import store from "store"; // only use for axios interceptors
 // import { notesLogout } from "store/actions/notesActions"; // only use for axios interceptors logout
 // import history from "router/history"; // only use for axios interceptors logout
+// import { createActions } from "redux-actions";
 
 export const SET_USER_AND_TOKENS = "user:setUserAndTokens";
 export const SET_USER = "user:setUser";
@@ -25,7 +26,12 @@ export const setRefreshToken = refreshToken => {
   };
 };
 
-// import { createActions } from "redux-actions";
+export const setUser = data => {
+  return {
+    type: SET_USER,
+    payload: { user: data }
+  };
+};
 
 // import config from "config";
 // import axiosins from "axios.instance";
@@ -37,23 +43,46 @@ export const setRefreshToken = refreshToken => {
 //   namespace: "/"
 // });
 
-export const authenticate = data => dispatch => {
-  dispatch(actions.request());
-  setTimeout(() => {
-    console.log("authenticate: [setTimeout] ", data);
-    dispatch(setAccessToken(data));
-  }, 700);
+export const login = data => {
+  return async dispatch => {
+    try {
+      const result = await authenticate(data);
+      const { user, tokens } = result;
 
-  // axiosins
-  //   .post(config.API.SIGNIN, data)
-  //   .then(res => {
-  //     cLog(res);
-  //     dispatch(actions.success());
-  //   })
-  //   .catch(err => {
-  //     cError(err);
-  //     dispatch(actions.failure());
-  //   });
+      dispatch(setUser(user));
+      dispatch(setAccessToken(tokens.access_token));
+      dispatch(setRefreshToken(tokens.refresh_token));
+
+      return Promise.resolve("user_issoyo");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
+const tempUser = {
+  username: "humoyun",
+  email: "humoyun@gmail.com",
+  location: "South Korea",
+  role: "admin"
+};
+
+const tempTokens = {
+  access_token: "temporary-auth_token-token",
+  refresh_token: "temporary-refresh_token-token"
+};
+
+const authenticate = data => {
+  return new Promise((resolve, reject) => {
+    const username = "humoyun";
+    const password = "qwe123";
+
+    setTimeout(() => {
+      if (username === data.username && password === data.password)
+        resolve({ tokens: tempTokens, user: tempUser });
+      else reject({ err: "Username or password incorrect" });
+    }, 1000);
+  });
 };
 
 export const isLoggedIn = () => {};

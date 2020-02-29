@@ -13,6 +13,7 @@ import Activity from "@/icons/hourglass.svg";
 import MarketIcon from "@/icons/app.svg";
 import User from "@/icons/user.svg";
 import CloudStorage from "@/icons/cloud-storage.svg";
+import Logout from "@/icons/logout.svg";
 
 const Wrapper = styled.div`
   display: flex;
@@ -44,8 +45,13 @@ export default function MainSidebar({ collapsed }) {
   console.log(">> collapsed: ", collapsed);
 
   const handleMenuClick = ({ key }) => {
-    history.push(key);
-    console.log(key);
+    if (key === "logout") {
+      myCookie.clear();
+      history.push("auth/login");
+    } else {
+      history.push(key);
+      console.log(key);
+    }
   };
 
   return (
@@ -128,9 +134,24 @@ export default function MainSidebar({ collapsed }) {
           />
           <span>Storage</span>
         </Menu.Item>
+      </Menu>
+
+      <Menu
+        defaultSelectedKeys={[initMenuItem]}
+        mode="inline"
+        onClick={handleMenuClick}
+        style={{ backgroundColor: "#fcfcfc" }}
+      >
         <Menu.Item key="profile">
           <Icon component={User} style={{ fontSize: "20px", color: "#333" }} />
           <span>Profile</span>
+        </Menu.Item>
+        <Menu.Item key="logout">
+          <Icon
+            component={Logout}
+            style={{ fontSize: "20px", color: "#333" }}
+          />
+          <span>Logout</span>
         </Menu.Item>
       </Menu>
     </div>

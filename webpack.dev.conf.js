@@ -1,6 +1,7 @@
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
-const Dotenv = require('dotenv-webpack');
+const Dotenv = require("dotenv-webpack");
 const path = require("path");
 const fs = require("fs");
 
@@ -9,12 +10,15 @@ const baseWebpackConf = require("./webpack.base.conf");
 const devConf = {
   mode: "development",
 
-  devtool: '#cheap-module-eval-source-map',
+  devtool: "#cheap-module-eval-source-map",
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),    
-    new Dotenv({ path: './.env.dev'})
-    
+    new webpack.HotModuleReplacementPlugin(),
+    new Dotenv({ path: "./.env.dev" }),
+    new CopyWebpackPlugin([
+      { from: "public/assets", to: "assets" },
+      { from: "public", to: "", ignore: ["index.html", "assets/**"] }
+    ])
   ],
 
   devServer: {
@@ -33,6 +37,12 @@ const devConf = {
 
     hot: true,
     port: 8118
+    // setup(app) {
+    //   app.use(
+    //     "/static/",
+    //     express.static(path.join(__dirname, "dist", "static", "css"))
+    //   );
+    // }
   }
 };
 

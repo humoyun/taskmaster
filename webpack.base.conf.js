@@ -91,6 +91,18 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  targets: {
+                    esmodules: true
+                  }
+                }
+              ],
+              "@babel/preset-react"
+            ],
+            plugins: ["@babel/plugin-syntax-dynamic-import"]
             // cacheDirectory: true,
             // cacheCompression: false
             // envName: isProduction ? "production" : "development"

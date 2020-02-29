@@ -1,4 +1,13 @@
+# Settings in the [build] context are global and are applied to all contexts
+# unless otherwise overridden by more specific contexts.
 [build]	
-  base    = "website"	
-  command = "yarn build"	
-  publish = "website/public" 
+  base    = "/"
+  command = "npm run build"	
+  publish = "build/"
+
+# The following redirect is intended for use with most SPAs that handle
+# routing internally.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
