@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "antd";
+import { Input, Badge } from "antd";
 import Notification from "@/icons/notification.svg";
 import Message from "@/icons/message.svg";
 
@@ -20,8 +20,12 @@ export default function Header() {
       </div>
       <div className="right-part">
         <div className="icons">
-          <Notification width="20px" height="20px"></Notification>
-          <Message width="20px" height="20px"></Message>
+          <Badge count={22}>
+            <Notification width="24px" height="24px" />
+          </Badge>
+          <Badge count={8} style={{ backgroundColor: "#52c41a" }}>
+            <Message width="24px" height="24px" />
+          </Badge>
         </div>
         <div className="user-profile"></div>
       </div>

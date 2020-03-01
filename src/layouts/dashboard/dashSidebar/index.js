@@ -6,7 +6,6 @@ import { Menu, Icon, Avatar } from "antd";
 import styled from "styled-components";
 import "./style.less";
 import { logout } from "@/store/actions/auth";
-import myCookie from "@/common/myCookie";
 import ProfileCard from "./ProfileCard";
 
 // menu item icons
@@ -138,12 +137,7 @@ const MainSidebar = ({ collapsed, logout, user }) => {
   );
 };
 
-const mapStateToProps = (state, props) => {
-  return {
-    user: state.auth.user
-  };
-};
-
+const mapStateToProps = (state, props) => ({ user: state.auth.user });
 const mapActionsToProps = { logout };
 
 export default connect(mapStateToProps, mapActionsToProps)(MainSidebar);
