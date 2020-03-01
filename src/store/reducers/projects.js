@@ -92,6 +92,7 @@ const initialState = [
 
 // state.projects.push(action.payload); wrong approach (mutable, changing in place)
 const projectsReducer = (state = initialState, action) => {
+  console.log("projectsReducer: ", action);
   if (action.type === ADD_PROJECT) {
     return Object.assign({}, state, {
       projects: [...state, action.payload]

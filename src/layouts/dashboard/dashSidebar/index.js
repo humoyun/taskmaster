@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
-import { Layout, Menu, Icon, Button, Card, Avatar, Row, Col } from "antd";
-import styled from "styled-components";
+import { connect } from "react-redux";
+import { Menu, Icon, Avatar } from "antd";
 
-import myCookie from "@/common/myCookie";
+import styled from "styled-components";
 import "./style.less";
+
+import { logout } from "@/store/actions/auth";
+import myCookie from "@/common/myCookie";
+
+import ProfileCard from "./ProfileCard";
 
 import Home from "@/icons/home.svg";
 import Projects from "@/icons/rocket.svg";
@@ -15,22 +20,22 @@ import User from "@/icons/user.svg";
 import CloudStorage from "@/icons/cloud-storage.svg";
 import Logout from "@/icons/logout.svg";
 
-const Wrapper = styled.div`
+const CollapsedProfile = styled.div`
+  width: 50px;
+  height: 180px;
+  background: linear-gradient(rgba(85, 193, 251, 0.46), rgb(255, 255, 255));
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 66px;
-  height: 66px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid #63c9ff;
-  border-radius: 50%;
+
+  .ant-avatar {
+    margin: 0 auto;
+    margin-top: 25px;
+  }
 `;
 
-export default function MainSidebar({ collapsed }) {
+const MainSidebar = ({ collapsed, logout, user }) => {
   const history = useHistory();
   const location = useLocation();
-  const [loading, setLoading] = useState(false);
   const initMenuItem = location.pathname.substr(1);
 
   useEffect(() => {
@@ -44,10 +49,9 @@ export default function MainSidebar({ collapsed }) {
   let taskMaster = collapsed ? "TM" : "TASK MASTER";
   console.log(">> collapsed: ", collapsed);
 
-  const handleMenuClick = ({ key }) => {
+  const handleMenuClick = async ({ key }) => {
     if (key === "logout") {
-      myCookie.clear();
-      history.push("auth/login");
+      await logout();
     } else {
       history.push(key);
       console.log(key);
@@ -56,41 +60,13 @@ export default function MainSidebar({ collapsed }) {
 
   return (
     <div className="main-sidebar">
-      <Card
-        style={{
-          width: 250,
-          borderRight: "1px solid #e8e8e8",
-          background: `linear-gradient(rgba(85, 193, 251, 0.46), rgb(255, 255, 255))`
-        }}
-        bodyStyle={{ padding: "25px 15px" }}
-        loading={loading}
-        bordered={false}
-      >
-        <Row style={{ textAlign: "center" }}>
-          <Col span={24}>
-            <Wrapper>
-              <Avatar size={62} src="https://i.pravatar.cc/100?img=59" />
-            </Wrapper>
-          </Col>
-          <Col span={24}>
-            <h3>John Anderson</h3>
-            <div style={{ color: "#98a6ad" }}>
-              <Button type="link" style={{ padding: 0 }}>
-                @humoyun
-              </Button>{" "}
-              | Seoul, S. Korea
-            </div>
-          </Col>
-          <Col span={24}></Col>
-        </Row>
-        {/* <Meta
-          avatar={
-
-          }
-          title="@humoyun_ahmad"
-          description="Seoul, South Korea"
-        /> */}
-      </Card>
+      {!collapsed ? (
+        <ProfileCard></ProfileCard>
+      ) : (
+        <CollapsedProfile>
+          <Avatar size={40} src="https://i.pravatar.cc/100?img=59" />
+        </CollapsedProfile>
+      )}
 
       <Menu
         defaultSelectedKeys={[initMenuItem]}
@@ -156,4 +132,14 @@ export default function MainSidebar({ collapsed }) {
       </Menu>
     </div>
   );
-}
+};
+
+const mapStateToProps = (state, props) => {
+  return {
+    user: state.auth.user
+  };
+};
+
+const mapActionsToProps = { logout };
+
+export default connect(mapStateToProps, mapActionsToProps)(MainSidebar);

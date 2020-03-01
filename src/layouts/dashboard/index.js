@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Layout } from "antd";
-import ContentHeader from "./header";
-import MainSidebar from "./sidebar/MainSidebar";
+import ContentHeader from "./dashHeader";
+import MainSidebar from "./dashSidebar";
 
 import "./style.less";
 

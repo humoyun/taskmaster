@@ -42,6 +42,7 @@ class LoginForm extends React.Component {
 
   async handleSubmit(e) {
     e.preventDefault();
+
     this.props.form.validateFields((err, values) => {
       if (err) {
         console.log("validateFields: error", values);
@@ -60,16 +61,31 @@ class LoginForm extends React.Component {
     this.setState({ loading: true });
     const result = await this.props.loginUser(payload);
     if (result) {
-      myCookie.setToken("temporary-dev-token");
       this.props.history.push("/");
+    } else {
+      this.props.form.setFieldsValue({
+        email: "",
+        password: "",
+        remember: false
+      });
+      this.setState({ loading: false });
     }
+  }
 
-    this.setState({ loading: false });
-    this.props.form.setFieldsValue({
-      email: "",
-      password: "",
-      remember: false
-    });
+  componentDidMount() {
+    console.log("1. componentDidMount");
+  }
+
+  componentWillMount() {
+    console.log("2. componentWillMount");
+  }
+
+  componentWillUpdate() {
+    console.log("3. componentWillUpdate");
+  }
+
+  componentDidUpdate() {
+    console.log("4. componentDidUpdate");
   }
 
   render() {

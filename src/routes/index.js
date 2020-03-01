@@ -45,6 +45,10 @@ const Routes = () => {
     isLogged: myCookie.getToken()
   };
 
+  /**
+   * TODO: there is one issue remaining: when logouts and redirects to some url which does not exist
+   * TODO: it is not being redirected to NotFound 404 page
+   */
   useEffect(() => {
     /**
      * Handling when browesrHistory just created and no layout.key in the location object

@@ -52,6 +52,7 @@ and many more ...
 
 ### References and resources:
 
+- [Webpack online cookbook by SurviveJS](https://survivejs.com/webpack/)
 - [Kao React template](https://github.com/adhityasan/kao-react-template)
 - [Complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect)
 - [Reusing layouts in React-Router-4](https://simonsmith.io/reusing-layouts-in-react-router-4)
@@ -65,3 +66,6 @@ and many more ...
 - [Ant-Design Examples](https://github.com/ant-design/ant-design/blob/master/components/layout/demo/responsive.md)
 - [Using Web Sockets in React](https://dev.to/finallynero/using-websockets-in-react-4fkp)
 - [Passing callbacks down with React hooks](https://medium.com/trabe/passing-callbacks-down-with-react-hooks-4723c4652aff)
+- [How to solve Webpack issues practically](https://www.freecodecamp.org/news/how-to-solve-webpack-problems-the-practical-case-79fb676417f4/)
+- [Awesome Webpack](https://github.com/webpack-contrib/awesome-webpack)
+- [React update unmounted component](https://www.debuggr.io/react-update-unmounted-component)

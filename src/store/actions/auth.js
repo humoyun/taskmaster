@@ -6,30 +6,27 @@
 // import { notesLogout } from "store/actions/notesActions"; // only use for axios interceptors logout
 // import history from "router/history"; // only use for axios interceptors logout
 // import { createActions } from "redux-actions";
-
-export const SET_USER_AND_TOKENS = "user:setUserAndTokens";
-export const SET_USER = "user:setUser";
-export const SET_ACCESS_TOKEN = "user:setAccessToken";
-export const SET_REFRESH_TOKEN = "user:setRefreshToken";
+import { SET_USER, SET_ACCESS_TOKEN, SET_REFRESH_TOKEN } from "../types";
+import myCookie from "@/common/myCookie";
 
 export const setAccessToken = accessToken => {
   return {
     type: SET_ACCESS_TOKEN,
-    payload: { accessToken: accessToken }
+    payload: accessToken
   };
 };
 
 export const setRefreshToken = refreshToken => {
   return {
     type: SET_REFRESH_TOKEN,
-    payload: { refreshToken: refreshToken }
+    payload: refreshToken
   };
 };
 
 export const setUser = data => {
   return {
     type: SET_USER,
-    payload: { user: data }
+    payload: data
   };
 };
 
@@ -52,6 +49,29 @@ export const login = data => {
       dispatch(setUser(user));
       dispatch(setAccessToken(tokens.access_token));
       dispatch(setRefreshToken(tokens.refresh_token));
+
+      myCookie.setToken(tokens.access_token);
+      myCookie.setRefreshToken(tokens.refresh_token);
+
+      return Promise.resolve("user_issoyo");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
+/**
+ * If you want to access the state inside the action creator
+ * you can add getState in the parameter's list.
+ */
+export const logout = () => {
+  return async (dispatch, getState) => {
+    try {
+      dispatch(setUser({}));
+      dispatch(setAccessToken(null));
+      dispatch(setRefreshToken(null));
+
+      myCookie.clear();
 
       return Promise.resolve("user_issoyo");
     } catch (err) {
