@@ -11,6 +11,7 @@ import myCookie from "@/common/myCookie";
 
 import ProfileCard from "./ProfileCard";
 
+// menu item icons
 import Home from "@/icons/home.svg";
 import Projects from "@/icons/rocket.svg";
 import Group from "@/icons/group.svg";
@@ -33,6 +34,42 @@ const CollapsedProfile = styled.div`
   }
 `;
 
+const menuItemInlineStyle = { fontSize: "20px", color: "#333" };
+const itemList = [
+  { key: "/", name: "Home", icon: Home, style: menuItemInlineStyle },
+  {
+    key: "projects",
+    name: "Projects",
+    icon: Projects,
+    style: menuItemInlineStyle
+  },
+  { key: "teams", name: "Teams", icon: Group, style: menuItemInlineStyle },
+  {
+    key: "activities",
+    name: "Activities",
+    icon: Activity,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "marketplace",
+    name: "Marketplace",
+    icon: MarketIcon,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "storage",
+    name: "Cloud Storage",
+    icon: CloudStorage,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "profile",
+    name: "Profile",
+    icon: User,
+    style: menuItemInlineStyle
+  }
+];
+
 const MainSidebar = ({ collapsed, logout, user }) => {
   const history = useHistory();
   const location = useLocation();
@@ -46,17 +83,20 @@ const MainSidebar = ({ collapsed, logout, user }) => {
     };
   }, []);
 
-  let taskMaster = collapsed ? "TM" : "TASK MASTER";
-  console.log(">> collapsed: ", collapsed);
-
   const handleMenuClick = async ({ key }) => {
     if (key === "logout") {
       await logout();
     } else {
       history.push(key);
-      console.log(key);
     }
   };
+
+  const menuItemList = itemList.map(item => (
+    <Menu.Item key={item.key}>
+      <Icon component={item.icon} style={item.style} />
+      <span>{item.name}</span>
+    </Menu.Item>
+  ));
 
   return (
     <div className="main-sidebar">
@@ -74,55 +114,9 @@ const MainSidebar = ({ collapsed, logout, user }) => {
         onClick={handleMenuClick}
         style={{ backgroundColor: "#fcfcfc" }}
       >
-        <Menu.Item key="/">
-          <Icon component={Home} style={{ fontSize: "20px", color: "#333" }} />
-          <span>Home</span>
-        </Menu.Item>
-        <Menu.Item key="projects">
-          <Icon
-            component={Projects}
-            style={{ fontSize: "20px", color: "#333" }}
-          />
-          <span>Projects</span>
-        </Menu.Item>
-        <Menu.Item key="teams">
-          <Icon component={Group} style={{ fontSize: "20px", color: "#333" }} />
-          <span>Teams</span>
-        </Menu.Item>
-        <Menu.Item key="activities">
-          <Icon
-            component={Activity}
-            style={{ fontSize: "20px", color: "#333" }}
-          />
-          <span>Activities</span>
-        </Menu.Item>
-        <Menu.Item key="marketplace">
-          <Icon
-            component={MarketIcon}
-            style={{ fontSize: "20px", color: "#333" }}
-          />
-          <span>Marketplace</span>
-        </Menu.Item>
-        <Menu.Item key="storage">
-          <Icon
-            component={CloudStorage}
-            style={{ fontSize: "20px", color: "#333" }}
-          />
-          <span>Storage</span>
-        </Menu.Item>
-      </Menu>
+        {menuItemList}
 
-      <Menu
-        defaultSelectedKeys={[initMenuItem]}
-        mode="inline"
-        onClick={handleMenuClick}
-        style={{ backgroundColor: "#fcfcfc" }}
-      >
-        <Menu.Item key="profile">
-          <Icon component={User} style={{ fontSize: "20px", color: "#333" }} />
-          <span>Profile</span>
-        </Menu.Item>
-        <Menu.Item key="logout">
+        <Menu.Item key="logout" style={{ marginTop: "320px" }}>
           <Icon
             component={Logout}
             style={{ fontSize: "20px", color: "#333" }}
