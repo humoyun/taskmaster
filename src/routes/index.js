@@ -29,7 +29,6 @@ const getRouteObject = wanted => {
     if (match) return route;
     return null;
   });
-  console.log(">>? ", allRoutes);
 
   return routeObj;
 };
@@ -60,30 +59,21 @@ const Routes = () => {
     const routeObjLayout = Utils._get(routeObj, "location.state.layout");
     if (history.action === "POP" && isUndefinedNull(location.key)) {
       if (routeObjLayout) {
-        console.log("++++ routeObjLayout is empty");
         setLayout(routeObjLayout);
       } else {
-        console.log("nnot found layout");
         setLayout(Layouts.NOT_FOUND);
       }
-      console.log("++++ initial case >> routeObjLayout: ", routeObjLayout);
-      console.log("++++ routeObj >> ", routeObj);
     } else if (Utils._get(location, "state.layout")) {
-      console.log("++++ second case: state.layout >> ");
       setLayout(location.state.layout); // USE CUSTOM LAYOUT IN APP LAYOUT WHEN LOCATION.STATE.LAYOUT IS SET
     } else if (auth.isLogged) {
-      console.log("++++ accessToken issoyo >> ");
       // setLayout(Layouts.DASHBOARD); // DEFAULT LAYOUT WHEN USER IS AUTHENTICATED
 
       if (routeObjLayout) {
-        console.log("++++ routeObjLayout is empty");
         setLayout(routeObjLayout);
       } else {
-        console.log("nnot found layout");
         setLayout(Layouts.NOT_FOUND);
       }
     } else {
-      console.log("+++++ auth >> layout");
       setLayout(Layouts.AUTH); // USE PUBLIC LAYOUT WHEN USER IS NOT AUTHENTICATED
     }
   }, [location, history.action, auth.isLogged]);

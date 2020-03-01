@@ -1,14 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
 import { Menu, Icon, Avatar } from "antd";
 
 import styled from "styled-components";
 import "./style.less";
-
 import { logout } from "@/store/actions/auth";
 import myCookie from "@/common/myCookie";
-
 import ProfileCard from "./ProfileCard";
 
 // menu item icons
@@ -36,7 +34,7 @@ const CollapsedProfile = styled.div`
 
 const menuItemInlineStyle = { fontSize: "20px", color: "#333" };
 const itemList = [
-  { key: "/", name: "Home", icon: Home, style: menuItemInlineStyle },
+  { key: "home", name: "Home", icon: Home, style: menuItemInlineStyle },
   {
     key: "projects",
     name: "Projects",
@@ -73,19 +71,24 @@ const itemList = [
 const MainSidebar = ({ collapsed, logout, user }) => {
   const history = useHistory();
   const location = useLocation();
-  const initMenuItem = location.pathname.substr(1);
+  const [curMenuItem, setCurMenuItem] = useState(
+    location.pathname === "/" ? "home" : location.pathname.substr(1)
+  );
+  // myCookie.get("main_menu_active");
 
   useEffect(() => {
-    myCookie.get("main_menu_active");
+    const currPath =
+      location.pathname === "/" ? "home" : location.pathname.substr(1);
+    setCurMenuItem(currPath);
 
-    return () => {
-      console.log("cleanup after main-sidebar mounted");
-    };
-  }, []);
+    return () => {};
+  }, [location.pathname]);
 
   const handleMenuClick = async ({ key }) => {
     if (key === "logout") {
       await logout();
+    } else if (key === "home") {
+      history.push("/");
     } else {
       history.push(key);
     }
@@ -109,17 +112,24 @@ const MainSidebar = ({ collapsed, logout, user }) => {
       )}
 
       <Menu
-        defaultSelectedKeys={[initMenuItem]}
+        selectedKeys={[curMenuItem]}
         mode="inline"
-        onClick={handleMenuClick}
-        style={{ backgroundColor: "#fcfcfc" }}
+        onClick={e => handleMenuClick(e)}
       >
         {menuItemList}
 
-        <Menu.Item key="logout" style={{ marginTop: "320px" }}>
+        <Menu.Item
+          key="logout"
+          style={{
+            marginTop: "320px"
+          }}
+        >
           <Icon
             component={Logout}
-            style={{ fontSize: "20px", color: "#333" }}
+            style={{
+              fontSize: "20px",
+              color: "#333"
+            }}
           />
           <span>Logout</span>
         </Menu.Item>
