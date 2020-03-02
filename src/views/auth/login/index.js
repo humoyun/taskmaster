@@ -7,7 +7,6 @@ import styled from "styled-components";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
 import Twitter from "@/icons/twitter_mini.svg";
 import { SocialIcons, SocialIcon } from "../common/style";
-import myCookie from "@/common/myCookie";
 import { connect } from "react-redux";
 import { login } from "@/store/actions/auth";
 
@@ -36,14 +35,13 @@ class LoginForm extends React.Component {
       checked: false,
       loading: false
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async handleSubmit(e) {
+  handleSubmit = async e => {
     e.preventDefault();
 
     this.props.form.validateFields((err, values) => {
+      console.log(": error", err, values);
       if (err) {
         console.log("validateFields: error", values);
         return;
@@ -58,7 +56,7 @@ class LoginForm extends React.Component {
     };
     // console.log(this.props);
 
-    this.setState({ loading: true });
+    this.setState(() => ({ loading: true }));
     const result = await this.props.loginUser(payload);
     if (result) {
       this.props.history.push("/");
@@ -68,25 +66,9 @@ class LoginForm extends React.Component {
         password: "",
         remember: false
       });
-      this.setState({ loading: false });
+      this.setState(state => ({ loading: false }));
     }
-  }
-
-  componentDidMount() {
-    console.log("1. componentDidMount");
-  }
-
-  componentWillMount() {
-    console.log("2. componentWillMount");
-  }
-
-  componentWillUpdate() {
-    console.log("3. componentWillUpdate");
-  }
-
-  componentDidUpdate() {
-    console.log("4. componentDidUpdate");
-  }
+  };
 
   render() {
     const { getFieldDecorator } = this.props.form;

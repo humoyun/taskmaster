@@ -57,6 +57,7 @@ and many more ...
 - [Complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect)
 - [Reusing layouts in React-Router-4](https://simonsmith.io/reusing-layouts-in-react-router-4)
 - [Webpack advanced setup tutorial](https://www.robinwieruch.de/webpack-advanced-setup-tutorial)
+- - [React render props](https://www.robinwieruch.de/react-render-props)
 - [React svg icon components](https://www.robinwieruch.de/react-svg-icon-components)
 - [Webpack & React tutorial (part 1)](https://www.toptal.com/react/webpack-react-tutorial-pt-1)
 - [Babel plugin import](https://github.com/ant-design/babel-plugin-import)
@@ -69,3 +70,4 @@ and many more ...
 - [How to solve Webpack issues practically](https://www.freecodecamp.org/news/how-to-solve-webpack-problems-the-practical-case-79fb676417f4/)
 - [Awesome Webpack](https://github.com/webpack-contrib/awesome-webpack)
 - [React update unmounted component](https://www.debuggr.io/react-update-unmounted-component)
+- [Properties in JavaScript: definition versus assignment](https://2ality.com/2012/08/property-definition-assignment.html)

@@ -6,6 +6,7 @@
 // import { notesLogout } from "store/actions/notesActions"; // only use for axios interceptors logout
 // import history from "router/history"; // only use for axios interceptors logout
 // import { createActions } from "redux-actions";
+import { message } from "antd";
 import { SET_USER, SET_ACCESS_TOKEN, SET_REFRESH_TOKEN } from "../types";
 import myCookie from "@/common/myCookie";
 
@@ -55,6 +56,7 @@ export const login = data => {
 
       return Promise.resolve("user_issoyo");
     } catch (err) {
+      message.error(err.msg);
       console.error(err);
     }
   };
@@ -100,7 +102,7 @@ const authenticate = data => {
     setTimeout(() => {
       if (username === data.username && password === data.password)
         resolve({ tokens: tempTokens, user: tempUser });
-      else reject({ err: "Username or password incorrect" });
+      else reject({ msg: "Username or password incorrect" });
     }, 1000);
   });
 };
