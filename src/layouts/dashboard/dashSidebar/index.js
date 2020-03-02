@@ -6,7 +6,7 @@ import { Menu, Icon, Avatar } from "antd";
 import styled from "styled-components";
 import "./style.less";
 import { logout } from "@/store/actions/auth";
-import ProfileCard from "./ProfileCard";
+import ProfileCard from "../components/ProfileCard";
 
 // menu item icons
 import Home from "@/icons/home.svg";
@@ -41,12 +41,12 @@ const itemList = [
     style: menuItemInlineStyle
   },
   { key: "teams", name: "Teams", icon: Group, style: menuItemInlineStyle },
-  {
-    key: "activities",
-    name: "Activities",
-    icon: Activity,
-    style: menuItemInlineStyle
-  },
+  // {
+  //   key: "activities",
+  //   name: "Activities",
+  //   icon: Activity,
+  //   style: menuItemInlineStyle
+  // },
   {
     key: "marketplace",
     name: "Marketplace",
@@ -120,7 +120,7 @@ const MainSidebar = ({ collapsed, logout, user }) => {
         <Menu.Item
           key="logout"
           style={{
-            marginTop: "320px"
+            marginTop: "380px"
           }}
         >
           <Icon
