@@ -13,15 +13,21 @@
     }
 
     .ant-layout-header {
+      position: fixed;
       padding: 0;
       line-height: 50px;
+      width: calc(100% - 250px);
       height: 50px;
       background-color: #fff;
       border-bottom: 1px solid gainsboro;
     }
 
     .main-content-wrapper {
+      margin-top: 50px;
       height: calc(100% - 50px);
+      overflow: auto;
     }
   }
 }
+
+// media query for header for small screens
