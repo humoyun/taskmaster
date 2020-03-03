@@ -11,8 +11,8 @@ import ProfileCard from "../components/ProfileCard";
 // menu item icons
 import Home from "@/icons/home.svg";
 import Projects from "@/icons/rocket.svg";
-import Group from "@/icons/group.svg";
-import Activity from "@/icons/hourglass.svg";
+import Group from "@/icons/users.svg";
+// import Activity from "@/icons/hourglass.svg";
 import MarketIcon from "@/icons/app.svg";
 import User from "@/icons/user.svg";
 import CloudStorage from "@/icons/cloud-storage.svg";
@@ -40,6 +40,12 @@ const itemList = [
     icon: Projects,
     style: menuItemInlineStyle
   },
+  {
+    key: "profile",
+    name: "Profile",
+    icon: User,
+    style: menuItemInlineStyle
+  },
   { key: "teams", name: "Teams", icon: Group, style: menuItemInlineStyle },
   // {
   //   key: "activities",
@@ -57,12 +63,6 @@ const itemList = [
     key: "storage",
     name: "Cloud Storage",
     icon: CloudStorage,
-    style: menuItemInlineStyle
-  },
-  {
-    key: "profile",
-    name: "Profile",
-    icon: User,
     style: menuItemInlineStyle
   }
 ];

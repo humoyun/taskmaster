@@ -3,11 +3,11 @@ import { Button, Card, Icon, Tag, Progress } from "antd";
 import { Row, Col } from "antd";
 import ChatNoDots from "@/icons/chat-no-dots.svg";
 import Layers from "@/icons/layers.svg";
-import Group from "@/icons/group.svg";
+import Group from "@/icons/users.svg";
 import Attachment from "@/icons/attachment.svg";
 import More from "@/icons/more.svg";
-import { useHistory, useLocation } from "react-router-dom";
-import propTypes from "prop-types";
+import { useHistory } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const coolColors = {
   dark: "#081426",
@@ -18,7 +18,7 @@ const coolColors = {
   textColor: "#6b7d99"
 };
 
-export default function Project({ project }) {
+function Project({ project }) {
   const history = useHistory();
 
   const goToProject = pid => {
@@ -105,3 +105,9 @@ export default function Project({ project }) {
     </Card>
   );
 }
+
+Project.propTypes = {
+  project: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired
+};
+
+export default Project;

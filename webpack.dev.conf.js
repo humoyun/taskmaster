@@ -3,14 +3,13 @@ const webpack = require("webpack");
 const merge = require("webpack-merge");
 const Dotenv = require("dotenv-webpack");
 const path = require("path");
-const fs = require("fs");
 
 const baseWebpackConf = require("./webpack.base.conf");
 
 const devConf = {
   mode: "development",
 
-  devtool: "#cheap-module-eval-source-map",
+  devtool: "cheap-module-source-map",
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -32,17 +31,10 @@ const devConf = {
      * Use 'ws' instead of 'sockjs-node' on server since we're
      * using native websockets in `webpackHotDevClient`.
      */
-
-    // transportMode: "ws",
+    transportMode: "ws",
 
     hot: true,
     port: 8118
-    // setup(app) {
-    //   app.use(
-    //     "/static/",
-    //     express.static(path.join(__dirname, "dist", "static", "css"))
-    //   );
-    // }
   }
 };
 

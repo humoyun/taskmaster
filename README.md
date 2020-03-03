@@ -56,7 +56,10 @@ and many more ...
 
 ### References and resources:
 
+- [Why did you render](https://www.npmjs.com/package/@welldone-software/why-did-you-render)
 - [Webpack online cookbook by SurviveJS](https://survivejs.com/webpack/)
+- [React internals](http://www.mattgreer.org/articles/react-internals-part-one-basic-rendering/)
+- [Write better code in React Best Practices](https://blog.bitsrc.io/how-to-write-better-code-in-react-best-practices-b8ca87d462b0)
 - [Kao React template](https://github.com/adhityasan/kao-react-template)
 - [Complete guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect)
 - [Reusing layouts in React-Router-4](https://simonsmith.io/reusing-layouts-in-react-router-4)
@@ -76,3 +79,4 @@ and many more ...
 - [React update unmounted component](https://www.debuggr.io/react-update-unmounted-component)
 - [Properties in JavaScript: definition versus assignment](https://2ality.com/2012/08/property-definition-assignment.html)
 - [Introduction to Responsive Web Design](https://www.toptal.com/responsive-web/introduction-to-responsive-web-design-pseudo-elements-media-queries)
+- [Stale While Revalidate](https://www.toptal.com/react-hooks/stale-while-revalidate)

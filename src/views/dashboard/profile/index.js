@@ -8,7 +8,7 @@ const ProfileWrapper = styled.div`
   grid-template-columns: 1fr 2fr;
   grid-auto-rows: minmax(400px, auto);
 
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1200px) {
     grid-template-columns: 1fr;
   }
 `;

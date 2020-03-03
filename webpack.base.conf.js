@@ -73,13 +73,7 @@ module.exports = {
       template: path.resolve(__dirname, "public/index.html"),
       favicon: path.resolve(__dirname, "public/favicon.ico"),
       title: "Task Master"
-    }),
-    new WebpackBundleAnalyzer({
-      analyzerMode: "static",
-      reportFilename: "./reports/report.html",
-      openAnalyzer: false
-    }),
-    new Visualizer()
+    })
   ],
 
   module: {

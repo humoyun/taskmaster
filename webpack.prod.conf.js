@@ -48,7 +48,7 @@ const prodConf = {
 
   mode: "production",
 
-  devtool: "cheap-module-source-map",
+  devtool: "source-map",
 
   module: {
     rules: [
@@ -97,7 +97,15 @@ const prodConf = {
       // both options are optional
       filename: "static/[name].[hash:8].css",
       chunkFilename: "static/[id][hash:8].css"
-    })
+    }),
+
+    new WebpackBundleAnalyzer({
+      analyzerMode: "static",
+      reportFilename: "./reports/report.html",
+      openAnalyzer: false
+    }),
+
+    new Visualizer()
   ]
 
   // plugins: [
