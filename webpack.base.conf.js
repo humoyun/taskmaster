@@ -3,9 +3,6 @@ const path = require("path");
 const fs = require("fs");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const WebpackBundleAnalyzer = require("webpack-bundle-analyzer")
-  .BundleAnalyzerPlugin;
-const Visualizer = require("webpack-visualizer-plugin");
 
 // style files regexes
 const cssRegex = /\.css$/i;

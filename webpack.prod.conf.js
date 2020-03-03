@@ -2,6 +2,9 @@ const webpack = require("webpack");
 const path = require("path");
 const fs = require("fs");
 
+const WebpackBundleAnalyzer = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
+const Visualizer = require("webpack-visualizer-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const merge = require("webpack-merge");
