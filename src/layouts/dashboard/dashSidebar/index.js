@@ -54,8 +54,8 @@ const itemList = [
   //   style: menuItemInlineStyle
   // },
   {
-    key: "marketplace",
-    name: "Marketplace",
+    key: "appmarket",
+    name: "App Market",
     icon: MarketIcon,
     style: menuItemInlineStyle
   },

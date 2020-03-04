@@ -3,7 +3,7 @@ import { Layouts } from "@/common/constants";
 import Projects from "@/views/dashboard/projects";
 import Teams from "@/views/dashboard/teams";
 import Activity from "@/views/dashboard/activity";
-import Marketplace from "@/views/dashboard/marketplace";
+import AppMarket from "@/views/dashboard/appmarket";
 import Storage from "@/views/dashboard/storage";
 import Profile from "@/views/dashboard/profile";
 import Dash from "@/views/dashboard";
@@ -45,9 +45,9 @@ const dashRoutes = [
   },
   {
     exact: true,
-    path: "/marketplace",
-    key: "dash/marketplace",
-    component: Marketplace,
+    path: "/appmarket",
+    key: "dash/appmarket",
+    component: AppMarket,
     location
   },
   {

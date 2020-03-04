@@ -53,3 +53,5 @@ export const SET_USER_AND_TOKENS = "user:setUserAndTokens";
 export const SET_USER = "auth:setUser";
 export const SET_ACCESS_TOKEN = "auth:setAccessToken";
 export const SET_REFRESH_TOKEN = "auth:setRefreshToken";
+
+export const ADD_ADDON = "addon:addAddon";
