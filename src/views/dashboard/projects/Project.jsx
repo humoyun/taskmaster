@@ -50,18 +50,16 @@ function Project({ project }) {
 
         <Col span={24}>
           <h3>{project.title}</h3>
-          <p>{`${project.desc.substr(0, 70)}...`}</p>
+          <div style={{ minHeight: 40 }}>
+            <span>{`${project.desc.substr(0, 70)}...`}</span>
+          </div>
         </Col>
 
         <Col span={24}>
           <Row>
             <Col span={20} style={{ color: "#c7c7c7", fontSize: "0.9em" }}>
-              <span style={{ display: "inline-block" }} className="date-time">
-                Start date: June 8, 2019
-              </span>
-              <span style={{ display: "inline-block" }} className="date-time">
-                Due date: February 2, 2020
-              </span>
+              <div className="date-time">Start date: June 8, 2019</div>
+              <div className="date-time">Due date: February 2, 2020</div>
             </Col>
             <Col span={4}>
               <Progress type="circle" percent={30} width={50} />

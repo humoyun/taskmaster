@@ -49,7 +49,7 @@ const initialState = [
     info: {},
     settings: {},
     imageThumbURL:
-      "https://avatars.slack-edge.com/2019-07-02/683455819365_cb7943101f808b8a303a_512.png"
+      "https://botlist.imgix.net/632/c/siftbot-medium.jpg?auto=compress"
   },
   {
     id: Math.random()
