@@ -34,7 +34,7 @@ const Addon = props => {
   return (
     <Card
       hoverable
-      style={{ width: "100%", maxWidth: 150 }}
+      style={{ width: 150, maxWidth: 150 }}
       bodyStyle={{ padding: "15px 10px" }}
       cover={
         !loading ? (

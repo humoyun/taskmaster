@@ -11,6 +11,7 @@ export const DATA_LOADED = "DATA_LOADED";
  * validation types
  */
 export const EMPTY_TODO = "EMPTY_TODO";
+
 /**
  *
  */
@@ -39,6 +40,7 @@ export const UPDATE_USER = "UPDATE_USER";
 export const ADD_SPRINT = "sprints:addSprint";
 export const REMOVE_SPRINT = "sprints:removeSprint";
 export const UPDATE_SPRINT = "sprints:updateSprint";
+
 /**
  *
  */

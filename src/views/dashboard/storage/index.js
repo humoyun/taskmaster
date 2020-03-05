@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import "./style.less";
 
 export default function Storage() {
   return (
-    <div>
-      <h2>Storage for assets</h2>
+    <div className="tm-cloud-storage">
+      <h2 style={{ color: "#6b7d99" }}>Storage for assets</h2>
     </div>
-  )
+  );
 }

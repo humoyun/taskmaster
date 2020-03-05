@@ -3,6 +3,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import projectsReducer from "./reducers/projects";
 import tasksReducer from "./reducers/tasks";
 import addonsReducer from "./reducers/addons";
+import teamsReducer from "./reducers/teams";
 import authReducer from "./reducers/auth";
 import { isEmpty } from "./middlewares";
 import thunk from "redux-thunk";
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   projects: projectsReducer,
   auth: authReducer,
   tasks: tasksReducer,
-  addons: addonsReducer
+  addons: addonsReducer,
+  teams: teamsReducer
 });
 
 const store = createStore(
