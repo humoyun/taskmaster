@@ -14,6 +14,19 @@ const Wrapper = styled.div`
   border-radius: 50%;
 `;
 
+const CollapsedProfile = styled.div`
+  width: 50px;
+  height: 180px;
+  background: linear-gradient(rgba(85, 193, 251, 0.46), rgb(255, 255, 255));
+  display: flex;
+  justify-content: center;
+
+  .ant-avatar {
+    margin: 0 auto;
+    margin-top: 25px;
+  }
+`;
+
 export default function ProfileCard(props) {
   const [loading, setLoading] = useState(false);
 

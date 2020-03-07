@@ -103,7 +103,7 @@ const MainSidebar = ({ collapsed, logout, user }) => {
   return (
     <div className="main-sidebar">
       {!collapsed ? (
-        <ProfileCard></ProfileCard>
+        <ProfileCard collapsed={collapsed}></ProfileCard>
       ) : (
         <CollapsedProfile>
           <Avatar size={40} src="https://i.pravatar.cc/100?img=59" />

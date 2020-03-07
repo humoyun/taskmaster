@@ -22,7 +22,7 @@ function Project({ project }) {
   const history = useHistory();
 
   const goToProject = pid => {
-    history.push(`app/${pid}`);
+    history.push(`app/${pid}/backlog`);
   };
 
   return (
@@ -32,7 +32,6 @@ function Project({ project }) {
           <Row type="flex" justify="space-between">
             <Col span={6}>
               <Button onClick={() => goToProject(project.id)} size="small">
-                {" "}
                 Go to Project
               </Button>
             </Col>

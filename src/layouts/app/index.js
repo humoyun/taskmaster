@@ -1,19 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+
 import styled from "styled-components";
 import { darken, lighten } from "polished";
-import { Menu, Icon } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { Menu, Icon } from "antd";
 
 // import Home from '@/icons/home.svg'
-import User from '@/icons/user.svg'
-import AppIcon from '@/icons/app.svg'
-
-import Calendar from '@/icons/calendar.svg'
+import User from "@/icons/user.svg";
+import AppIcon from "@/icons/app.svg";
+import Calendar from "@/icons/calendar.svg";
 import Layers from "@/icons/layers.svg";
 import Analytics from "@/icons/analytics.svg";
 import Members from "@/icons/tie.svg";
-import './style.less';
-
+import "./style.less";
 
 const UpperWrapper = styled.div`
   width: 30px;
@@ -33,52 +32,90 @@ const UserProfile = styled.div`
   height: 100px;
 `;
 
-const App = props => {
-  const history = useHistory()
-  const handleMenuClick = (e) => {
-
-  } 
-
-  const goHome = () => {
-    history.push('/');
+const menuItemInlineStyle = { fontSize: "22px", color: "#333" };
+const itemList = [
+  {
+    key: "backlog",
+    name: "Backlog",
+    icon: AppIcon,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "sprints",
+    name: "Sprints",
+    icon: Layers,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "members",
+    name: "Members",
+    icon: Members,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "calendar",
+    name: "Calendar",
+    icon: Calendar,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "analytics",
+    name: "Analytics",
+    icon: Analytics,
+    style: menuItemInlineStyle
   }
+];
+
+const App = props => {
+  const history = useHistory();
+  const location = useLocation();
+  const [curMenuItem, setCurMenuItem] = useState(location.pathname.substr(1));
+  // myCookie.get("main_menu_active");
+
+  useEffect(() => {
+    const currPath = location.pathname.substr(1);
+    setCurMenuItem(currPath);
+
+    return () => {};
+  }, [location.pathname]);
+
+  const handleMenuClick = async ({ key }) => {
+    let target;
+
+    const lastIndex = location.pathname.lastIndexOf("/");
+    target = `${location.pathname.substr(0, lastIndex)}/${key}`;
+
+    history.push(target);
+  };
+
+  const menuItemList = itemList.map(item => (
+    <Menu.Item key={item.key}>
+      <Icon component={item.icon} style={item.style} />
+      <span>{item.name}</span>
+    </Menu.Item>
+  ));
 
   return (
     <div className="app-layout">
       <aside className="app-layout-sidebar">
         <UpperWrapper>
-          <h2 onClick={goHome}>TM</h2>
+          <h2 onClick={() => history.push("/")}>TM</h2>
         </UpperWrapper>
 
-        <Menu 
-          defaultSelectedKeys={['1']} 
-          mode="inline" 
-          onClick={handleMenuClick}
-          inlineCollapsed={true}>
-          <Menu.Item key="1">
-            <Icon component={AppIcon} style={{ fontSize: "22px", color: "#333" }} />
-            <span>Backlog</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-            <Icon component={Layers} style={{ fontSize: "22px", color: "#333" }} />
-            <span>Sprints</span>
-          </Menu.Item>
-          <Menu.Item key="3">
-            <Icon component={Members} style={{ fontSize: "22px", color: "#333" }} />
-            <span>Members</span>
-          </Menu.Item>
-          <Menu.Item key="4">
-            <Icon component={Calendar} style={{ fontSize: "22px", color: "#333" }} />
-            <span>Calendar</span>
-          </Menu.Item>
-          <Menu.Item key="5">
-            <Icon component={Analytics} style={{ fontSize: "22px", color: "#333" }} />
-            <span>Analytics</span>
-          </Menu.Item>
-        </Menu>  
+        <Menu
+          mode="inline"
+          inlineCollapsed={true}
+          selectedKeys={[curMenuItem]}
+          onClick={e => handleMenuClick(e)}
+        >
+          {menuItemList}
+        </Menu>
 
         <UserProfile>
-          <Icon component={User} style={{ fontSize: "40px", color: "#333", marginTop: '40px' }} />
+          <Icon
+            component={User}
+            style={{ fontSize: "40px", color: "#333", marginTop: "40px" }}
+          />
         </UserProfile>
       </aside>
 
