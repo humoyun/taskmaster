@@ -1,0 +1,79 @@
+.tm-calendar-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-width: 750px;
+  background-color: #fff;
+
+  .calendar-sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    padding: 20px;
+    color: #98a6ad;
+  }
+
+  .calendar-section {
+    flex: 4;
+    height: 100%;
+
+    .calendar-header {
+      width: 95%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 10%;
+    }
+
+    .calendar {
+      width: 95%;
+      max-width: 1200px;
+      height: auto;
+      color: #6c757d;
+
+      .days-header {
+        width: 100%;
+        height: 50px;
+        display: grid;
+        grid-template-columns: repeat(7, minmax(100px, 1fr));
+        background-color: #dee2e6;
+
+        .day-of-week {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #f1f5f7;
+          box-shadow: 0 0 0 1px #dee2e6;
+        }
+      }
+
+      .days {
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-gap: 1px;
+        grid-template-columns: repeat(7, minmax(100px, 1fr));
+        grid-template-rows: repeat(6, 100px);
+        background-color: #dee2e6;
+
+        .day {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #fff;
+          box-shadow: 0 0 0 1px #dee2e6;
+        }
+      }
+    }
+  }
+
+
+  @media only screen and (max-width: 1200px) {
+    flex-direction: column;
+
+    .calendar-sidebar {
+      flex-direction: row;
+    }
+  }
+}

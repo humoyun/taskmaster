@@ -15,7 +15,7 @@ const AppMarket = props => {
 
       <div className="addons-list">
         {listProps.list.map(addon => (
-          <Addon key={addon.id} addon={addon}></Addon>
+          <Addon key={addon.id} addon={addon} className="addon"></Addon>
         ))}
       </div>
     </div>
