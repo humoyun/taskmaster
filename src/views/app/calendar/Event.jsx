@@ -1,6 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 import styled from "styled-components";
+import Types from "./types";
 
 const EventBox = styled.div`
   width: 100%;
@@ -17,7 +18,7 @@ export default function Event(props) {
   const evt = props.evt;
 
   const [{ isDragging }, drag] = useDrag({
-    item: { name, type: "event" },
+    item: { name, type: Types.EVENT },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult) {

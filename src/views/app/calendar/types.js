@@ -1,5 +1,5 @@
 const Types = {
-  TYPE: "event-card"
+  EVENT: "event-card"
 };
 
 export default Types;

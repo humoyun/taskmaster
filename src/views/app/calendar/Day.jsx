@@ -1,6 +1,7 @@
 import React from "react";
 import { useDrop } from "react-dnd";
 import dayjs from "dayjs";
+import Types from "./types";
 
 window.dayjs = dayjs;
 
@@ -10,7 +11,7 @@ const Day = props => {
   const allowedDropEffect = "any";
 
   const [{ canDrop, isOver }, drop] = useDrop({
-    accept: "event",
+    accept: Types.EVENT,
     drop: () => ({ name: "Day" }),
     collect: monitor => ({
       isOver: monitor.isOver(),
