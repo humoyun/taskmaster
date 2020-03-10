@@ -4,7 +4,7 @@ import { DndProvider } from "react-dnd";
 import Backend from "react-dnd-html5-backend";
 
 import Day from "./Day";
-import Calendar from "./Calendar";
+import CalendarGrid from "./CalendarGrid";
 import Sidebar from "./Sidebar";
 
 import "./style.less";
@@ -16,7 +16,7 @@ import "./style.less";
  */
 
 // #fcf8e3;
-const CalWrapper = props => {
+const Calendar = props => {
   const nums = Array(42)
     .fill(1)
     .map((i, ind) => ({
@@ -34,10 +34,10 @@ const CalWrapper = props => {
       <DndProvider backend={Backend}>
         <Sidebar></Sidebar>
 
-        <Calendar days={days}></Calendar>
+        <CalendarGrid days={days}></CalendarGrid>
       </DndProvider>
     </div>
   );
 };
 
-export default CalWrapper;
+export default Calendar;

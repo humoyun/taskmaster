@@ -18,7 +18,7 @@ const CurrentDate = styled.div`
   justify-content: center;
 `;
 
-function Calendar({ days }) {
+function CalendarGrid({ days }) {
   const nums2 = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
   const daysOfWeek = nums2.map(dw => (
@@ -64,4 +64,4 @@ function Calendar({ days }) {
   );
 }
 
-export default Calendar;
+export default CalendarGrid;
