@@ -3,7 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import styled from "styled-components";
 import { darken, lighten } from "polished";
-import { Menu, Icon } from "antd";
+import { Input, Menu, Icon } from "antd";
 
 // import Home from '@/icons/home.svg'
 import User from "@/icons/user.svg";
@@ -14,6 +14,7 @@ import Analytics from "@/icons/analytics.svg";
 import Members from "@/icons/tie.svg";
 import "./style.less";
 
+const { Search } = Input;
 const UpperWrapper = styled.div`
   width: 30px;
   height: 50px;
@@ -120,7 +121,14 @@ const App = props => {
       </aside>
 
       <div className="app-layout-main">
-        <div className="main-header">Header</div>
+        <div className="main-header">
+          <Search
+            className="app-input"
+            placeholder="Search..."
+            onSearch={value => console.log(value)}
+            style={{ width: 200 }}
+          />
+        </div>
         <section className="main-content">{props.children}</section>
       </div>
     </div>

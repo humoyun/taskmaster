@@ -57,12 +57,17 @@
         grid-template-rows: repeat(6, 100px);
         background-color: #dee2e6;
 
-        .day {
+        .day-of-month {
           position: relative;
           display: flex;
           justify-content: center;
           background-color: #fff;
           box-shadow: 0 0 0 1px #dee2e6;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #dcdcdc;
+          }
         }
       }
     }

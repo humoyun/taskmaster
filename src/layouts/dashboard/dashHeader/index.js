@@ -1,30 +1,47 @@
 import React from "react";
 import { Input, Badge, Popover } from "antd";
+
 import Notification from "@/icons/notification.svg";
 import Message from "@/icons/message.svg";
-
+import styled from "styled-components";
 import "./style.less";
 
 const { Search } = Input;
+
+const Notif = styled.div`
+  dislplay: flex;
+  flex-direction: row;
+
+  div {
+  }
+`;
+const Msg = styled.div``;
 
 function Header() {
   const ntfText = <span>Notifications</span>;
   const msgText = <span>Messages</span>;
 
+  const notifs = [
+    "notification 1",
+    "notification 2",
+    "notification 3",
+    "notification 4"
+  ];
+
+  const messages = ["messages 1", "messages 2", "messages 3", "messages 4"];
+
   const ntfContent = (
-    <div classNam="notifications-box">
-      <p>notification 1</p>
-      <p>notification 2</p>
-      <p>notification 3</p>
-      <p>notification 4</p>
+    <div className="notifications-box">
+      {notifs.map(ntf => (
+        <div key={ntf}>{ntf}</div>
+      ))}
     </div>
   );
-
   const msgContent = (
-    <div classNam="notifications-box">
-      <p>message 1</p>
-      <p>message 2</p>
-      <p>message 3</p>
+    <div className="messages-box">
+      {messages.map(msg => (
+        <div key={msg}>{msg}</div>
+      ))}
     </div>
   );
 

@@ -4,7 +4,7 @@ import { DndProvider } from "react-dnd";
 import Backend from "react-dnd-html5-backend";
 
 import Day from "./Day";
-import CalendarGrid from "./CalendarGrid";
+import MonthGrid from "./MonthGrid";
 import Sidebar from "./Sidebar";
 
 import "./style.less";
@@ -34,7 +34,7 @@ const Calendar = props => {
       <DndProvider backend={Backend}>
         <Sidebar></Sidebar>
 
-        <CalendarGrid days={days}></CalendarGrid>
+        <MonthGrid days={days}></MonthGrid>
       </DndProvider>
     </div>
   );

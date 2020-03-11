@@ -33,6 +33,7 @@ const EventBox = styled.div`
   cursor: move;
   margin-bottom: 2px;
   font-size: 0.9em;
+  transition: background-color 0.1s;
 
   span {
     width: 100%;
@@ -64,7 +65,7 @@ const Day = props => {
 
   const [{ canDrop, isOver }, drop] = useDrop({
     accept: Types.EVENT,
-    drop: () => ({ name: "Day" }),
+    drop: () => ({ name: `Day-${day.day}` }),
     collect: monitor => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop()
@@ -90,7 +91,7 @@ const Day = props => {
   const firstDayOfWeek = map[dayOfWeek];
 
   if (isActive) {
-    backgroundColor = "#dee2e6";
+    backgroundColor = "#e0faff";
   } else if (canDrop) {
     backgroundColor = "#fff";
   }
@@ -129,12 +130,12 @@ const Day = props => {
   ];
 
   return (
-    <div className="day" ref={drop} style={{ backgroundColor }}>
+    <div className="day-of-month" ref={drop} style={{ backgroundColor }}>
       <DayBox>{day.day}</DayBox>
       <EWrapper>
         {day.day === today &&
           events.map(evt => (
-            <EventBox key={evt.key} color={evt.color}>
+            <EventBox key={evt.id} color={evt.color}>
               <span>{evt.title}</span>
             </EventBox>
           ))}

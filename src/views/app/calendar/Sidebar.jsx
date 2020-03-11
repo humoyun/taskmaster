@@ -21,10 +21,42 @@ const Sidebar = props => {
   };
 
   const nums3 = [
-    { id: "num-1", name: "New theme release", color: "#1abc9c", type: "event" },
-    { id: "num-2", name: "New UI/UX meeting", color: "#4fc6e1", type: "event" },
-    { id: "num-3", name: "Security testing", color: "#f7b84b", type: "event" },
-    { id: "num-4", name: "Bug fix", color: "#f1556c", type: "event" }
+    {
+      id: "num-1",
+      name: "New theme release",
+      color: "#1abc9c",
+      date: "",
+      owner: "",
+      participants: [],
+      priority: "primary"
+    },
+    {
+      id: "num-2",
+      name: "New UI/UX meeting",
+      color: "#4fc6e1",
+      date: "",
+      owner: "",
+      participants: [],
+      priority: "primary"
+    },
+    {
+      id: "num-3",
+      name: "Security testing",
+      color: "#f7b84b",
+      date: "",
+      owner: "",
+      participants: [],
+      priority: "primary"
+    },
+    {
+      id: "num-4",
+      name: "Bug fix",
+      color: "#f1556c",
+      date: "",
+      owner: "",
+      participants: [],
+      priority: "primary"
+    }
   ];
 
   const eventBoxes = nums3.map(event => (
