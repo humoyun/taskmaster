@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { Card } from "antd";
+import { Card, notification } from "antd";
 import styled from "styled-components";
 import { Form, Icon, Input, Button, Checkbox } from "antd";
 import Twitter from "@/icons/twitter_mini.svg";
@@ -69,6 +69,16 @@ class LoginForm extends React.Component {
       this.setState(state => ({ loading: false }));
     }
   };
+
+  componentDidMount() {
+    notification.info({
+      message: "Credentials",
+      description: "Username: humoyun; Password: qwe123",
+      onClick: () => {
+        console.log("Notification Clicked!");
+      }
+    });
+  }
 
   render() {
     const { getFieldDecorator } = this.props.form;
