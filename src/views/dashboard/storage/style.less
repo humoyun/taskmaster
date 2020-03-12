@@ -4,5 +4,40 @@
   padding: 20px 30px;
   overflow-y: auto;
   background-color: #f5f6f8;
+
+
   // background-color: @color--bg-main;
+  .storage-header {
+    width: 100%;
+    height: 100px;
+  }
+
+  .storage-content {
+    width: 100%;
+    display: flex;
+    height: calc(100% - 120px);
+
+    .storage-file-grid {
+      flex: 3;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-rows: repeat(auto-fit, 50px);
+      grid-gap: 10px;
+      // color: #444;
+      margin-right: 30px;
+    }
+
+    .storage-file-preview {
+      flex: 1;
+      height: 100%;
+      background-color: #fff;
+    }
+
+    @media only screen and (max-width: 700px) {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .addons-list {}
 }

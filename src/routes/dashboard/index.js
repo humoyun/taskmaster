@@ -2,7 +2,6 @@ import React from "react";
 import { Layouts } from "@/common/constants";
 import Projects from "@/views/dashboard/projects";
 import Teams from "@/views/dashboard/teams";
-import Activity from "@/views/dashboard/activity";
 import AppMarket from "@/views/dashboard/appmarket";
 import Storage from "@/views/dashboard/storage";
 import Profile from "@/views/dashboard/profile";
@@ -34,13 +33,6 @@ const dashRoutes = [
     path: "/teams",
     key: "dash/teams",
     component: Teams,
-    location
-  },
-  {
-    exact: true,
-    path: "/activities",
-    key: "dash/activity",
-    component: Activity,
     location
   },
   {

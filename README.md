@@ -80,3 +80,4 @@ and many more ...
 - [Properties in JavaScript: definition versus assignment](https://2ality.com/2012/08/property-definition-assignment.html)
 - [Introduction to Responsive Web Design](https://www.toptal.com/responsive-web/introduction-to-responsive-web-design-pseudo-elements-media-queries)
 - [Stale While Revalidate](https://www.toptal.com/react-hooks/stale-while-revalidate)
+- [Animating between views in react](https://css-tricks.com/animating-between-views-in-react)

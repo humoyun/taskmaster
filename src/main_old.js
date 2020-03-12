@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import Login from "./views/auth/login";
 import Register from "./views/auth/register";
 import ForgetPassword from "./views/auth/forget";
-// import Home from "./views/Home";
 import NotFound from "./views/NotFound";
 
 import MainContent from "./views/content";
@@ -10,7 +9,6 @@ import Projects from "./views/dashboard/projects";
 import Project from "./views/dashboard/projects/Project";
 import Teams from "./views/dashboard/teams";
 import Team from "./views/dashboard/teams/Team";
-import Activities from "./views/dashboard/activity";
 import AppView from "./views/AppView";
 
 import RouteWithLayout from "./views/RouteWithLayout";
@@ -60,13 +58,6 @@ const Main = ({ title }) => {
             layout={AppView}
             component={Team}
           />
-          <RouteWithLayout
-            path="/activities"
-            layout={AppView}
-            component={Activities}
-            exact
-          />
-
           <Route path="*">
             <NotFound />
           </Route>
