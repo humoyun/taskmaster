@@ -18,7 +18,6 @@
     height: calc(100% - 120px);
 
     .storage-file-grid {
-      flex: 3;
       height: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -29,13 +28,54 @@
     }
 
     .storage-file-preview {
-      flex: 1;
       height: 100%;
       background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
     }
 
-    @media only screen and (max-width: 700px) {
+
+    @media only screen and (max-width: 900px) {
       flex-direction: column-reverse;
+
+      .storage-file-grid {
+        flex: 3;
+      }
+
+      .storage-file-preview {
+        flex: 2;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media only screen and (min-width: 900px) {
+      .storage-file-grid {
+        flex: 1;
+      }
+
+      .storage-file-preview {
+        flex: 1;
+      }
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .storage-file-grid {
+        flex: 2;
+      }
+
+      .storage-file-preview {
+        flex: 1;
+      }
+    }
+
+    @media only screen and (min-width: 1200px) {
+      .storage-file-grid {
+        flex: 3;
+      }
+
+      .storage-file-preview {
+        flex: 1;
+      }
     }
   }
 

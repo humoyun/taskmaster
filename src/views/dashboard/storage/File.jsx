@@ -69,37 +69,37 @@ function File(props) {
         return <FolderIcon style={{ width: 22 }} />;
 
       case "doc":
-        return <DocIcon style={{ width: 27 }} />;
+        return <DocIcon style={{ width: 30 }} />;
 
       case "png":
-        return <PngIcon style={{ width: 27 }} />;
+        return <PngIcon style={{ width: 30 }} />;
 
       case "json":
-        return <JsonIcon style={{ width: 27 }} />;
+        return <JsonIcon style={{ width: 30 }} />;
 
       case "ppt":
-        return <PptIcon style={{ width: 27 }} />;
+        return <PptIcon style={{ width: 30 }} />;
 
       case "mp4":
-        return <Mp4Icon style={{ width: 27 }} />;
+        return <Mp4Icon style={{ width: 30 }} />;
 
       case "mp3":
-        return <Mp3Icon style={{ width: 27 }} />;
+        return <Mp3Icon style={{ width: 30 }} />;
 
       case "pdf":
-        return <PdfIcon style={{ width: 27 }} />;
+        return <PdfIcon style={{ width: 30 }} />;
 
       case "zip":
-        return <ZipIcon style={{ width: 27 }} />;
+        return <ZipIcon style={{ width: 30 }} />;
 
       case "txt":
-        return <TxtIcon style={{ width: 27 }} />;
+        return <TxtIcon style={{ width: 30 }} />;
 
       case "html":
-        return <HtmlIcon style={{ width: 27 }} />;
+        return <HtmlIcon style={{ width: 30 }} />;
 
       default:
-        return <FileIcon style={{ width: 27 }} />;
+        return <FileIcon style={{ width: 30 }} />;
     }
   };
 
