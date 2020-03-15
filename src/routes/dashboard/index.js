@@ -1,11 +1,12 @@
 import React from "react";
 import { Layouts } from "@/common/constants";
-import Projects from "@/views/dashboard/projects";
-import Teams from "@/views/dashboard/teams";
-import AppMarket from "@/views/dashboard/appmarket";
-import Storage from "@/views/dashboard/storage";
-import Profile from "@/views/dashboard/profile";
-import Dash from "@/views/dashboard";
+
+import Home from "@/views/dashboard";
+
+const Projects = React.lazy(() => import("@/views/dashboard/projects"));
+const Profile = React.lazy(() => import("@/views/dashboard/profile"));
+const AppMarket = React.lazy(() => import("@/views/dashboard/appmarket"));
+const Storage = React.lazy(() => import("@/views/dashboard/storage"));
 
 const location = {
   state: {
@@ -18,7 +19,7 @@ const dashRoutes = [
     exact: true,
     path: "/",
     key: "dash",
-    component: Dash,
+    component: Home,
     location
   },
   {
@@ -26,13 +27,6 @@ const dashRoutes = [
     path: "/projects",
     key: "dash/projects",
     component: Projects,
-    location
-  },
-  {
-    exact: true,
-    path: "/teams",
-    key: "dash/teams",
-    component: Teams,
     location
   },
   {

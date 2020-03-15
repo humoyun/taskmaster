@@ -1,40 +1,47 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Avatar } from "antd";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: ${props => props.width};
-  height: ${props => props.width};
-  margin: 0 auto;
+  width: ${props => props.width}px;
+  height: ${props => props.width}px;
   background-color: #fff;
-  border: 1px solid ${props => props.borderColor};
   border-radius: 50%;
+
+  img {
+    width: 100%;
+    padding: 3px;
+    border: 1px solid ${props => props.borderColor};
+    border-radius: 50%;
+  }
 `;
 
 function Avatar(props) {
-  const { size, borderGap, borderColor } = props;
+  const { size, src, borderGap, borderColor } = props;
 
   return (
-    <Wrapper width={borderGap} borderColor={borderColor}>
-      <Avatar size={size} src="https://i.pravatar.cc/100?img=59" />
+    <Wrapper
+      className="profile-avatar"
+      width={size + borderGap}
+      size={size}
+      borderColor={borderColor}
+    >
+      <img src={src} alt="" />
     </Wrapper>
   );
 }
 
 Avatar.propTypes = {
-  size: PropTypes.number.isRequired,
+  src: PropTypes.string.isRequired,
+  size: PropTypes.number,
   borderGap: PropTypes.number,
   borderColor: PropTypes.string
 };
 
 Avatar.defaultProps = {
   size: 50,
-  borderGap: 2,
-  borderColor: "dodgerBlue"
+  borderGap: 4,
+  borderColor: "#dee2e6"
 };
 
 export default Avatar;

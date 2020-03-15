@@ -4,4 +4,38 @@
   padding: 20px 30px;
   overflow-y: auto;
   background-color: #f5f6f8;
+  display: flex;
+
+  .profile-left-part {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  .profile-right-part {
+    flex: 2;
+
+    .ant-list-items {
+      .ant-list-item {
+        padding: 5px 10px;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #f0f6ff;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    display: flex;
+    flex-direction: column;
+
+    .profile-left-part {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    .profile-right-part {
+    }
+  }
 }

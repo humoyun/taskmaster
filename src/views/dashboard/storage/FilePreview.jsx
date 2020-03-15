@@ -27,6 +27,12 @@ const TextBox = styled.div`
   color: #444;
 `;
 
+const IconBox = styled.div`
+  width: 30px;
+  padding: 30px;
+  font-size: 30;
+`;
+
 function FilePreview() {
   return (
     <div className="storage-file-preview">

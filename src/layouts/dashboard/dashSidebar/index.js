@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import { connect } from "react-redux";
-import { Menu, Icon, Avatar } from "antd";
+import { Menu, Icon } from "antd";
+import Avatar from "@/components/avatar";
 
 import styled from "styled-components";
 import "./style.less";
@@ -11,7 +12,6 @@ import ProfileCard from "../components/ProfileCard";
 // menu item icons
 import Home from "@/icons/home.svg";
 import Projects from "@/icons/rocket.svg";
-import GroupIcon from "@/icons/users.svg";
 import MarketIcon from "@/icons/app.svg";
 import User from "@/icons/user.svg";
 import CloudStorage from "@/icons/cloud-storage.svg";
@@ -20,7 +20,7 @@ import Logout from "@/icons/logout.svg";
 const CollapsedProfile = styled.div`
   width: 50px;
   height: 180px;
-  background: linear-gradient(rgba(85, 193, 251, 0.46), rgb(255, 255, 255));
+  background: ;
   display: flex;
   justify-content: center;
 
@@ -30,7 +30,7 @@ const CollapsedProfile = styled.div`
   }
 `;
 
-const menuItemInlineStyle = { fontSize: "20px", color: "#333" };
+const menuItemInlineStyle = { fontSize: "20px", color: "#fff" };
 const itemList = [
   { key: "home", name: "Home", icon: Home, style: menuItemInlineStyle },
   {
@@ -45,7 +45,6 @@ const itemList = [
     icon: User,
     style: menuItemInlineStyle
   },
-  { key: "teams", name: "Teams", icon: GroupIcon, style: menuItemInlineStyle },
   {
     key: "appmarket",
     name: "App Market",
@@ -99,13 +98,18 @@ const MainSidebar = ({ collapsed, logout, user }) => {
         <ProfileCard collapsed={collapsed}></ProfileCard>
       ) : (
         <CollapsedProfile>
-          <Avatar size={40} src="https://i.pravatar.cc/100?img=59" />
+          <Avatar
+            size={40}
+            src="https://i.pravatar.cc/100?img=59"
+            borderColor="#06227d"
+          />
         </CollapsedProfile>
       )}
 
       <Menu
         selectedKeys={[curMenuItem]}
         mode="inline"
+        theme="dark"
         onClick={e => handleMenuClick(e)}
       >
         {menuItemList}
@@ -113,14 +117,14 @@ const MainSidebar = ({ collapsed, logout, user }) => {
         <Menu.Item
           key="logout"
           style={{
-            marginTop: "380px"
+            marginTop: "420px"
           }}
         >
           <Icon
             component={Logout}
             style={{
               fontSize: "20px",
-              color: "#333"
+              color: "#fff"
             }}
           />
           <span>Logout</span>

@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { Button, Card, Avatar, Row, Col } from "antd";
+import { Button, Card, Row, Col } from "antd";
+import Avatar from "@/components/avatar";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 66px;
-  height: 66px;
+  width: 65px;
+  height: 65px;
   margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid #63c9ff;
-  border-radius: 50%;
 `;
 
 const CollapsedProfile = styled.div`
@@ -27,6 +25,8 @@ const CollapsedProfile = styled.div`
   }
 `;
 
+// background: `linear-gradient(rgba(85, 193, 251, 0.46), rgb(255, 255, 255))`;
+
 export default function ProfileCard(props) {
   const [loading, setLoading] = useState(false);
 
@@ -34,8 +34,8 @@ export default function ProfileCard(props) {
     <Card
       style={{
         width: 250,
-        borderRight: "1px solid #e8e8e8",
-        background: `linear-gradient(rgba(85, 193, 251, 0.46), rgb(255, 255, 255))`
+        background: "#06227d",
+        borderRadius: 0
       }}
       bodyStyle={{ padding: "25px 15px" }}
       loading={loading}
@@ -44,15 +44,20 @@ export default function ProfileCard(props) {
       <Row style={{ textAlign: "center" }}>
         <Col span={24}>
           <Wrapper>
-            <Avatar size={62} src="https://i.pravatar.cc/100?img=59" />
+            <Avatar
+              size={62}
+              borderGap={3}
+              borderColor="#06227d"
+              src="https://gitlab.com/uploads/-/system/user/avatar/2268258/avatar.png?width=200"
+            />
           </Wrapper>
         </Col>
         <Col span={24}>
-          <h3>Humoyun Ahmad</h3>
-          <div style={{ color: "#98a6ad" }}>
-            <Button type="link" style={{ padding: 0 }}>
+          <h3 style={{ color: "#fff" }}>Humoyun Ahmad</h3>
+          <div style={{ color: "#fff" }}>
+            <Button type="link" style={{ padding: 0, color: "#fff" }}>
               @humoyun
-            </Button>{" "}
+            </Button>
             | Seoul, S. Korea
           </div>
         </Col>
