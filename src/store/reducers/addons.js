@@ -19,7 +19,7 @@ const initialState = [
     info: {},
     settings: {},
     imageThumbURL:
-      "https://avatars.slack-edge.com/2019-04-15/608395662292_64108f1a3c1056b0d3c7_512.png"
+      "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/062016/untitled-1_268.png"
   },
   {
     id: Math.random()

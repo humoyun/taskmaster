@@ -147,6 +147,10 @@ const initState = [
   }
 ];
 
+const Tooltip = data => {
+  /* return custom tooltip */
+};
+
 function ProfilePanel() {
   const [data, setData] = useState([]);
   const [tasks, setTasks] = useState([]);
@@ -294,10 +298,15 @@ function ProfilePanel() {
           emptyColor="#eeeeee"
           colors={["#61cdbb", "#97e3d5", "#e8c1a0", "#f47560"]}
           margin={{ top: 0, right: 20, bottom: 30, left: 20 }}
-          yearSpacing={40}
+          yearSpacing={20}
           monthBorderColor="#ffffff"
           dayBorderWidth={2}
           dayBorderColor="#ffffff"
+          tooltip={({ day, value, color }) => (
+            <strong style={{ color }}>
+              {day}: contributions {value}
+            </strong>
+          )}
           legends={[
             {
               anchor: "bottom-right",
