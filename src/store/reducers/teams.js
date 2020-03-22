@@ -2,28 +2,34 @@ import { ADD_TEAM, REMOVE_TEAM } from "../types";
 
 const initialState = [
   {
-    id: Math.random()
-      .toString(26)
-      .slice(2),
+    id: "team-1",
     title: "frontend",
-    owner: "Ahmed",
-    members: []
+    owner: "mudin",
+    created: "18-08-2018",
+    members: [
+      { id: "mudin-id", name: "mudin" },
+      { id: "humoyun-id", name: "humoyun" }
+    ],
+    icon: "team-rowing"
   },
   {
-    id: Math.random()
-      .toString(26)
-      .slice(2),
-    title: "testers",
-    owner: "Ahmed",
-    members: []
+    id: "team-2",
+    title: "task force",
+    owner: "humoyun",
+    created: "20-12-2019",
+    members: [
+      { id: "farxod-id", name: "farxod" },
+      { id: "humoyun-id", name: "humoyun" }
+    ],
+    icon: "team-rowing"
   },
   {
-    id: Math.random()
-      .toString(26)
-      .slice(2),
-    title: "home projects",
-    owner: "Ahmed",
-    members: []
+    id: "team-3",
+    title: "legacy apps",
+    owner: "sardor",
+    created: "09-04-2016",
+    members: [{ id: "sardor-id", name: "sardor" }],
+    icon: "team-rowing"
   }
 ];
 

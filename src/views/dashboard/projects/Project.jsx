@@ -61,7 +61,7 @@ function Project({ project }) {
               <div className="date-time">Due date: February 2, 2020</div>
             </Col>
             <Col span={4}>
-              <Progress type="circle" percent={30} width={50} />
+              <Progress type="circle" percent={project.percent} width={50} />
             </Col>
           </Row>
         </Col>

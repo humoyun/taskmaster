@@ -5,7 +5,6 @@ const initialState = [
     id: Math.random()
       .toString(26)
       .slice(2),
-    status: "ongoing",
     title: "App Development",
     teamName: "PRIDE SOFTWARES",
     desc: "These events are useful in that they allow us to solve",
@@ -23,13 +22,14 @@ const initialState = [
     createdAt: new Date(),
     dueAt: new Date(),
     state: "Completed",
-    color: "blue"
+    color: "blue",
+    percent: 100 // should be resolvedTask/numOfTotalTasks * 109%
   },
   {
     id: Math.random()
       .toString(26)
       .slice(2),
-    status: "ongoing",
+
     title: "Website Redesign",
     teamName: "ENIGMA NAVIGATION",
     desc: "Simple tasks easily. For instance, they allow us to handle",
@@ -40,7 +40,8 @@ const initialState = [
     createdAt: new Date(),
     dueAt: new Date(),
     state: "Created",
-    color: "gold"
+    color: "gold",
+    percent: 0 // should be resolvedTask/numOfTotalTasks * 109%
   },
   {
     id: Math.random()
@@ -58,7 +59,8 @@ const initialState = [
     createdAt: new Date(),
     dueAt: new Date(),
     state: "In Progress",
-    color: "green"
+    color: "green",
+    percent: 34 // should be resolvedTask/numOfTotalTasks * 109%
   },
   {
     id: Math.random()
@@ -75,8 +77,9 @@ const initialState = [
     numOfTasks: 34,
     createdAt: new Date(),
     dueAt: new Date(),
-    state: "Completed",
-    color: "blue"
+    state: "In Progress",
+    color: "green",
+    percent: 78 // should be resolvedTask/numOfTotalTasks * 109%
   }
 ];
 

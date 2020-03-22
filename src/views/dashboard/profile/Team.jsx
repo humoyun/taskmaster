@@ -80,7 +80,11 @@ const Team = props => {
   };
 
   return (
-    <Card hoverable bodyStyle={{ padding: 10 }} style={{ margin: "5px 0" }}>
+    <Card
+      hoverable
+      bodyStyle={{ padding: 10 }}
+      style={{ margin: "5px 0", backgroundColor: "#f5f6f8" }}
+    >
       <ItemContent>
         <div className="icon-box">
           <Icon component={TeamIconThree} style={{ fontSize: 42 }} />

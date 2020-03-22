@@ -1,0 +1,26 @@
+[
+  {
+    "id": "app-development",
+    "label": "App Development",
+    "value": 172,
+    "color": "hsl(295, 70%, 50%)"
+  },
+  {
+    "id": "new-admin-design",
+    "label": "New Admin Design",
+    "value": 568,
+    "color": "hsl(286, 70%, 50%)"
+  },
+  {
+    "id": "microservices",
+    "label": "Microservices",
+    "value": 461,
+    "color": "hsl(249, 70%, 50%)"
+  },
+  {
+    "id": "website-redesign",
+    "label": "Website Redesign",
+    "value": 592,
+    "color": "hsl(115, 70%, 50%)"
+  }
+]
