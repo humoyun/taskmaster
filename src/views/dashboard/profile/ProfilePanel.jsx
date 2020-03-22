@@ -74,15 +74,6 @@ const ItemContent = styled.div`
   }
 `;
 
-// const ProfilePanel = styled.div`
-//   border: 1px solid #ccc;
-//   grid-area: panel;
-//   color: #444;
-//   border-radius: 5px;
-//   padding: 20px;
-//   background-color: #fff;
-// `;
-
 const initState = [
   {
     id: "task-123",
@@ -254,6 +245,7 @@ function ProfilePanel() {
       <Controls>
         {controlButtons.map(btn => (
           <Button
+            key={btn.key}
             type={active === btn.key ? "primary" : "default"}
             onClick={() => setActive(btn.key)}
           >
