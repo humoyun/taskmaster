@@ -19,6 +19,8 @@ const rootReducer = combineReducers({
   teams: teamsReducer
 });
 
+// TODO: define all selectors
+
 const store = createStore(
   rootReducer,
   storeEnhancers(applyMiddleware(...middlewares))
