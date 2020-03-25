@@ -10,6 +10,7 @@ const initialState = [
       { id: "mudin-id", name: "mudin" },
       { id: "humoyun-id", name: "humoyun" }
     ],
+    projects: ["project-1", "project-2"],
     icon: "team-rowing"
   },
   {
@@ -21,6 +22,7 @@ const initialState = [
       { id: "farxod-id", name: "farxod" },
       { id: "humoyun-id", name: "humoyun" }
     ],
+    projects: ["project-3"],
     icon: "team-rowing"
   },
   {
@@ -29,6 +31,7 @@ const initialState = [
     owner: "sardor",
     created: "09-04-2016",
     members: [{ id: "sardor-id", name: "sardor" }],
+    projects: [],
     icon: "team-rowing"
   }
 ];

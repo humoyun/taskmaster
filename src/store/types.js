@@ -15,7 +15,10 @@ export const EMPTY_TODO = "EMPTY_TODO";
 /**
  *
  */
+export const PROJECT_LOADED = "PROJECT_LOADED";
+export const PROJECTS_LOADED = "PROJECTS_LOADED";
 export const ADD_PROJECT = "ADD_PROJECT";
+export const EDIT_PROJECT = "ADD_PROJECT";
 export const REMOVE_PROJECT = "REMOVE_PROJECT";
 export const UPDATE_PROJECT = "UPDATE_PROJECT";
 
@@ -57,3 +60,5 @@ export const SET_ACCESS_TOKEN = "auth:setAccessToken";
 export const SET_REFRESH_TOKEN = "auth:setRefreshToken";
 
 export const ADD_ADDON = "addon:addAddon";
+export const ADDONS_LOADED = "addon:Loaded";
+export const CLEAR_ADDONS = "addon:Clear";

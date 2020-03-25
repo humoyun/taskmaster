@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import styled from "styled-components";
 import withEmpty from "@/components/hoc/withEmpty";
+import { getAddons, clearAddons } from "@/store/actions/addons";
 import Addon from "./Addon";
 
 import "./style.less";
 
-const AppMarket = props => {
-  const addons = props.addons;
+const AppMarket = ({ addons, getAddons, clearAddons }) => {
+  useEffect(() => {
+    const call = async () => await getAddons();
+    call();
+    return () => {
+      clearAddons();
+      console.log("AppMarket clean up code");
+    };
+  }, []);
 
   const AddonList = listProps => (
     <div className="addons-container">
@@ -21,7 +28,7 @@ const AppMarket = props => {
     </div>
   );
 
-  const ListWithEmpty = withEmpty(AddonList);
+  const ListWithEmpty = withEmpty(AddonList, "There is addons yet");
 
   return (
     <div className="app-market-wrapper">
@@ -39,4 +46,17 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(AppMarket);
+// NOTE: actionCreators is better suited than mapDispatchToProps
+// NOTE: mapDispatchToProps can be also {} plain object, much better syntax
+/**
+ * NOTE: If your actions do need arguments,
+ * then you can just wrap those specific action creators in a function, like so:
+ * removeAddon: () => increment(42),
+ * */
+
+const actionCreators = {
+  getAddons,
+  clearAddons
+};
+
+export default connect(mapStateToProps, actionCreators)(AppMarket);

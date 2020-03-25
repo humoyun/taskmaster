@@ -10,12 +10,15 @@ const EmptyWrapper = styled.div`
   justify-content: center;
 `;
 
-const withEmpty = Component => {
+const withEmpty = (Component, title) => {
   return ({ isEmpty, ...props }) => {
     if (isEmpty)
       return (
         <EmptyWrapper>
-          <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description={title ? title : "No Data"}
+          />
         </EmptyWrapper>
       );
 

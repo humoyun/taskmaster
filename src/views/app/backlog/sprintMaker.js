@@ -134,7 +134,7 @@ function sprintMaker(Component) {
     return (
       <Component
         header={makeHeader(data.name, data.taskList.length)}
-        key={data.key}
+        key={data.id}
       >
         <Wrapper>{isSprintEmpty(data, index)}</Wrapper>
       </Component>

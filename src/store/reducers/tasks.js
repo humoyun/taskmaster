@@ -3,6 +3,8 @@ import { ADD_TASK, REMOVE_TASK } from "../types";
 const initialState = [
   {
     id: 2000,
+    projectId: "project-1",
+    sprintId: "sprint-id-2",
     title: "recontextualize synergistic relationships",
     subject: "Donec vitae nisi. Sed vel enim sit amet nunc viverra dapibus.",
     status: "Pending",
@@ -14,6 +16,8 @@ const initialState = [
   },
   {
     id: 2001,
+    projectId: "project-1",
+    sprintId: "sprint-id-2",
     title: "syndicate seamless experiences",
     subject:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.",
@@ -26,6 +30,8 @@ const initialState = [
   },
   {
     id: 2002,
+    projectId: "project-1",
+    sprintId: "sprint-id-2",
     title: "repurpose vertical methodologies",
     subject:
       "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. Duis aliquam convallis nunc.",
@@ -38,6 +44,8 @@ const initialState = [
   },
   {
     id: 2003,
+    projectId: "project-1",
+    sprintId: "sprint-id-2",
     title: "engage wireless ROI",
     subject:
       "Curabitur convallis. Morbi vel lectus in quam fringilla rhoncus. Cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Nullam sit amet turpis elementum ligula vehicula consequat.",
@@ -50,6 +58,8 @@ const initialState = [
   },
   {
     id: 2004,
+    projectId: "project-1",
+    sprintId: "sprint-id-2",
     title: "mesh killer metrics",
     subject:
       "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
@@ -62,6 +72,8 @@ const initialState = [
   },
   {
     id: 2005,
+    projectId: "project-1",
+    sprintId: "sprint-id-2",
     title: "utilize rich deliverables",
     subject: "Vestibulum sed magna at nunc commodo placerat. Praesent blandit.",
     status: "Closed",
@@ -73,6 +85,8 @@ const initialState = [
   },
   {
     id: 2006,
+    projectId: "project-1",
+    sprintId: "sprint-id-3",
     title: "scale intuitive initiatives",
     subject:
       "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
@@ -85,6 +99,8 @@ const initialState = [
   },
   {
     id: 2007,
+    projectId: "project-1",
+    sprintId: "sprint-id-2",
     title: "aggregate vertical networks",
     subject:
       "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.  Praesent blandit.",
@@ -97,6 +113,8 @@ const initialState = [
   },
   {
     id: 2008,
+    projectId: "project-1",
+    sprintId: "sprint-id-3",
     title: "transform strategic initiatives",
     subject:
       "Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",
@@ -109,6 +127,8 @@ const initialState = [
   },
   {
     id: 2009,
+    projectId: "project-1",
+    sprintId: "sprint-id-3",
     title: "reintermediate collaborative relationships",
     subject:
       "Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
@@ -121,6 +141,8 @@ const initialState = [
   },
   {
     id: 2010,
+    projectId: "project-1",
+    sprintId: "sprint-id-3",
     title: "streamline magnetic solutions",
     subject:
       "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
