@@ -4,6 +4,7 @@ import projectsReducer from "./reducers/projects";
 import tasksReducer from "./reducers/tasks";
 import addonsReducer from "./reducers/addons";
 import teamsReducer from "./reducers/teams";
+import storageReducer from "./reducers/storage";
 import authReducer from "./reducers/auth";
 import { isEmpty } from "./middlewares";
 import thunk from "redux-thunk";
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   auth: authReducer,
   tasks: tasksReducer,
   addons: addonsReducer,
-  teams: teamsReducer
+  teams: teamsReducer,
+  drive: storageReducer
 });
 
 // TODO: define all selectors

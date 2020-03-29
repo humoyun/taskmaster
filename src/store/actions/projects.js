@@ -1,6 +1,6 @@
 import {
   ADD_PROJECT,
-  REMOVE_PROJECT,
+  CLEAR_PROJECTS,
   EDIT_PROJECT,
   PROJECTS_LOADED,
   PROJECT_LOADED
@@ -74,6 +74,30 @@ const db = [
   }
 ];
 
+// Pure Actions
+
+// Mutations
+export function clearProjects() {
+  return { type: CLEAR_PROJECTS, payload: [] };
+}
+
+export function addProject(payload) {
+  return { type: ADD_PROJECT, payload };
+}
+
+export function editProject(payload) {
+  return { type: EDIT_PROJECT, payload };
+}
+
+/**
+ ************************* API CALLS *************************
+ */
+
+/**
+ *
+ * @param {*} pid
+ */
+
 export function getProject(pid) {
   return (dispatch, getState) => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -103,19 +127,3 @@ export const getProjects = () => {
     }
   };
 };
-
-export function removeTodo(payload) {
-  return { type: REMOVE_PROJECT, payload };
-}
-
-export function addTodo(payload) {
-  return { type: ADD_PROJECT, payload };
-}
-
-export function done(payload) {
-  return { type: TODO_CHECKED, payload };
-}
-
-export function editTodo(payload) {
-  return { type: EDIT_PROJECT, payload };
-}

@@ -103,30 +103,32 @@ function File(props) {
     }
   };
 
-  return (
-    <div className="storage-item">
-      <FileItem>
-        <LeftBox>{iconMapper(file.icon)}</LeftBox>
-        <CenterBox>
-          <div style={{ fontSize: 14, color: "#444" }}>Documents</div>
-          <div>
-            {file.type === "folder" ? (
-              <span>
-                {file.numOfFiles} files, {file.size}
-              </span>
-            ) : (
-              <span>
-                .{file.extension} / {file.size}
-              </span>
-            )}
-          </div>
-        </CenterBox>
+  const handleClick = e => {
+    console.log("file handleClick +> ", e);
+  };
 
-        <RightBox>
-          <span>October 17, 2019</span>
-        </RightBox>
-      </FileItem>
-    </div>
+  return (
+    <FileItem className="storage-item" onClick={handleClick}>
+      <LeftBox>{iconMapper(file.icon)}</LeftBox>
+      <CenterBox>
+        <div style={{ fontSize: 14, color: "#444" }}>Documents</div>
+        <div>
+          {file.type === "folder" ? (
+            <span>
+              {file.numOfFiles} files, {file.size}
+            </span>
+          ) : (
+            <span>
+              .{file.extension} / {file.size}
+            </span>
+          )}
+        </div>
+      </CenterBox>
+
+      <RightBox>
+        <span>October 17, 2019</span>
+      </RightBox>
+    </FileItem>
   );
 }
 

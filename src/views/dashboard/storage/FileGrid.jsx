@@ -83,9 +83,9 @@ const files = [
   // }
 ];
 
-function FileGrid() {
+const FileGrid = () => {
   const fileList = files.map(file => <File key={file.id} file={file}></File>);
-  return <div className="storage-file-grid"> {fileList}</div>;
-}
+  return <div className="storage-file-grid">{fileList}</div>;
+};
 
 export default FileGrid;

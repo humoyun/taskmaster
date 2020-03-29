@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getProjects } from "@/store/actions/projects";
+import { getProjects, clearProjects } from "@/store/actions/projects";
 import Project from "./Project";
 import { Row, Col, Button } from "antd";
 import "./style.less";
 
-function Projects({ projects, getProjects }) {
+function Projects({ projects, getProjects, clearProjects }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
+    clearProjects();
+
     const call = async () => await getProjects();
     call();
     setLoading(false);
-    console.log("< -- projects page useEffect");
 
     return () => {
       console.log("projects clean up");
@@ -42,8 +43,9 @@ const mapStateToProps = state => {
   return { projects: state.projects };
 };
 
-const mapDispatchToProps = dispatch => {
-  return { getProjects: () => dispatch(getProjects()) };
+const mapDispatchToProps = {
+  getProjects,
+  clearProjects
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Projects);

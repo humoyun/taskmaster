@@ -1,29 +1,56 @@
 import React from "react";
 import { Button, Icon } from "antd";
+import styled from "styled-components";
+
+const Header = styled.div`
+  flex: 3;
+
+  .title {
+    color: "#6b7d99";
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .info {
+    color: #ccc;
+  }
+`;
+
+const Actions = styled.div`
+  flex: 1;
+
+  button {
+    margin: 5px;
+    padding: 2px 6px;
+    font-size: 1.2em;
+  }
+`;
 
 function StorageHeader() {
   return (
     <div className="storage-header">
-      <h3 style={{ color: "#6b7d99" }}>Storage for assets</h3>
-      <div>9 folders, 13 files</div>
+      <Header>
+        <div className="title">Internal Storage</div>
+        <div className="info">9 folders, 13 files</div>
+      </Header>
 
-      <div>
-        <Button size="small">
+      <Actions className="storage-actions">
+        <Button>
           <Icon type="download" theme="outlined" />
         </Button>
-        <Button size="small">
+        <Button>
           <Icon type="delete" theme="outlined" />
         </Button>
-        <Button size="small">
+        <Button>
           <Icon type="info-circle" theme="outlined" />
         </Button>
-        <Button size="small">
+        <Button>
           <Icon type="plus-circle" theme="outlined" />
         </Button>
-        <Button size="small">
+        <Button>
           <Icon type="form" theme="outlined" />
         </Button>
-      </div>
+      </Actions>
     </div>
   );
 }

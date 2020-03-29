@@ -11,7 +11,7 @@ const Home = props => {
   console.log("dashboard props: ", props);
   const [collapsed, setCollapsed] = useState(false);
 
-  let siderWidth = "250";
+  let siderWidth = 250;
   const handleCollapse = (collapsed, type) => {
     console.log("onCollapse: ", collapsed, type);
   };
@@ -38,9 +38,15 @@ const Home = props => {
         </Sider>
 
         <Layout>
-          <Header>
-            <ContentHeader></ContentHeader>
-          </Header>
+          {collapsed ? (
+            <Header className="ant-design-override__min">
+              <ContentHeader></ContentHeader>
+            </Header>
+          ) : (
+            <Header className="ant-design-override__max">
+              <ContentHeader></ContentHeader>
+            </Header>
+          )}
 
           <Content className="main-content-wrapper">{props.children}</Content>
         </Layout>

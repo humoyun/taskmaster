@@ -113,13 +113,19 @@ const MainSidebar = ({ collapsed, logout, user }) => {
         onClick={e => handleMenuClick(e)}
       >
         {menuItemList}
+      </Menu>
 
-        <Menu.Item
-          key="logout"
-          style={{
-            marginTop: "420px"
-          }}
-        >
+      <Menu
+        selectedKeys={[curMenuItem]}
+        mode="inline"
+        theme="dark"
+        style={{
+          position: "absolute",
+          bottom: 10
+        }}
+        onClick={e => handleMenuClick(e)}
+      >
+        <Menu.Item key="logout">
           <Icon
             component={Logout}
             style={{

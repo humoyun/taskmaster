@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
-import "./style.less";
 import StorageHeader from "./StorageHeader";
 import FilePreview from "./FilePreview";
 import FileGrid from "./FileGrid";
+
+import "./style.less";
 
 export default function Storage() {
   return (
@@ -12,7 +12,9 @@ export default function Storage() {
 
       <div className="storage-content">
         <FileGrid></FileGrid>
-        <FilePreview></FilePreview>
+        <div className="storage-file-preview">
+          <FilePreview></FilePreview>
+        </div>
       </div>
     </div>
   );
