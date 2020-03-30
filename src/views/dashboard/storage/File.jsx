@@ -4,14 +4,22 @@ import styled from "styled-components";
 import PngIcon from "@/icons/files/png.svg";
 import JpgIcon from "@/icons/files/jpg.svg";
 import DocIcon from "@/icons/files/doc.svg";
+import XmlIcon from "@/icons/files/xml.svg";
+import JSIcon from "@/icons/files/javascript.svg";
 import HtmlIcon from "@/icons/files/html.svg";
 import PptIcon from "@/icons/files/ppt.svg";
 import ZipIcon from "@/icons/files/zip.svg";
 import TxtIcon from "@/icons/files/txt.svg";
 import PdfIcon from "@/icons/files/pdf.svg";
 import JsonIcon from "@/icons/files/json.svg";
+import XlsIcon from "@/icons/files/xls.svg";
 import Mp4Icon from "@/icons/files/mp4.svg";
 import FolderIcon from "@/icons/files/folder-yellow.svg";
+import FileIcon from "@/icons/files/file.svg";
+
+import { connect } from "react-redux";
+import { selectFile } from "@/store/actions/storage";
+import dayjs from "dayjs";
 
 const FileItem = styled.div`
   display: flex;
@@ -24,7 +32,7 @@ const FileItem = styled.div`
   font-size: 10px;
   color: #c7c7c7;
   font-weight: 600;
-  transition: all 0.5s;
+  transition: all 0.3s;
   box-sizing: border-box;
   border: 1px solid #f0f4ff;
   cursor: pointer;
@@ -62,6 +70,7 @@ const RightBox = styled.div`
 
 function File(props) {
   const file = props.file;
+  const currentFile = props.currentFile;
 
   const iconMapper = type => {
     switch (type) {
@@ -70,6 +79,9 @@ function File(props) {
 
       case "doc":
         return <DocIcon style={{ width: 30 }} />;
+
+      case "xls":
+        return <XlsIcon style={{ width: 30 }} />;
 
       case "png":
         return <PngIcon style={{ width: 30 }} />;
@@ -92,6 +104,12 @@ function File(props) {
       case "zip":
         return <ZipIcon style={{ width: 30 }} />;
 
+      case "xml":
+        return <XmlIcon style={{ width: 30 }} />;
+
+      case "js":
+        return <JSIcon style={{ width: 30 }} />;
+
       case "txt":
         return <TxtIcon style={{ width: 30 }} />;
 
@@ -105,13 +123,21 @@ function File(props) {
 
   const handleClick = e => {
     console.log("file handleClick +> ", e);
+    props.selectFile(file.id);
   };
 
   return (
-    <FileItem className="storage-item" onClick={handleClick}>
-      <LeftBox>{iconMapper(file.icon)}</LeftBox>
+    <FileItem
+      className="storage-item"
+      onClick={handleClick}
+      style={{
+        borderColor:
+          currentFile && currentFile.id === file.id ? "#4d7cff" : "#f0f4ff"
+      }}
+    >
+      <LeftBox>{iconMapper(file.extension)}</LeftBox>
       <CenterBox>
-        <div style={{ fontSize: 14, color: "#444" }}>Documents</div>
+        <div style={{ fontSize: 14, color: "#444" }}>{file.name}</div>
         <div>
           {file.type === "folder" ? (
             <span>
@@ -126,7 +152,8 @@ function File(props) {
       </CenterBox>
 
       <RightBox>
-        <span>October 17, 2019</span>
+        {/* <span>October 17, 2019</span> */}
+        <span>{dayjs(file.createdAt).format("MMM DD, YYYY")}</span>
       </RightBox>
     </FileItem>
   );
@@ -137,4 +164,10 @@ File.propTypes = {
   file: PropTypes.shape({ type: PropTypes.string.isRequired }).isRequired
 };
 
-export default File;
+const mapStateToProps = state => ({ currentFile: state.drive.currentFile });
+
+const actionCreators = {
+  selectFile
+};
+
+export default connect(mapStateToProps, actionCreators)(File);

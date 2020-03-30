@@ -63,3 +63,5 @@ export const SET_REFRESH_TOKEN = "auth:setRefreshToken";
 export const ADD_ADDON = "addon:addAddon";
 export const ADDONS_LOADED = "addon:Loaded";
 export const CLEAR_ADDONS = "addon:Clear";
+
+export const SELECT_FILE = "storage:selectFile";
