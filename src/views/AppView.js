@@ -30,7 +30,7 @@ const Home = props => {
           theme="light"
           width={siderWidth}
           trigger={null}
-          collapsedWidth="50"
+          collapsedWidth="60"
           onCollapse={handleCollapse}
           onBreakpoint={handleBreakpoint}
           breakpoint="sm"

@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 
   img {
     width: 100%;
-    padding: 3px;
+    padding: 2px;
     border: 1px solid ${props => props.borderColor};
     border-radius: 50%;
   }

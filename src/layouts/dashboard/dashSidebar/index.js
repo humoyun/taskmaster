@@ -18,14 +18,13 @@ import CloudStorage from "@/icons/cloud-storage.svg";
 import Logout from "@/icons/logout.svg";
 
 const CollapsedProfile = styled.div`
-  width: 50px;
+  width: 60px;
   height: 180px;
   background: ;
   display: flex;
   justify-content: center;
 
-  .ant-avatar {
-    margin: 0 auto;
+  .space-box {
     margin-top: 25px;
   }
 `;
@@ -98,11 +97,13 @@ const MainSidebar = ({ collapsed, logout, user }) => {
         <ProfileCard collapsed={collapsed}></ProfileCard>
       ) : (
         <CollapsedProfile>
-          <Avatar
-            size={40}
-            src="https://i.pravatar.cc/100?img=59"
-            borderColor="#06227d"
-          />
+          <div className="space-box">
+            <Avatar
+              size={40}
+              src="https://gitlab.com/uploads/-/system/user/avatar/2268258/avatar.png?width=200"
+              borderColor="#06227d"
+            />
+          </div>
         </CollapsedProfile>
       )}
 
