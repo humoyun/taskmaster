@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { FlexCenter } from "@/common/ui";
 import { darken, lighten } from "polished";
 
 // Set main theme variables
@@ -17,12 +18,9 @@ export const themeMain = {
 
 const authPageBgPatternURL = "/assets/bg-pattern.png";
 
-const AuthPage = styled.div`
+const AuthPage = styled(FlexCenter)`
   width: 100%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   background-image: url(${authPageBgPatternURL});
   background-color: ${themeMain.mainColor};

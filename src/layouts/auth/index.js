@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FlexCenter } from "@/common/ui";
 import { darken, lighten } from "polished";
 
 const authPageBgPatternURL = "/assets/bg-pattern.png";
@@ -15,12 +16,9 @@ export const themeMain = {
   mainColor: "#369aff"
 };
 
-const AuthLayoutWrapper = styled.div`
+const AuthLayoutWrapper = styled(FlexCenter)`
   width: 100%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   background-image: url(${authPageBgPatternURL});
   background-color: ${themeMain.mainColor};

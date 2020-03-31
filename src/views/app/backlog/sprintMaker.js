@@ -3,11 +3,9 @@ import styled from "styled-components";
 import SprintPlanning from "@/icons/app/sprint-planning.svg";
 import PropTypes from "prop-types";
 import { Button } from "antd";
+import { FlexCenter } from "@/common/ui";
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const Wrapper = styled(FlexCenter)`
   width: 100%;
   background-color: #fff;
   border: 1px dashed #ccc;

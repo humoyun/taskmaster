@@ -4,16 +4,14 @@ import { darken, lighten } from "polished";
 import { useDrop } from "react-dnd";
 import dayjs from "dayjs";
 import Types from "./types";
+import { FlexCenter } from "@/common/ui";
 
 window.dayjs = dayjs;
 
-const DayBox = styled.div`
+const DayBox = styled(FlexCenter)`
   position: absolute;
   top: 5px;
   right: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 25px;
   height: 25px;
   padding: 0 4px;
@@ -48,10 +46,7 @@ const EventBox = styled.div`
   }
 `;
 
-const EWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const EWrapper = styled(FlexCenter)`
   flex-direction: column;
   width: 100%;
   height: auto;
@@ -132,6 +127,7 @@ const Day = props => {
   return (
     <div className="day-of-month" ref={drop} style={{ backgroundColor }}>
       <DayBox>{day.day}</DayBox>
+
       <EWrapper>
         {day.day === today &&
           events.map(evt => (

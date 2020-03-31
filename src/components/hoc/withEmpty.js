@@ -1,13 +1,11 @@
 import React from "react";
 import { Empty } from "antd";
 import styled from "styled-components";
+import { FlexCenter } from "@/common/ui";
 
-const EmptyWrapper = styled.div`
+const EmptyWrapper = styled(FlexCenter)`
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const withEmpty = (Component, title) => {
