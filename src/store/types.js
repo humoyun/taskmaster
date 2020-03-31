@@ -64,4 +64,5 @@ export const ADD_ADDON = "addon:addAddon";
 export const ADDONS_LOADED = "addon:Loaded";
 export const CLEAR_ADDONS = "addon:Clear";
 
-export const SELECT_FILE = "storage:selectFile";
+export const SELECT_FILE = "drive:selectFile";
+export const DRIVE_LOADED = "drive:filesLoaded";

@@ -1,12 +1,14 @@
 import axios from "axios";
 
-// const isProd = () => location.hostname !== "localhost";
+const isProd = () => location.hostname !== "localhost";
 
-const instance = axios.create({
-  baseURL: process.env.API_HOST_DEV + "/v1"
+const api = axios.create({
+  baseURL: isProd ? process.env.API_HOST_DEV : process.env.API_HOST_PROD
 });
 
 // instance.interceptors.response.use();
 // instance.interceptors.request.use();
 
-export default instance;
+console.log("axios instance: ", api);
+
+export default api;

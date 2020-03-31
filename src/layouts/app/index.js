@@ -12,6 +12,9 @@ import Calendar from "@/icons/calendar.svg";
 import Layers from "@/icons/layers.svg";
 import Analytics from "@/icons/analytics.svg";
 import Members from "@/icons/tie.svg";
+import Chat from "@/icons/chat.svg";
+import { GithubOutlined } from "@ant-design/icons";
+
 import "./style.less";
 
 const { Search } = Input;
@@ -63,6 +66,18 @@ const itemList = [
     key: "analytics",
     name: "Analytics",
     icon: Analytics,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "chat",
+    name: "Messenger",
+    icon: Chat,
+    style: menuItemInlineStyle
+  },
+  {
+    key: "github",
+    name: "Github",
+    icon: GithubOutlined,
     style: menuItemInlineStyle
   }
 ];
