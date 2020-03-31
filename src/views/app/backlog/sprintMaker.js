@@ -33,6 +33,8 @@ const SprintHeader = styled.div`
   justify-content: space-between;
 
   .sprint-title {
+    user-select: none;
+
     span {
       display: inline-block;
       margin-left: 10px;

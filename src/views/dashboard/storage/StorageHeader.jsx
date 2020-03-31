@@ -1,6 +1,8 @@
 import React from "react";
-import { Button, Icon } from "antd";
+import { Button, Icon, Popconfirm } from "antd";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import { selectFile } from "@/store/actions/storage";
 
 const Header = styled.div`
   flex: 3;
@@ -26,7 +28,12 @@ const Actions = styled.div`
   }
 `;
 
-function StorageHeader() {
+const StorageHeader = props => {
+  const handleDelete = e => {
+    console.log("handleDelete: ", e);
+    props.selectFile(null);
+  };
+
   return (
     <div className="storage-header">
       <Header>
@@ -36,11 +43,24 @@ function StorageHeader() {
 
       <Actions className="storage-actions">
         <Button>
-          <Icon type="download" theme="outlined" />
+          <Icon type="upload" theme="outlined" />
         </Button>
         <Button>
-          <Icon type="delete" theme="outlined" />
+          <Icon type="download" theme="outlined" />
         </Button>
+
+        <Popconfirm
+          title="Are you sure delete this file?"
+          okText="Yes"
+          cancelText="No"
+          onConfirm={handleDelete}
+          disabled={!props.currentFile}
+        >
+          <Button disabled={!props.currentFile}>
+            <Icon type="delete" theme="outlined" />
+          </Button>
+        </Popconfirm>
+
         <Button>
           <Icon type="info-circle" theme="outlined" />
         </Button>
@@ -53,6 +73,10 @@ function StorageHeader() {
       </Actions>
     </div>
   );
-}
+};
 
-export default StorageHeader;
+const mapStateToProps = state => ({ currentFile: state.drive.currentFile });
+const actionCreators = {
+  selectFile
+};
+export default connect(mapStateToProps, actionCreators)(StorageHeader);
