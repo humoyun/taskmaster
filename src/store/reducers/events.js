@@ -1,4 +1,4 @@
-import { ADD_TEAM, REMOVE_TEAM } from "../types";
+import { ADD_EVENT, REMOVE_EVENT } from "../types";
 
 const uid = () =>
   Math.random()
@@ -87,14 +87,14 @@ const initialState = [
   }
 ];
 
-function teamsReducer(state = initialState, action) {
-  if (action.type === ADD_TEAM) {
+function eventsReducer(state = initialState, action) {
+  if (action.type === ADD_EVENT) {
     return Object.assign({}, state, {
       teams: state.concat(action.payload)
     });
   }
 
-  if (action.type === REMOVE_TEAM) {
+  if (action.type === REMOVE_EVENT) {
     const index = state.findIndex(team => team.id === action.payload.id);
 
     return Object.assign({}, state, {
@@ -105,4 +105,4 @@ function teamsReducer(state = initialState, action) {
   return state;
 }
 
-export default teamsReducer;
+export default eventsReducer;

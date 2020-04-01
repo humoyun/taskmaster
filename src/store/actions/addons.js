@@ -1,5 +1,6 @@
 import api from "@/common/api";
 import { ADDONS_LOADED, CLEAR_ADDONS } from "../types";
+import { menuItemClicked } from "./global";
 
 export const getAddons = () => {
   return async (dispatch, getState) => {
@@ -12,6 +13,8 @@ export const getAddons = () => {
           payload: addons.data
         });
       }
+
+      dispatch(menuItemClicked({ loading: false, menuItem: null }));
     } catch (err) {
       console.log(err);
     }

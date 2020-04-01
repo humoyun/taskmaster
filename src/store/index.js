@@ -1,5 +1,6 @@
 // src/js/store/index.js
 import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+import globalReducer from "./reducers/global";
 import projectsReducer from "./reducers/projects";
 import tasksReducer from "./reducers/tasks";
 import addonsReducer from "./reducers/addons";
@@ -13,6 +14,7 @@ const middlewares = [isEmpty, thunk];
 const storeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
+  global: globalReducer,
   projects: projectsReducer,
   auth: authReducer,
   tasks: tasksReducer,

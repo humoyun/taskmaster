@@ -6,6 +6,7 @@ import Avatar from "@/components/avatar";
 
 import styled from "styled-components";
 import "./style.less";
+import { menuItemClicked } from "@/store/actions/global";
 import { logout } from "@/store/actions/auth";
 import ProfileCard from "../components/ProfileCard";
 
@@ -31,7 +32,12 @@ const CollapsedProfile = styled.div`
 
 const menuItemInlineStyle = { fontSize: "20px", color: "#fff" };
 const itemList = [
-  { key: "home", name: "Home", icon: Home, style: menuItemInlineStyle },
+  {
+    key: "home",
+    name: "Home",
+    icon: Home,
+    style: menuItemInlineStyle
+  },
   {
     key: "projects",
     name: "Projects",
@@ -58,7 +64,13 @@ const itemList = [
   }
 ];
 
-const MainSidebar = ({ collapsed, logout, user }) => {
+const MainSidebar = ({
+  collapsed,
+  logout,
+  user,
+  menuItemClicked,
+  menuLoading
+}) => {
   const history = useHistory();
   const location = useLocation();
   const [curMenuItem, setCurMenuItem] = useState(
@@ -79,13 +91,31 @@ const MainSidebar = ({ collapsed, logout, user }) => {
       await logout();
     } else if (key === "home") {
       history.push("/");
+
+      menuItemClicked({
+        loading: true,
+        menuItem: key
+      });
+
+      setTimeout(
+        () =>
+          menuItemClicked({
+            loading: false,
+            menuItem: null
+          }),
+        500
+      );
     } else {
       history.push(key);
+      menuItemClicked({
+        loading: true,
+        menuItem: key
+      });
     }
   };
 
   const menuItemList = itemList.map(item => (
-    <Menu.Item key={item.key}>
+    <Menu.Item key={item.key} disabled={menuLoading}>
       <Icon component={item.icon} style={item.style} />
       <span>{item.name}</span>
     </Menu.Item>
@@ -116,6 +146,7 @@ const MainSidebar = ({ collapsed, logout, user }) => {
         {menuItemList}
       </Menu>
 
+      {/* separate menu for only logout  */}
       <Menu
         selectedKeys={[curMenuItem]}
         mode="inline"
@@ -141,7 +172,10 @@ const MainSidebar = ({ collapsed, logout, user }) => {
   );
 };
 
-const mapStateToProps = (state, props) => ({ user: state.auth.user });
-const mapActionsToProps = { logout };
+const mapStateToProps = (state, props) => ({
+  user: state.auth.user,
+  menuLoading: state.global.sidebarMenuLoading
+});
+const mapActionsToProps = { logout, menuItemClicked };
 
 export default connect(mapStateToProps, mapActionsToProps)(MainSidebar);

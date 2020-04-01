@@ -1,27 +1,27 @@
 /**
  * action types
  */
-export const ADD_TODO = "ADD_TODO";
-export const REMOVE_TODO = "REMOVE_TODO";
-export const EDIT_TODO = "EDIT_TODO";
-export const TODO_CHECKED = "TODO_CHECKED";
-export const DATA_LOADED = "DATA_LOADED";
+export const ADD_TODO = "todo:add";
+export const REMOVE_TODO = "todo:remove";
+export const EDIT_TODO = "todo:edit";
+export const TODO_CHECKED = "todo:checked";
+export const DATA_LOADED = "todo:loaded";
 
 /**
  * validation types
  */
-export const EMPTY_TODO = "EMPTY_TODO";
+export const EMPTY_TODO = "todo:empty";
 
 /**
  *
  */
-export const PROJECT_LOADED = "PROJECT_LOADED";
-export const PROJECTS_LOADED = "PROJECTS_LOADED";
-export const ADD_PROJECT = "ADD_PROJECT";
-export const EDIT_PROJECT = "ADD_PROJECT";
-export const REMOVE_PROJECT = "REMOVE_PROJECT";
-export const UPDATE_PROJECT = "UPDATE_PROJECT";
-export const CLEAR_PROJECTS = "projects:clear";
+export const PROJECT_LOADED = "project:loadedOne";
+export const PROJECTS_LOADED = "project:loadedMany";
+export const ADD_PROJECT = "project:add";
+export const EDIT_PROJECT = "project:editMode";
+export const REMOVE_PROJECT = "project:remove";
+export const UPDATE_PROJECT = "project:update";
+export const CLEAR_PROJECTS = "project:clearAll";
 
 /**
  *
@@ -34,23 +34,23 @@ export const ASSIGN_TASK = "ASSIGN_TASK";
 /**
  *
  */
-export const ADD_USER = "ADD_USER";
-export const REMOVE_USER = "REMOVE_USER";
-export const UPDATE_USER = "UPDATE_USER";
+export const ADD_USER = "user:add";
+export const REMOVE_USER = "user:remove";
+export const UPDATE_USER = "user:update";
 
 /**
  *
  */
-export const ADD_SPRINT = "sprints:addSprint";
-export const REMOVE_SPRINT = "sprints:removeSprint";
-export const UPDATE_SPRINT = "sprints:updateSprint";
+export const ADD_SPRINT = "sprints:add";
+export const REMOVE_SPRINT = "sprints:remove";
+export const UPDATE_SPRINT = "sprints:update";
 
 /**
  *
  */
-export const ADD_TEAM = "teams:addTeam";
-export const REMOVE_TEAM = "teams:removeTeam";
-export const UPDATE_TEAM = "teams:updateTeam";
+export const ADD_TEAM = "teams:add";
+export const REMOVE_TEAM = "teams:remove";
+export const UPDATE_TEAM = "teams:update";
 
 /**
  *
@@ -60,9 +60,26 @@ export const SET_USER = "auth:setUser";
 export const SET_ACCESS_TOKEN = "auth:setAccessToken";
 export const SET_REFRESH_TOKEN = "auth:setRefreshToken";
 
-export const ADD_ADDON = "addon:addAddon";
-export const ADDONS_LOADED = "addon:Loaded";
-export const CLEAR_ADDONS = "addon:Clear";
+/**
+ *
+ */
+export const ADD_ADDON = "addon:add";
+export const ADDONS_LOADED = "addon:loaded";
+export const CLEAR_ADDONS = "addon:clear";
 
+/**
+ *
+ */
 export const SELECT_FILE = "drive:selectFile";
 export const DRIVE_LOADED = "drive:filesLoaded";
+
+/**
+ *
+ */
+export const ADD_EVENT = "event:add";
+export const REMOVE_EVENT = "event:remove";
+
+/**
+ * global events
+ */
+export const SIDEBAR_MENU_CLICKED = "sidebar:menuItemDisabled";

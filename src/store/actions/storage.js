@@ -1,5 +1,6 @@
 import api from "@/common/api";
 import { SELECT_FILE, DRIVE_LOADED } from "../types";
+import { menuItemClicked } from "./global";
 
 export const selectFile = id => ({
   type: SELECT_FILE,
@@ -20,6 +21,8 @@ export const getFiles = (offset = 0, limit = 20, query = "") => {
           payload: files.data
         });
       }
+
+      dispatch(menuItemClicked({ loading: false, menuItem: null }));
     } catch (err) {
       console.error(err);
     }

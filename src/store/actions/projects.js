@@ -6,6 +6,7 @@ import {
   PROJECT_LOADED
 } from "../types";
 import api from "@/common/api";
+import { menuItemClicked } from "./global";
 
 // Pure Actions
 
@@ -57,6 +58,8 @@ export const getProjects = () => {
           type: PROJECTS_LOADED,
           payload: projects.data
         });
+
+        dispatch(menuItemClicked({ loading: false, menuItem: null }));
       }
     } catch (err) {
       console.error(err);

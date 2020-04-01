@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import StorageHeader from "./StorageHeader";
 import FilePreview from "./FilePreview";
 import FileGrid from "./FileGrid";
+import { connect } from "react-redux";
+import { getFiles } from "@/store/actions/storage";
 
 import "./style.less";
 
-export default function Storage() {
+const Storage = ({ getFiles }) => {
+  useEffect(() => {
+    const getCloudFiles = async () => {
+      await getFiles();
+    };
+
+    getCloudFiles();
+  }, []);
+
   return (
     <div className="tm-cloud-storage">
       <StorageHeader></StorageHeader>
@@ -18,4 +28,10 @@ export default function Storage() {
       </div>
     </div>
   );
-}
+};
+
+const actionCreator = {
+  getFiles
+};
+
+export default connect(null, actionCreator)(Storage);
