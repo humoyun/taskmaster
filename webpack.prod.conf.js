@@ -109,13 +109,13 @@ const prodConf = {
     }),
 
     new Visualizer()
-  ]
+  ],
 
-  // plugins: [
-  //   new Dotenv({
-  //     path: "./.env.production"
-  //   })
-  // ]
+  plugins: [
+    new Dotenv({
+      path: "./.env.production"
+    })
+  ]
 };
 
 module.exports = merge(baseWebpackConf, prodConf);
