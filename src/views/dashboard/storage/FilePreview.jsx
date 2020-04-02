@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Imager from "@/components/imager";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -20,12 +21,6 @@ const Preview = styled.div`
   font-size: 10px;
   color: #c7c7c7;
   font-weight: 600;
-
-  img {
-    width: 100%;
-    border-radius: 3px;
-    object-fit: contain;
-  }
 `;
 
 const FileInfo = styled.div`
@@ -81,8 +76,14 @@ function FilePreview() {
   return (
     <Wrapper className="file-preview">
       <Preview>
+        <Imager
+          src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png"
+          thumbnail="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/file-manager_tn.jpg"
+          alt="file manager ui"
+          radius="2"
+        />
         {/* <img src="https://protective-h2020.eu/wp-content/uploads/2016/05/Img-protective-02-500x300.png"></img> */}
-        <img src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png"></img>
+        {/* <img src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png"></img> */}
         {/* https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/file-manager_tn.jpg */}
       </Preview>
 

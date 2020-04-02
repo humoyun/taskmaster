@@ -38,9 +38,11 @@ const initialState = {
     },
     {
       id: "file-id-4",
-      name: "Development Book",
+      name: "Major transitions in evolution",
       type: "file",
       extension: "pdf",
+      url:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/major-transitions-in-evolution.pdf",
       createdAt: "2019-11-21",
       lastOpened: "2020-01-02",
       size: "4.5 Mb"
@@ -59,6 +61,7 @@ const initialState = {
       name: "presentation",
       type: "file",
       extension: "ppt",
+      url: "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/...",
       size: "2.1 Mb",
       createdAt: "2019-11-01",
       lastOpened: "2019-11-21"
@@ -68,6 +71,7 @@ const initialState = {
       name: "server_config",
       type: "file",
       extension: "json",
+      url: "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/...",
       size: "50 Kb",
       createdAt: "2019-04-08",
       lastOpened: "2019-11-01"
@@ -77,6 +81,7 @@ const initialState = {
       name: "main-page",
       type: "file",
       extension: "html",
+      url: "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/...",
       size: "220 Kb",
       createdAt: "2019-03-12",
       lastOpened: "2019-09-15"
@@ -85,6 +90,7 @@ const initialState = {
       id: "file-id-9",
       name: "Company policy",
       type: "file",
+      url: "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/...",
       extension: "doc",
       size: "1 Mb"
     },
@@ -92,6 +98,7 @@ const initialState = {
       id: "file-id-10",
       name: "server log files",
       type: "file",
+      url: "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/...",
       extension: "txt",
       size: "1 Mb"
     },
@@ -99,6 +106,7 @@ const initialState = {
       id: "file-id-11",
       name: "budget report",
       type: "file",
+      url: "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/...",
       extension: "xls",
       size: "1 Mb"
     },
@@ -106,6 +114,7 @@ const initialState = {
       id: "file-id-12",
       name: "netlify-config",
       type: "file",
+      url: "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/...",
       extension: "xml",
       size: "1 Mb"
     },
@@ -113,6 +122,7 @@ const initialState = {
       id: "file-id-13",
       name: "server.js",
       type: "file",
+      url: "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/docs/...",
       extension: "js",
       size: "1 Mb"
     },
