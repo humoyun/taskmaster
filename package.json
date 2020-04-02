@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.conf.js --mode development",
-    "build": "webpack --config webpack.prod.conf.js",
+    "build": "./create-env.js && webpack --config webpack.prod.conf.js",
     "build:analyze": "npm run build -- --env.addon=bundleanalyze --env.addon=bundlevisualizer",
     "release": "",
     "test": "jest",
