@@ -6,9 +6,19 @@
 // import { notesLogout } from "store/actions/notesActions"; // only use for axios interceptors logout
 // import history from "router/history"; // only use for axios interceptors logout
 // import { createActions } from "redux-actions";
+
+import api from "@/common/api";
 import { message } from "antd";
-import { SET_USER, SET_ACCESS_TOKEN, SET_REFRESH_TOKEN } from "../types";
+import {
+  SET_USER,
+  SET_ACCESS_TOKEN,
+  SET_REFRESH_TOKEN,
+  USER_INFO_LOADED
+} from "../types";
 import myCookie from "@/common/myCookie";
+
+import { LOAD_USER_DATA } from "../types";
+import { menuItemClicked } from "./global";
 
 export const setAccessToken = accessToken => {
   return {
@@ -40,20 +50,6 @@ export const setUser = data => {
 //   prefix: "AUTH",
 //   namespace: "/"
 // });
-
-export const getUserInfo = () => {
-  return async (dispatch, getState) => {
-    try {
-      const user = await api("/authuser");
-      if (user.data) {
-        dispatch({ type: "USER_LOADED", payload: user.data });
-      }
-      dispatch(menuItemClicked({ loading: false, menuItem: null }));
-    } catch (err) {
-      console.error(err);
-    }
-  };
-};
 
 export const login = data => {
   return async dispatch => {
@@ -119,6 +115,24 @@ const authenticate = data => {
       else reject({ msg: "Username or password incorrect" });
     }, 1000);
   });
+};
+
+export const getUserInfo = () => {
+  return async (dispatch, getState) => {
+    try {
+      const user = await api.get("/user_data");
+
+      if (user.data) {
+        dispatch({
+          type: USER_INFO_LOADED,
+          payload: user.data
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    dispatch(menuItemClicked({ loading: false, menuItem: null }));
+  };
 };
 
 export const isLoggedIn = () => {};

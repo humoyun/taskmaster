@@ -57,11 +57,11 @@ export const getProjects = () => {
           type: PROJECTS_LOADED,
           payload: projects.data
         });
-
-        dispatch(menuItemClicked({ loading: false, menuItem: null }));
       }
     } catch (err) {
       console.error(err);
     }
+
+    dispatch(menuItemClicked({ loading: false, menuItem: null }));
   };
 };

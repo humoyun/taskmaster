@@ -13,11 +13,11 @@ export const getAddons = () => {
           payload: addons.data
         });
       }
-
-      dispatch(menuItemClicked({ loading: false, menuItem: null }));
     } catch (err) {
       console.log(err);
     }
+
+    dispatch(menuItemClicked({ loading: false, menuItem: null }));
   };
 };
 

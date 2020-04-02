@@ -9,6 +9,7 @@ export default function Home(props) {
         Main Dashboard Panel (Each widget will load statistics data separately
         without blocking dashboard page with skeletons)
       </div>
+
       <DashGrid></DashGrid>
     </div>
   );
