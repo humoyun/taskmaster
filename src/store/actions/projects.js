@@ -31,7 +31,6 @@ export function editProject(payload) {
  *
  * @param {*} pid
  */
-
 export const getProject = pid => {
   return async (dispatch, getState) => {
     try {

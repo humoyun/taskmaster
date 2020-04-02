@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, Card, Icon, Tag, Progress } from "antd";
-import { Row, Col } from "antd";
+import { Row, Col, Button, Card, Icon, Tag, Progress } from "antd";
 import ChatNoDots from "@/icons/chat-no-dots.svg";
 import Layers from "@/icons/layers.svg";
 import Group from "@/icons/users.svg";

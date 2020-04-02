@@ -7,7 +7,6 @@ import DashboardLayout from "./dashboard";
 import AuthLayout from "./auth";
 import Blank from "./blank";
 import NotFoundLayout from "./404";
-import Loader from "@/components/loader";
 
 const LayoutProvider = ({ layout, children }) => {
   switch (layout) {

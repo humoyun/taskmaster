@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import SprintPlanning from "@/icons/app/sprint-planning.svg";
 import PropTypes from "prop-types";
 import { Button } from "antd";
 import { FlexCenter } from "@/common/ui";
@@ -57,6 +56,10 @@ const EmptySprint = styled.div`
     justify-content: center;
     align-items: center;
     margin-right: 10px;
+
+    img {
+      width: 90px;
+    }
   }
 
   .info-box {
@@ -99,7 +102,8 @@ function sprintMaker(Component) {
       return (
         <EmptySprint className="sprint-empty-info">
           <div className="icon-box">
-            <SprintPlanning style={{ width: 88 }}></SprintPlanning>
+            {/* <SprintPlanning style={{ width: 88 }}></SprintPlanning> */}
+            <img src="/assets/sprint-planning.svg" />
           </div>
           <div className="info-box">
             <h4>Plan your Sprint</h4>

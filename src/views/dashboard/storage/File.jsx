@@ -86,6 +86,9 @@ function File(props) {
       case "png":
         return <PngIcon style={{ width: 30 }} />;
 
+      case "jpg" || "jpeg":
+        return <JpgIcon style={{ width: 30 }} />;
+
       case "json":
         return <JsonIcon style={{ width: 30 }} />;
 

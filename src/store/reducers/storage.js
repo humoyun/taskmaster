@@ -46,13 +46,13 @@ const initialState = {
       size: "4.5 Mb"
     },
     {
-      id: "file-5",
+      id: "promotional-trailer",
       name: "Promotional trailer",
       type: "file",
       extension: "mp4",
-      size: "37 Mb",
-      createdAt: "2019-06-27",
-      lastOpened: "2019-08-11"
+      url:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/video/rabbitjon.mp4",
+      size: "1 Mb"
     },
     {
       id: "file-6",
@@ -115,6 +115,48 @@ const initialState = {
       type: "file",
       extension: "js",
       size: "1 Mb"
+    },
+    {
+      id: "genetics-101",
+      name: "genetics-101",
+      type: "file",
+      extension: "mp4",
+      url:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/video/genetics-101.mp4",
+      size: "18 Mb"
+    },
+    {
+      id: "file-manager",
+      name: "file manager UI",
+      type: "file",
+      extension: "png",
+      url:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png",
+      thumbUrl:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/file-manager_tn.jpg",
+      size: "1 Mb"
+    },
+    {
+      id: "tunisia",
+      name: "Tunisia",
+      type: "file",
+      extension: "jpg",
+      url:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/tunisia.jpg",
+      thumbUrl:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/tunisia_tn.jpg",
+      size: "250 Kb"
+    },
+    {
+      id: "photo-tonka",
+      name: "hd photo tonka",
+      type: "file",
+      extension: "jpg",
+      url:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/photo-tonka.jpeg",
+      thumbUrl:
+        "https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/photo-tonka_tn.jpg",
+      size: "250 Kb"
     }
   ],
   currentFile: null

@@ -81,7 +81,9 @@ function FilePreview() {
   return (
     <Wrapper className="file-preview">
       <Preview>
-        <img src="https://protective-h2020.eu/wp-content/uploads/2016/05/Img-protective-02-500x300.png"></img>
+        {/* <img src="https://protective-h2020.eu/wp-content/uploads/2016/05/Img-protective-02-500x300.png"></img> */}
+        <img src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png"></img>
+        {/* https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/file-manager_tn.jpg */}
       </Preview>
 
       <FileInfo>

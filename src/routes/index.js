@@ -1,12 +1,7 @@
 import React, { Suspense, useState, useEffect } from "react";
-import {
-  Switch,
-  Route,
-  useLocation,
-  useHistory,
-  matchPath
-} from "react-router-dom";
+import { Switch, useLocation, useHistory, matchPath } from "react-router-dom";
 import { connect } from "react-redux";
+import { Loader } from "@/components/loader";
 
 import LayoutProvider from "@/layouts";
 
@@ -90,8 +85,6 @@ const Routes = () => {
     <DashProvider {...conf} auth={auth}></DashProvider>
   ));
 
-  // console.log("appRoutesProvider: ", appRoutesProvider);
-
   /**
    * Better comments
    * * Important message
@@ -100,15 +93,9 @@ const Routes = () => {
    * TODO: todo something
    */
 
-  const falbackLoaders = {
-    app: "",
-    dash: "",
-    auth: ""
-  };
-
   return (
     <LayoutProvider layout={layout}>
-      <Suspense fallback={<div>Auth Loading...</div>}>
+      <Suspense fallback={<Loader></Loader>}>
         <Switch>
           {authRoutesProvider}
           {appRoutesProvider}
@@ -120,7 +107,6 @@ const Routes = () => {
 };
 
 const mapStateToProps = state => {
-  console.log("mapStateToProps >>> ", { ...state.auth });
   return { ...state.auth };
 };
 

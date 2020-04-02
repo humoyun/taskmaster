@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import StorageHeader from "./StorageHeader";
-import FilePreview from "./FilePreview";
-import FileGrid from "./FileGrid";
+import Dummy from "./Dummy";
 import { connect } from "react-redux";
 import { getFiles } from "@/store/actions/storage";
+import withLoader from "@/components/hoc/withLoader";
 
 import "./style.less";
 
-const Storage = ({ getFiles }) => {
+const Storage = ({ getFiles, loading }) => {
   useEffect(() => {
     const getCloudFiles = async () => {
       await getFiles();
@@ -16,16 +16,12 @@ const Storage = ({ getFiles }) => {
     getCloudFiles();
   }, []);
 
+  const Cloud = withLoader(Dummy);
+
   return (
     <div className="tm-cloud-storage">
       <StorageHeader></StorageHeader>
-
-      <div className="storage-content">
-        <FileGrid></FileGrid>
-        <div className="storage-file-preview">
-          <FilePreview></FilePreview>
-        </div>
-      </div>
+      <Cloud loading={loading}></Cloud>
     </div>
   );
 };
@@ -33,5 +29,8 @@ const Storage = ({ getFiles }) => {
 const actionCreator = {
   getFiles
 };
+const mapStateToProps = state => ({
+  loading: state.global.sidebarMenuLoading
+});
 
-export default connect(null, actionCreator)(Storage);
+export default connect(mapStateToProps, actionCreator)(Storage);

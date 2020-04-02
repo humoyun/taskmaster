@@ -172,7 +172,7 @@ const MainSidebar = ({
   );
 };
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   user: state.auth.user,
   menuLoading: state.global.sidebarMenuLoading
 });

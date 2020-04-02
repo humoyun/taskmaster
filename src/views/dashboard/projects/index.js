@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getProjects, clearProjects } from "@/store/actions/projects";
 import Project from "./Project";
+import { Loader } from "@/components/loader";
 import { Row, Col, Button } from "antd";
 import "./style.less";
 
@@ -28,12 +29,15 @@ function Projects({ projects, getProjects, clearProjects }) {
           <Button> + Create Project</Button>
         </Col>
 
-        {!loading &&
+        {!loading ? (
           projects.map(item => (
             <Col key={item.id} xs={24} sm={24} md={24} lg={12} xl={8} xxl={6}>
               <Project project={item} key={item.id}></Project>
             </Col>
-          ))}
+          ))
+        ) : (
+          <Loader title="Projects being laoded..."></Loader>
+        )}
       </Row>
     </div>
   );

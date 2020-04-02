@@ -41,6 +41,20 @@ export const setUser = data => {
 //   namespace: "/"
 // });
 
+export const getUserInfo = () => {
+  return async (dispatch, getState) => {
+    try {
+      const user = await api("/authuser");
+      if (user.data) {
+        dispatch({ type: "USER_LOADED", payload: user.data });
+      }
+      dispatch(menuItemClicked({ loading: false, menuItem: null }));
+    } catch (err) {
+      console.error(err);
+    }
+  };
+};
+
 export const login = data => {
   return async dispatch => {
     try {
