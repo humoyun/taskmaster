@@ -66,6 +66,13 @@ const prodConf = {
               modules: true
             }
           }
+          // {
+          //   loader: "file-loader",
+          //   options: {
+          //     esModule: true
+          //   }
+          // },
+          // "extract-loader"
         ]
       },
       {
@@ -102,6 +109,10 @@ const prodConf = {
       chunkFilename: "static/[id][hash:8].css"
     }),
 
+    new Dotenv({
+      path: "./.env.production"
+    }),
+
     new WebpackBundleAnalyzer({
       analyzerMode: "static",
       reportFilename: "./reports/report.html",
@@ -109,12 +120,6 @@ const prodConf = {
     }),
 
     new Visualizer()
-  ],
-
-  plugins: [
-    new Dotenv({
-      path: "./.env.production"
-    })
   ]
 };
 
