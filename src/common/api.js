@@ -2,8 +2,9 @@ import axios from "axios";
 
 const isProd = () => location.hostname !== "localhost";
 
+console.log("isProd ", isProd());
 const api = axios.create({
-  baseURL: isProd ? process.env.API_HOST_DEV : process.env.API_HOST_PROD
+  baseURL: isProd() ? process.env.API_HOST_PROD : process.env.API_HOST_DEV
 });
 
 // instance.interceptors.response.use();
