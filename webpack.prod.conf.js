@@ -66,13 +66,6 @@ const prodConf = {
               modules: true
             }
           }
-          // {
-          //   loader: "file-loader",
-          //   options: {
-          //     esModule: true
-          //   }
-          // },
-          // "extract-loader"
         ]
       },
       {

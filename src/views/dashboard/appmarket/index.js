@@ -1,15 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import withEmpty from "@/components/hoc/withEmpty";
 import { getAddons, clearAddons } from "@/store/actions/addons";
+import { Loader } from "@/components/loader";
 import Addon from "./Addon";
 
 import "./style.less";
 
 const AppMarket = ({ addons, getAddons, clearAddons }) => {
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
+    setLoading(true);
     const call = async () => await getAddons();
     call();
+    setLoading(false);
     return () => {
       clearAddons();
       console.log("AppMarket clean up code");
@@ -32,10 +37,14 @@ const AppMarket = ({ addons, getAddons, clearAddons }) => {
 
   return (
     <div className="app-market-wrapper">
-      <ListWithEmpty
-        isEmpty={addons.length === 0}
-        list={addons}
-      ></ListWithEmpty>
+      {loading ? (
+        <Loader></Loader>
+      ) : (
+        <ListWithEmpty
+          isEmpty={addons.length === 0}
+          list={addons}
+        ></ListWithEmpty>
+      )}
     </div>
   );
 };

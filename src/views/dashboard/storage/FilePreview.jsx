@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Imager from "@/components/imager";
+import VideoPlayer from "@/components/player";
+import Folder from "./Folder";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -72,19 +74,26 @@ const CopyText = styled.div`
   color: #98a6ad;
 `;
 
-function FilePreview() {
+function FilePreview({ file }) {
   return (
     <Wrapper className="file-preview">
       <Preview>
-        <Imager
+        {/* <Imager
           src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png"
           thumbnail="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/file-manager_tn.jpg"
           alt="file manager ui"
           radius="2"
-        />
-        {/* <img src="https://protective-h2020.eu/wp-content/uploads/2016/05/Img-protective-02-500x300.png"></img> */}
+          maxHeight="200"
+        /> */}
+
+        {/* <VideoPlayer
+          src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/video/genetics-101.mp4"
+          type="mp4"
+        ></VideoPlayer> */}
+
+        <Folder type="doc"></Folder>
+
         {/* <img src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png"></img> */}
-        {/* https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/file-manager_tn.jpg */}
       </Preview>
 
       <FileInfo>

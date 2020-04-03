@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Rate, Spin, Button } from "antd";
+import { Card, Spin, Button } from "antd";
 import styled from "styled-components";
 
 const ImgLoader = styled.div`
@@ -27,7 +27,7 @@ const Addon = props => {
   const { title, imageThumbURL } = props.addon;
 
   useEffect(() => {
-    setTimeout(() => setLoading(false), 700);
+    setTimeout(() => setLoading(false), 100);
     return () => {};
   }, []);
 

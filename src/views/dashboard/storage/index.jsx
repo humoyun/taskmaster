@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import StorageHeader from "./StorageHeader";
-import Dummy from "./Dummy";
+import DummyCloud from "./Dummy";
 import { connect } from "react-redux";
 import { getFiles } from "@/store/actions/storage";
 import withLoader from "@/components/hoc/withLoader";
@@ -16,7 +16,7 @@ const Storage = ({ getFiles, loading }) => {
     getCloudFiles();
   }, []);
 
-  const Cloud = withLoader(Dummy);
+  const Cloud = withLoader(DummyCloud);
 
   return (
     <div className="tm-cloud-storage">

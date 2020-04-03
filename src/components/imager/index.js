@@ -5,11 +5,12 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
+  max-height: ${props => props.maxHeight}px;
   position: relative;
 
   img {
     width: 100%;
-    height: auto;
+    height: 100%;
     filter: blur(${props => props.blur}px);
     object-fit: contain;
     border-radius: ${props => props.radius}px;
@@ -28,7 +29,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Imager = ({ src, thumbnail, alt, radius }) => {
+const Imager = ({ src, thumbnail, alt, radius, maxHeight }) => {
   const [loading, setLoading] = useState(true);
   const [url, setUrl] = useState(thumbnail);
   const [blur, setBlur] = useState(4);
@@ -48,7 +49,7 @@ const Imager = ({ src, thumbnail, alt, radius }) => {
   }, []);
 
   return (
-    <Wrapper blur={blur} radius={radius}>
+    <Wrapper blur={blur} radius={radius} maxHeight={maxHeight}>
       <img src={url} alt={alt} />
       {loading && (
         <div className="spin-box">
