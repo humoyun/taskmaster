@@ -86,6 +86,11 @@ function FilePreview({ currentFile }) {
   //   else return
   // };
 
+  /**
+   * there is a issue on video, when video finishes pause icon stays,
+   * should be replaced by paly icon asap video finished
+   */
+
   return (
     <Wrapper className="file-preview">
       {currentFile ? (
