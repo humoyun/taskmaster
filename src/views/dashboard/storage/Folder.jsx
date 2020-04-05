@@ -24,6 +24,7 @@ const FolderWrapper = styled(FlexCenter)`
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 3px;
+  user-select: none;
 
   .icon-box {
     flex: 1;
@@ -48,7 +49,7 @@ const GuideSpan = styled(FlexCenter)`
   }
 `;
 
-const iconMapper = type => {
+const iconMapper = (type) => {
   switch (type) {
     case "folder":
       return <FolderIcon />;

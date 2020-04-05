@@ -24,7 +24,7 @@ const Wrapper = styled.div`
     height: auto;
     outline: none;
     border-radius: 3px;
-    filter: blur(${props => props.blur}px);
+    filter: blur(${(props) => props.blur}px);
   }
 `;
 
@@ -33,7 +33,7 @@ const PlayButton = styled(FlexCenter)`
   top: 0;
   left: 0;
   width: 100%;
-  height: ${props => props.height}px;
+  height: ${(props) => props.height}px;
   user-select: none;
   opacity: 0;
   transition: opacity 0.2s;
@@ -60,6 +60,7 @@ const PlayButton = styled(FlexCenter)`
 let player;
 
 const VideoPlayer = ({ src, options, type }) => {
+  const [source, setSource] = useState(src);
   const [isPaused, setIsPaused] = useState(true);
   const [blur, setBlur] = useState(3);
   const [height, setHeight] = useState(150);
@@ -70,9 +71,21 @@ const VideoPlayer = ({ src, options, type }) => {
   useEffect(() => {
     const container = document.querySelector("#video-player-id");
     player = new vPlyr(container, vpOptions);
-    setHeight(container.offsetHeight);
-    return () => {};
+    // setHeight(container.offsetHeight);
+    const endedHandler = () => console.log("video ended");
+    player.on("ended", endedHandler);
+
+    return () => {
+      console.log("(){} video player useEffect done");
+    };
   }, []);
+
+  useEffect(() => {
+    setSource(src);
+    console.log("video player src: ", src);
+
+    return () => {};
+  }, [src]);
 
   const handlePlay = () => {
     player.togglePlay();
@@ -92,9 +105,9 @@ const VideoPlayer = ({ src, options, type }) => {
         poster={defPoster}
       >
         {type === "webm" ? (
-          <source src={src} type="video/webm" />
+          <source src={source} type="video/webm" />
         ) : (
-          <source src={src} type="video/mp4" />
+          <source src={source} type="video/mp4" />
         )}
       </video>
 
@@ -115,7 +128,7 @@ VideoPlayer.propTypes = {
   options: PropTypes.object,
   src: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired, // webm or mp4
-  poster: PropTypes.string
+  poster: PropTypes.string,
 };
 
 export default VideoPlayer;

@@ -2,9 +2,9 @@ import api from "@/common/api";
 import { SELECT_FILE, DRIVE_LOADED } from "../types";
 import { menuItemClicked } from "./global";
 
-export const selectFile = id => ({
+export const selectFile = (id) => ({
   type: SELECT_FILE,
-  payload: id
+  payload: id,
 });
 
 /**
@@ -16,9 +16,10 @@ export const getFiles = (offset = 0, limit = 20, query = "") => {
     try {
       const files = await api.get("/files");
       if (files.data) {
+        console.log("files.data", files.data);
         dispatch({
           type: DRIVE_LOADED,
-          payload: files.data
+          payload: files.data,
         });
       }
 

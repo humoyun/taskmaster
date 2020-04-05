@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import Imager from "@/components/imager";
 import VideoPlayer from "@/components/player";
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
   border-radius: 3px;
 `;
 
-const Preview = styled.div`
+const MediaPreview = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
@@ -74,65 +75,88 @@ const CopyText = styled.div`
   color: #98a6ad;
 `;
 
-function FilePreview({ file }) {
+function FilePreview({ currentFile }) {
+  // const mediaMaker = () => {
+  //   if (currentFile.mediaType === "video")
+  //     return ;
+  //   else if (currentFile.mediaType === "image")
+  //     return (
+
+  //     );
+  //   else return
+  // };
+
   return (
     <Wrapper className="file-preview">
-      <Preview>
-        {/* <Imager
-          src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png"
-          thumbnail="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/thumbs/file-manager_tn.jpg"
-          alt="file manager ui"
-          radius="2"
-          maxHeight="200"
-        /> */}
+      {currentFile ? (
+        <>
+          <MediaPreview>
+            {currentFile.mediaType === "video" ? (
+              <VideoPlayer
+                src={currentFile.url}
+                key={currentFile.url}
+                type={currentFile.extension}
+              />
+            ) : currentFile.mediaType === "image" ? (
+              <Imager
+                src={currentFile.url}
+                key={currentFile.url}
+                thumbnail={currentFile.thumbUrl}
+                alt="file manager ui"
+                radius="2"
+                maxHeight="200"
+              />
+            ) : (
+              <Folder type={currentFile.extension}></Folder>
+            )}
+          </MediaPreview>
 
-        {/* <VideoPlayer
-          src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/video/genetics-101.mp4"
-          type="mp4"
-        ></VideoPlayer> */}
+          <FileInfo>
+            <table>
+              <tbody>
+                <tr>
+                  <td className="td-key">Name</td>
+                  <td>{currentFile.name}</td>
+                </tr>
+                <tr>
+                  <td className="td-key">Type</td>
+                  <td>Image</td>
+                </tr>
+                <tr>
+                  <td className="td-key">Size</td>
+                  <td>10 MB (10 343 343 bytes)</td>
+                </tr>
+                <tr>
+                  <td className="td-key">Location</td>
+                  <td> Downloads / Images</td>
+                </tr>
+                <tr>
+                  <td className="td-key">Opened</td>
+                  <td>Jul 26, 2016 17:34</td>
+                </tr>
+                <tr>
+                  <td className="td-key">Created</td>
+                  <td>Apr 06, 2016 11:34</td>
+                </tr>
+              </tbody>
+            </table>
+          </FileInfo>
 
-        <Folder type="doc"></Folder>
+          <LinkBox>
+            <span className="header"> Link to download</span>
+            <span className="link">{currentFile.url}</span>
+            {/* https://www.freecodecamp.org/news/how-i-built-a-web-crawler-to-automate-my-job-search-f825fb5af718 */}
+          </LinkBox>
 
-        {/* <img src="https://task-master-cloud.s3.ap-northeast-2.amazonaws.com/images/file-manager.png"></img> */}
-      </Preview>
-
-      <FileInfo>
-        <table>
-          <tbody>
-            <tr>
-              <td className="td-key">Type</td>
-              <td>Image</td>
-            </tr>
-            <tr>
-              <td className="td-key">Size</td>
-              <td>10 MB (10 343 343 bytes)</td>
-            </tr>
-            <tr>
-              <td className="td-key">Location</td>
-              <td> Downloads / Images</td>
-            </tr>
-            <tr>
-              <td className="td-key">Opened</td>
-              <td>Jul 26, 2016 17:34</td>
-            </tr>
-            <tr>
-              <td className="td-key">Created</td>
-              <td>Apr 06, 2016 11:34</td>
-            </tr>
-          </tbody>
-        </table>
-      </FileInfo>
-
-      <LinkBox>
-        <span className="header"> Link to download</span>
-        <span className="link">
-          https://www.freecodecamp.org/news/how-i-built-a-web-crawler-to-automate-my-job-search-f825fb5af718/
-        </span>
-      </LinkBox>
-
-      <CopyText>Click * Copy to clipboard</CopyText>
+          <CopyText>Click * Copy to clipboard</CopyText>
+        </>
+      ) : (
+        <div>Empty (temporary solution)</div>
+      )}
     </Wrapper>
   );
 }
 
-export default FilePreview;
+const mapStateToProps = (state) => ({ currentFile: state.drive.currentFile });
+
+export default connect(mapStateToProps)(FilePreview);

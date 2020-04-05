@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+
 import PngIcon from "@/icons/files/png.svg";
 import JpgIcon from "@/icons/files/jpg.svg";
 import DocIcon from "@/icons/files/doc.svg";
@@ -19,6 +20,8 @@ import FileIcon from "@/icons/files/file.svg";
 
 import { connect } from "react-redux";
 import { selectFile } from "@/store/actions/storage";
+
+import { DotDotDot } from "@/common/ui";
 import dayjs from "dayjs";
 
 const FileItem = styled.div`
@@ -54,10 +57,14 @@ const LeftBox = styled.div`
 
 const CenterBox = styled.div`
   flex: 5;
-  height: 100%;
+  max-width: 180px;
+  height: 80%;
   display: flex;
   justify-content: center;
   flex-direction: column;
+
+  div {
+  }
 `;
 
 const RightBox = styled.div`
@@ -72,7 +79,7 @@ function File(props) {
   const file = props.file;
   const currentFile = props.currentFile;
 
-  const iconMapper = type => {
+  const iconMapper = (type) => {
     switch (type) {
       case "folder":
         return <FolderIcon style={{ width: 22 }} />;
@@ -124,7 +131,7 @@ function File(props) {
     }
   };
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     console.log("file handleClick +> ", e);
     props.selectFile(file.id);
   };
@@ -135,12 +142,18 @@ function File(props) {
       onClick={handleClick}
       style={{
         borderColor:
-          currentFile && currentFile.id === file.id ? "#4d7cff" : "#f0f4ff"
+          currentFile && currentFile.id === file.id ? "#4d7cff" : "#f0f4ff",
       }}
     >
       <LeftBox>{iconMapper(file.extension)}</LeftBox>
+
       <CenterBox>
-        <div style={{ fontSize: 14, color: "#444" }}>{file.name}</div>
+        <div className="file-name">
+          <DotDotDot style={{ fontSize: 14, color: "#444" }}>
+            {file.name}
+          </DotDotDot>
+        </div>
+
         <div>
           {file.type === "folder" ? (
             <span>
@@ -164,13 +177,13 @@ function File(props) {
 
 File.propTypes = {
   file: PropTypes.shape({ id: PropTypes.string.isRequired }).isRequired,
-  file: PropTypes.shape({ type: PropTypes.string.isRequired }).isRequired
+  file: PropTypes.shape({ type: PropTypes.string.isRequired }).isRequired,
 };
 
-const mapStateToProps = state => ({ currentFile: state.drive.currentFile });
+const mapStateToProps = (state) => ({ currentFile: state.drive.currentFile });
 
 const actionCreators = {
-  selectFile
+  selectFile,
 };
 
 export default connect(mapStateToProps, actionCreators)(File);

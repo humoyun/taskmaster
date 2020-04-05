@@ -5,15 +5,15 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
-  max-height: ${props => props.maxHeight}px;
+  max-height: ${(props) => props.maxHeight}px;
   position: relative;
 
   img {
     width: 100%;
     height: 100%;
-    filter: blur(${props => props.blur}px);
+    filter: blur(${(props) => props.blur}px);
     object-fit: contain;
-    border-radius: ${props => props.radius}px;
+    border-radius: ${(props) => props.radius}px;
   }
 
   .spin-box {
@@ -53,7 +53,11 @@ const Imager = ({ src, thumbnail, alt, radius, maxHeight }) => {
       <img src={url} alt={alt} />
       {loading && (
         <div className="spin-box">
-          <Spin indicator={<Icon type="loading" theme="outlined" />} />
+          <Spin
+            indicator={
+              <Icon type="loading" theme="outlined" style={{ fontSize: 24 }} />
+            }
+          />
         </div>
       )}
     </Wrapper>
@@ -64,7 +68,7 @@ Imager.propTypes = {
   src: PropTypes.string.isRequired,
   thumbnail: PropTypes.string.isRequired,
   alt: PropTypes.string,
-  radius: PropTypes.string || 0
+  radius: PropTypes.string || 0,
 };
 
 export default Imager;

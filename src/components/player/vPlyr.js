@@ -11,6 +11,14 @@ class vPlyr {
     if (this.video.paused) this.video.play();
     else this.video.pause();
   }
+
+  on(event, callback) {
+    this.video.addEventListener(event, callback);
+  }
+
+  off(event, callback) {
+    this.video.removeEventListener(event, callback);
+  }
 }
 
 export default vPlyr;
