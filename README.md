@@ -10,7 +10,7 @@
 
 I also developed backend part of Task Master, here is [backend-api-repo](https://github.com/humoyun/taskmaster-api)
 
-### Features:
+### Want to have feature list:
 
 - Authentication with JWT
 - Authorization with Access Control rules
